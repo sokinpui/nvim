@@ -158,32 +158,15 @@ let s:visual_grey = s:colors.visual_grey
 let s:menu_grey = s:colors.menu_grey
 let s:special_grey = s:colors.special_grey
 let s:vertsplit = s:colors.vertsplit
+let s:deepblack = s:colors.deepblack
+let s:purewhite = s:colors.purewhite
+let s:deepblue = s:colors.deepblue
+let s:lightgray = s:colors.lightgray
+let s:yellowgreen = s:colors.yellowgreen
+let s:lightred = s:colors.lightred
+let s:lightred = s:colors.lightred
+let s:lightyellow = s:colors.lightyellow
 
-if has('nvim')
-  let g:terminal_color_0 = s:black.gui
-  let g:terminal_color_1 = s:red.gui
-  let g:terminal_color_2 = s:green.gui
-  let g:terminal_color_3 = s:yellow.gui
-  let g:terminal_color_4 = s:blue.gui
-  let g:terminal_color_5 = s:purple.gui
-  let g:terminal_color_6 = s:cyan.gui
-  let g:terminal_color_7 = s:comment_grey.gui
-  let g:terminal_color_8 = s:visual_grey.gui
-  let g:terminal_color_9 = s:red.gui
-  let g:terminal_color_10 = s:green.gui
-  let g:terminal_color_11 = s:yellow.gui
-  let g:terminal_color_12 = s:blue.gui
-  let g:terminal_color_13 = s:purple.gui
-  let g:terminal_color_14 = s:cyan.gui
-  let g:terminal_color_15 = s:white.gui
-else
-  let g:terminal_ansi_colors = [
-    \ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
-    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:comment_grey.gui,
-    \ s:visual_grey.gui, s:red.gui, s:green.gui, s:yellow.gui,
-    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui
-  \]
-endif
 " }}}
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
@@ -252,7 +235,7 @@ call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically 
 call s:h("Folded", { "fg": s:white }) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
 call s:h("SignColumn", {}) " column where signs are displayed
-call s:h("IncSearch", { "fg": s:black, "bg": s:yellow, "cterm": "bold"}) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
+call s:h("IncSearch", { "fg": s:black, "bg": s:blue, "cterm": "bold"}) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {"bg": s:black}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:red, "gui": "underline", "cterm": "bold" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
@@ -266,7 +249,7 @@ call s:h("PmenuSbar", { "bg": s:cursor_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h("Question", { "fg": s:purple }) " hit-enter prompt and yes/no questions
 call s:h("QuickFixLine", { "fg": s:black, "bg": s:yellow }) " Current quickfix item in the quickfix window.
-call s:h("Search", { "fg": s:purple, "bg": s:black, "cterm": "bold,underline", "gui": "bold,italic,underline"}) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+call s:h("Search", { "fg": s:lightyellow, "bg": s:black, "cterm": "bold,underline,italic", "gui": "bold,italic,underline"}) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 call s:h("SpecialKey", { "fg": s:comment_grey }) " Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
 call s:h("SpellBad", { "fg": s:red, "gui": "underline", "cterm": "underline" }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
 call s:h("SpellCap", { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
@@ -657,48 +640,3 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
 " }}}
 
-
-if has("nvim")
-  " Neovim terminal colors {{{
-  let g:terminal_color_0 =  s:black.gui
-  let g:terminal_color_1 =  s:red.gui
-  let g:terminal_color_2 =  s:green.gui
-  let g:terminal_color_3 =  s:yellow.gui
-  let g:terminal_color_4 =  s:blue.gui
-  let g:terminal_color_5 =  s:purple.gui
-  let g:terminal_color_6 =  s:cyan.gui
-  let g:terminal_color_7 =  s:white.gui
-  let g:terminal_color_8 =  s:visual_grey.gui
-  let g:terminal_color_9 =  s:dark_red.gui
-  let g:terminal_color_10 = s:green.gui " No dark version
-  let g:terminal_color_11 = s:dark_yellow.gui
-  let g:terminal_color_12 = s:blue.gui " No dark version
-  let g:terminal_color_13 = s:purple.gui " No dark version
-  let g:terminal_color_14 = s:cyan.gui " No dark version
-  let g:terminal_color_15 = s:comment_grey.gui
-  let g:terminal_color_background = s:background.gui
-  let g:terminal_color_foreground = s:foreground.gui
-  " }}}
-
-  " Neovim Diagnostics {{{
-  call s:h("DiagnosticError", { "fg": s:red })
-  call s:h("DiagnosticWarn", { "fg": s:yellow })
-  call s:h("DiagnosticInfo", { "fg": s:blue })
-  call s:h("DiagnosticHint", { "fg": s:cyan })
-  call s:h("DiagnosticUnderlineError", { "fg": s:red, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineWarn", { "fg": s:yellow, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineInfo", { "fg": s:blue, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineHint", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
-  " }}}
-
-  " Neovim LSP (for versions < 0.5.1) {{{
-  hi link LspDiagnosticsDefaultError DiagnosticError
-  hi link LspDiagnosticsDefaultWarning DiagnosticWarn
-  hi link LspDiagnosticsDefaultInformation DiagnosticInfo
-  hi link LspDiagnosticsDefaultHint DiagnosticHint
-  hi link LspDiagnosticsUnderlineError DiagnosticUnderlineError
-  hi link LspDiagnosticsUnderlineWarning DiagnosticUnderlineWarn
-  hi link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInfo
-  hi link LspDiagnosticsUnderlineHint DiagnosticUnderlineHint
-  " }}}
-endif

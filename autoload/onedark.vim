@@ -22,6 +22,13 @@ let s:colors = {
       \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "7" }),
       \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "7" }),
       \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#3E4452", "cterm": "59", "cterm16": "7" }),
+      \ "deepblack": get(s:overrides, "deepblack", { "gui": "#000000", "cterm": "232", "cterm16": "0" }),
+      \ "purewhite": get(s:overrides, "purewhite", { "gui": "#ffffff", "cterm": "231", "cterm16": "15" }),
+      \ "deepblue": get(s:overrides, "deepblue", { "gui": "#0000ff", "cterm": "21", "cterm16": "4" }),
+      \ "lightgray": get(s:overrides, "lightgray", { "gui": "#eeeeee", "cterm": "255", "cterm16": "4" }),
+      \ "yellowgreen": get(s:overrides, "yellowgreen", { "gui": "#afff00", "cterm": "154", "cterm16": "5" }),
+      \ "lightred": get(s:overrides, "lightred", { "gui": "#ff0000", "cterm": "9", "cterm16": "9" }),
+      \ "lightyellow": get(s:overrides, "lightred", { "gui": "#ffff5f", "cterm": "227", "cterm16": "3" }),
       \}
 
 function! onedark#GetColors()

@@ -32,7 +32,10 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 syntax on
 set termguicolors
-colorscheme white
+let g:onedark_config = {
+    \ 'style': 'light',
+\}
+colorscheme onedark
 
 set splitbelow
 set history=1000

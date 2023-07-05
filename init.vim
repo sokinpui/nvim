@@ -33,7 +33,7 @@ endif
 syntax on
 set termguicolors
 let g:onedark_config = {
-    \ 'style': 'light',
+    \ 'style': 'dark',
 \}
 colorscheme onedark
 

@@ -126,8 +126,8 @@ hl.syntax = {
     Title = colors.Cyan,
     Tag = colors.Green,
     Delimiter = colors.LightGrey,
-    Comment = {fg = c.grey, fmt = cfg.code_style.comments},
-    SpecialComment = {fg = c.grey, fmt = cfg.code_style.comments},
+    Comment = {fg = c.comment, fmt = cfg.code_style.comments},
+    SpecialComment = {fg = c.comment, fmt = cfg.code_style.comments},
     Todo = {fg = c.red, fmt = cfg.code_style.comments}
 }
 
@@ -137,7 +137,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@attribute"] = colors.Cyan,
         ["@boolean"] = colors.Orange,
         ["@character"] = colors.Orange,
-        ["@comment"] = {fg = c.grey, fmt = cfg.code_style.comments},
+        ["@comment"] = {fg = c.comment, fmt = cfg.code_style.comments},
         ["@conditional"] = {fg = c.purple, fmt = cfg.code_style.keywords},
         ["@constant"] = colors.Orange,
         ["@constant.builtin"] = colors.Orange,
@@ -230,7 +230,7 @@ else
         TSAttribute = colors.Cyan,
         TSBoolean = colors.Orange,
         TSCharacter = colors.Orange,
-        TSComment = {fg = c.grey, fmt = cfg.code_style.comments},
+        TSComment = {fg = c.comment, fmt = cfg.code_style.comments},
         TSConditional = {fg = c.purple, fmt = cfg.code_style.keywords},
         TSConstant = colors.Orange,
         TSConstBuiltin = colors.Orange,
@@ -322,7 +322,7 @@ hl.plugins.lsp = {
     LspReferenceWrite = { bg = c.bg2 },
     LspReferenceRead = { bg = c.bg2 },
 
-    LspCodeLens = { fg = c.grey, fmt = cfg.code_style.comments },
+    LspCodeLens = { fg = c.comment, fmt = cfg.code_style.comments },
     LspCodeLensSeparator = { fg = c.grey },
 }
 
@@ -559,7 +559,7 @@ hl.plugins.mini = {
     MiniStarterCurrent = { fmt = "nocombine" },
     MiniStarterFooter = { fg = c.dark_red, fmt = "italic" },
     MiniStarterHeader = colors.Yellow,
-    MiniStarterInactive = { fg = c.grey, fmt = cfg.code_style.comments },
+    MiniStarterInactive = { fg = c.comment, fmt = cfg.code_style.comments },
     MiniStarterItem = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
     MiniStarterItemBullet = { fg = c.grey },
     MiniStarterItemPrefix = { fg = c.yellow },

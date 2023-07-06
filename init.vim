@@ -44,6 +44,7 @@ set showcmd
 set ruler
 set relativenumber
 set wildmenu
+set wildoptions = ""
 
 "  statusline setting
 set statusline=%<%F

@@ -81,8 +81,7 @@ noremap <c-w>* :set hlsearch<cr><c-w>v<c-w>l*
 noremap <c-w># :set hlsearch<cr><c-w>v<c-w>l#
 
 " next full digit
-nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
-set smartindent   
+"nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
 
 " Cursorline
 set scrolloff=5
@@ -102,6 +101,7 @@ set tabstop=8
 set expandtab     
 set shiftwidth=4  
 set autoindent    
+set smartindent   
 set smartindent   
 
 "       Mapping

@@ -1,0 +1,50 @@
+# create function in bash
+snippet fu "" bw
+$1() {
+    $2
+}
+endsnippet
+
+# read input with prompt
+snippet i "" w
+echo -n "$1"
+read
+$2
+endsnippet
+
+# REPLY
+snippet re "" w
+\$REPLY
+endsnippet
+
+# if-else
+snippet if "" w
+if [ $1 ]; then
+    $2
+fi
+endsnippet
+
+# case
+snippet case "" b
+case
+    $1)
+        $2
+        ;;
+    *) $3 ;;
+esac
+endsnippet
+    
+# get options from command line
+snippet opt "" b
+while getopts "$1:" opt; do
+    case $opt in
+        $1)
+            $2
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            return ;;
+    esac
+done
+endsnippet
+

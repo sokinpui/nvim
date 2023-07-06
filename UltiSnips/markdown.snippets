@@ -1,0 +1,130 @@
+# bold and italic text
+snippet bi "" w
+***$1***`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+# code block long
+snippet c "" bw
+\`\`\`${1:C}
+$2
+\`\`\`
+Output:
+\`\`\`
+
+\`\`\`
+endsnippet
+
+# code block
+snippet cb "" bwA
+\`\`\`$2
+$1
+\`\`\`
+
+endsnippet
+
+# line break
+snippet nl "" w
+<br>
+endsnippet
+
+# Block comment
+snippet com "" w
+<!--
+${1:${VISUAL}}
+-->
+endsnippet
+
+# todo
+snippet to "" w
+<!--
+TODO: $0
+-->
+endsnippet
+
+# link
+snippet li "" w
+[${1:${VISUAL}}]($2)
+endsnippet
+
+# image
+snippet img "" w
+![$1]($2)$0
+endsnippet
+
+# deleted words
+snippet d "" w
+~~${1:${VISUAL}}~~
+endsnippet
+
+# italics
+snippet _ "" w
+_${1:${VISUAL}}_
+endsnippet
+
+# bold
+snippet * "" w
+**${1:${VISU"" wL}}**
+endsnippet
+
+# bold italics
+snippet ** "" w
+***${1:${VISU"" AL}}***
+endsnippet
+
+# Quote
+snippet > "" !b
+ > ${VISUAL:Text}
+
+$0
+endsnippet
+
+# mail templates
+snippet mail "" bw
+Dear $1,
+
+$2
+
+Best Regards,
+So Kin Pui
+$0
+endsnippet
+
+#   Math expression
+# inline math block
+snippet mk "" wA
+\$${1}\$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+  
+# display math block
+snippet dm "" bwA
+\$\$
+$1
+\$\$
+$0
+endsnippet
+
+# \times
+snippet xx "" wA
+\times 
+endsnippet
+
+# fraction
+snippet / "" w
+\frac{$1}{$2} $0
+endsnippet
+
+# Obsidian
+## internal link
+snippet ll "" w
+[[$0]]
+endsnippet

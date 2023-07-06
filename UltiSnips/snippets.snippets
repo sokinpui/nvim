@@ -1,0 +1,29 @@
+# Make it easier to create new snippets
+# A snippet for writing Ultisnips snippets
+snippet snip "" bA
+# ${1:Descrption}
+`!p snip.rv = "snippet"` ${2:trigger} "" ${3:options}
+$0
+`!p snip.rv = "endsnippet"`
+endsnippet
+
+# python code block
+snippet py "" w
+\`!p
+$1
+\`
+$0
+endsnippet
+
+# global defined python code block
+snippet gp "" bw
+global !p
+$0
+endglobal
+endsnippet
+
+# visual place holder
+snippet v "" i
+\$VISUAL$0
+endsnippet
+

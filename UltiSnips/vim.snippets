@@ -1,0 +1,21 @@
+# function
+snippet def "" w
+def $1()
+    $2
+enddef
+endsnippet
+
+# if-else
+snippet if "" w
+if $1
+    $2
+endif
+endsnippet
+
+# autocmd group
+snippet au "" w
+augroup $1
+    au!
+    augroup $2
+augropu END
+endsnippet

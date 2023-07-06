@@ -153,6 +153,9 @@ nnoremap <c-u> <c-u>zz
 vnoremap < <gv
 vnoremap > >gv
 
+" Jumps
+nnoremap <c-i> <c-i>
+
 "    Split windows
 " Naviagation
 nnoremap <leader>h <C-w>h
@@ -234,3 +237,5 @@ nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
 
 source ~/.config/nvim/plugins.vim
+
+lua require('plugin-config/nvim-treesitter')

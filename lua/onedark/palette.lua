@@ -27,6 +27,10 @@ return {
 		diff_change = "#1c3448",
 		diff_text = "#2c5372",
 		comment = "#808080",
+		puredark = "#080808",
+                yellowgreen = "#ffff5f",
+                match_red = "#ff0000",
+                visual_green = "#3E6452",
 	},
 	darker = {
 		black = "#0e1013",

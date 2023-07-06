@@ -151,6 +151,12 @@ nnoremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
+noremap J }
+noremap K {
+
+noremap <C-j> J
+noremap <C-k> K
+
 " Horizontial
 
 " Texts

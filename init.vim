@@ -46,7 +46,7 @@ set relativenumber
 set wildmenu
 
 "  statusline setting
-set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%%
+set statusline=%<%F
 set laststatus=2
 
 "   Cursor style

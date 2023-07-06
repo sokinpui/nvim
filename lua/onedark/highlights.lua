@@ -77,7 +77,7 @@ hl.common = {
     SpellCap = {fg = c.yellow, fmt = "underline", sp = c.yellow},
     SpellLocal = {fg = c.blue, fmt = "underline", sp = c.blue},
     SpellRare = {fg = c.purple, fmt = "underline", sp = c.purple},
-    StatusLine = {fg = c.fg, bg = c.bg2},
+    StatusLine = {fg = c.fg, bg = c.bg1},
     StatusLineTerm = {fg = c.fg, bg = c.bg2},
     StatusLineNC = {fg = c.grey, bg = c.bg1},
     StatusLineTermNC = {fg = c.grey, bg = c.bg1},

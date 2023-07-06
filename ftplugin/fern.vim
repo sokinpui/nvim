@@ -8,6 +8,8 @@ nmap <buffer><expr>
 
 nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
 nmap <buffer> <TAB> <Plug>(fern-my-open-expand-collapse)
+nmap <buffer> h <Plug>(fern-action-collapse)
+nmap <buffer> l <Plug>(fern-action-expand)
 nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
 
 "nmap <buffer> m <Plug>(fern-action-mark:toggle)j

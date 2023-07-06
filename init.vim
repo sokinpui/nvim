@@ -13,12 +13,16 @@ set directory=/tmp//
 set undofile
 set nocompatible
 set nopaste
+set autoread
+
 set backspace=indent,eol,start 
 set ttimeoutlen=0
 set encoding=utf-8
+
 filetype plugin on
 filetype plugin indent on
 packadd! matchit
+
 set mouse=a
 "set concealcursor=""
 set conceallevel=2
@@ -43,11 +47,12 @@ set number
 set showcmd
 set ruler
 set relativenumber
+
 set wildmenu
 set wildoptions = ""
 
 "  statusline setting
-set statusline=%<%F
+set statusline=%<%F " more setting in pack directory
 set laststatus=2
 
 "   Cursor style
@@ -69,8 +74,6 @@ nnoremap n n:set hlsearch<cr>
 nnoremap N N:set hlsearch<cr>
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
-
-highlight Comment cterm=italic,bold gui=italic,bold
 
 vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>

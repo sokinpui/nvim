@@ -127,8 +127,8 @@ nnoremap <leader>f/ :History/<cr>
 nnoremap <leader>f: :History:<cr>
 nnoremap <leader>fh :Helptags<cr>
 
-" next full digit
-nnoremap <Leader>fd :set hlsearch<cr>/\d\+<cr>zz
+" next full number
+nnoremap <Leader>fn :set hlsearch<cr>/\d\+<cr>zz
 
 " clever-f
 let g:clever_f_smart_case              = 1

@@ -74,6 +74,8 @@ nnoremap n n:set hlsearch<cr>
 nnoremap N N:set hlsearch<cr>
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
+vnoremap * *:set hlsearch<cr>
+vnoremap # #:set hlsearch<cr>
 
 "vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 "xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>

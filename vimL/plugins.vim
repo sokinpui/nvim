@@ -19,6 +19,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    "Plug 'epwalsh/obsidian.nvim'
 
 endif
 

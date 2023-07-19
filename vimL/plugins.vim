@@ -117,7 +117,7 @@ let g:vim_markdown_math                    = 1
 
 " fzf.vim
 let g:fzf_preview_window = ['right,50%', 'ctrl-/']
-let g:fzf_layout         = {'window': { 'width': 0.9, 'height': 0.9 }}
+let g:fzf_layout         = {'window': { 'width': 0.9, 'height': 1 }}
 let g:fzf_buffers_jump   = 1
 
 nnoremap <leader>ff :Files<cr>
@@ -127,6 +127,7 @@ nnoremap <leader>fp :Rg<cr>
 nnoremap <leader>f/ :History/<cr>
 nnoremap <leader>f: :History:<cr>
 nnoremap <leader>fh :Helptags<cr>
+nnoremap <leader>fa :Files $HOME<cr>
 
 " next full number
 nnoremap <Leader>fn :set hlsearch<cr>/\d\+<cr>zz

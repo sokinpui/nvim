@@ -12,8 +12,8 @@ filetype plugin indent on
 packadd! matchit
 
 set path=$PWD/**
-set undodir=$HOME/.config/nvim/undo
-set directory=/tmp//
+set undodir=~/.local/state/nvim/undo//
+set directory=~/.local/state/nvim/swap//
 
 set undofile
 set nocompatible

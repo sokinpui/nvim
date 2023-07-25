@@ -1,12 +1,15 @@
+" delete whole word via Ctrl+backspace
+inoremap <C-H> <C-w>
+
 " Highlight search
 nnoremap / :set hlsearch<cr>/
 nnoremap ? :set hlsearch<cr>?
-nnoremap n n:set hlsearch<cr>
-nnoremap N N:set hlsearch<cr>
+nnoremap n :set hlsearch<cr>n
+nnoremap N :set hlsearch<cr>N
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
 vnoremap * *:set hlsearch<cr>
-"vnoremap # #:set hlsearch<cr>
+vnoremap # #:set hlsearch<cr>
 
 "vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 "xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
@@ -97,10 +100,10 @@ nnoremap <leader>s :VimuxPromptCommand<CR>
 
 "    Completion
 " Parethesises
-inoremap {<cr> {<cr>}<esc>%o
+"inoremap {<cr> {<cr>}<esc>%o
 
 " update current file
-noremap <leader>e :edit! %<cr>
+nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
 nnoremap <Bs> :bn<cr> 
@@ -117,6 +120,7 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 "cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
+cnoreabbrev toc Toc
 
 " VimPlug
 nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>

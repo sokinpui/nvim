@@ -1,0 +1,12 @@
+plug 'dfasdfasd'
+
+
+
+function("asdfasdfasdfasd")
+
+this is some "string"
+
+print("asdfasdfasdfasd")
+{
+    asdfasdfasdfa
+}

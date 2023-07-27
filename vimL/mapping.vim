@@ -32,8 +32,10 @@ if has("linux")
     vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    inoremap <C-v> <esc>"+pa
+    inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
+    cnoremap <C-v> <C-r>+
     nnoremap gy :1,$y +<cr>
+
 else
     nnoremap <leader>Y "*yy
     nnoremap <leader>X "*dd
@@ -51,7 +53,7 @@ else
     vnoremap g≈ g<c-x>
 endif
 xnoremap <leader>p "_dP
-nnoremap D dd
+"nnoremap D dd
 nnoremap <leader>v g^vg$
 
 " increment and decrement of characters
@@ -64,8 +66,8 @@ nnoremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
-noremap J }
-noremap K {
+noremap J 5j
+noremap K 5k
 
 noremap <C-j> J
 noremap <C-k> K
@@ -82,21 +84,21 @@ nnoremap <c-i> <c-i>
 "    Split windows
 " Naviagation
 nnoremap <leader>h <C-w>h
+nnoremap <C-f> <C-w>w
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>w <C-w>w
+nnoremap <C-\> <C-w>w
 nnoremap <leader>q <C-w>q
+nnoremap <C-q> <C-w>q
 
 " resize windows
 "nnoremap <leader>= <c-w>=
-nnoremap <c-right> <c-w>>
-nnoremap <c-left> <c-w><
-nnoremap <c-up> <c-w>+
-nnoremap <c-down> <c-w>-
-
-" run command in split window
-nnoremap <leader>s :VimuxPromptCommand<CR>
+"nnoremap <c-right> <c-w>>
+"nnoremap <c-left> <c-w><
+"nnoremap <c-up> <c-w>+
+"nnoremap <c-down> <c-w>-
 
 "    Completion
 " Parethesises
@@ -119,11 +121,22 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 "command Test echo "12312"
 "cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
+cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
+cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 cnoreabbrev toc Toc
+
+command WQA wqa
+cnoreabbrev wa WQA
 
 " VimPlug
 nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
+
+nnoremap dib :lua require("SmartPairObject").delete_inner()<cr>
+nnoremap dab :lua require("SmartPairObject").delete_outer()<cr>
+
+nnoremap cib :lua require("SmartPairObject").change_inner()<cr>
+nnoremap cab :lua require("SmartPairObject").change_outer()<cr>
 

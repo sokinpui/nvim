@@ -19,7 +19,7 @@ colorscheme onedark
 set conceallevel=2
 
 "  statusline setting
-set statusline=%<%F " more setting in pack directory
+set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
 set laststatus=2
 
 " cursor shape
@@ -55,3 +55,5 @@ augroup Init_buffer
     au BufEnter *.txt if &buftype == 'help' | if winnr('$') <= 2 | wincmd H | endif | endif  
 augroup END
 
+" lualine, beauty statusline
+"lua require('config.nvim-lualine')

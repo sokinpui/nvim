@@ -13,6 +13,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rafcamlet/coc-nvim-lua'
 
 "Plug 'preservim/vimux'
 
@@ -31,6 +32,8 @@ Plug 'LunarWatcher/auto-pairs'
 
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/playground'
+
     "Plug 'epwalsh/obsidian.nvim'
 
 endif
@@ -77,7 +80,7 @@ nmap <leader>` cciw`E
 nmap <leader>$ cciw$E
 nmap <leader>* cciw*.E
 nmap <leader>~ cciw~.E
-nmap <leader><space> cciw<space>
+"nmap <leader><space> cciw<space>
 
 " visual
 vmap <leader>( cc(
@@ -154,13 +157,24 @@ let g:fzf_layout         = {'window': { 'width': 0.9, 'height': 1 }}
 let g:fzf_buffers_jump   = 1
 
 nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fa :Files $HOME<cr>
+nnoremap <leader>fr :ProjectFiles<cr>
+
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fs :Lines<cr>
+
 nnoremap <leader>fp :Rg<cr>
+
+nnoremap <leader>f. :History<cr>
 nnoremap <leader>f/ :History/<cr>
 nnoremap <leader>f: :History:<cr>
+
 nnoremap <leader>fh :Helptags<cr>
-nnoremap <leader>fa :Files $HOME<cr>
+nnoremap <leader>fc :Commands<cr>
+
+"insert relative path of file in project
+"inoremap <expr> <C-l> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-cdup 2> /dev/null)')
+"inoremap <expr> <C-f> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-toplevel 2> /dev/null)')
 
 " next full number
 nnoremap <Leader>fn :set hlsearch<cr>/\d\+<cr>zz
@@ -205,4 +219,16 @@ let g:VM_custom_remaps = {'s': 'c'}
 " vim-autopair
 let g:AutoPairsCompatibleMaps = 1
 let g:VM_show_warnings = 0
+let g:AutoPairs = {'(':')', '[':']', '{':'}', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
+let g:AutoPairsShortcutToggle = ""
+nnoremap <leader>tp :AutoPairsToggle<cr>
+let g:AutoPairsMapSpace = 1
+
+" vim-matchup
+"highlight! OffscreenPopup guibg=blue
+"let g:matchup_matchparen_offscreen
+"            \ = {'method': 'popup', 'highlight': 'OffscreenPopup', 'syntax_hl': 1}
+let g:matchup_matchparen_offscreen = {}
+omap if i%
+omap af a%
 

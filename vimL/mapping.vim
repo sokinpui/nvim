@@ -127,16 +127,5 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 cnoreabbrev toc Toc
 
 command WQA wqa
-cnoreabbrev wa WQA
-
-" VimPlug
-nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
-nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
-
-nnoremap dib :lua require("SmartPairObject").delete_inner()<cr>
-nnoremap dab :lua require("SmartPairObject").delete_outer()<cr>
-
-nnoremap cib :lua require("SmartPairObject").change_inner()<cr>
-nnoremap cab :lua require("SmartPairObject").change_outer()<cr>
+cnoreabbrev wq WQA
 

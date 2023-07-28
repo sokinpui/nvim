@@ -4,6 +4,13 @@ autocmd VimEnter *
   \|   PlugInstall --sync
   \| endif
 
+" VimPlug
+nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
+nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
+nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
+
+let g:mapleader = " "
+
 call plug#begin()
 Plug 'machakann/vim-sandwich'
 Plug 'andymass/vim-matchup'
@@ -12,8 +19,8 @@ Plug 'andymass/vim-matchup'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rafcamlet/coc-nvim-lua'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'rafcamlet/coc-nvim-lua'
 
 "Plug 'preservim/vimux'
 
@@ -33,6 +40,21 @@ Plug 'LunarWatcher/auto-pairs'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
+
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'neovim/nvim-lspconfig'
+
+    Plug 'SirVer/ultisnips'
+    Plug 'hrsh7th/nvim-cmp'
+
+    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+    Plug 'FelipeLema/cmp-async-path'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-calc'
+    Plug 'onsails/lspkind-nvim'
 
     "Plug 'epwalsh/obsidian.nvim'
 
@@ -113,37 +135,37 @@ if has('mac')
 elseif has('linux')
     let g:mkdp_browser = 'chromium-browser'
 endif
-     
+
 "   coc.nvim
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : 
-      \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
-
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
-
-inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-g>u\<CR>\<c-r>=coc#pum#close()\<CR>" 
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <space> coc#pum#visible() ? "<C-r>=coc#pum#close()\<Cr>\<Space>"
-                              \: "<space>"
-
-" jump to next/previous error
-nnoremap <silent> <LEADER>, <Plug>(coc-diagnostic-prev)
-nnoremap <silent> <LEADER>. <Plug>(coc-diagnostic-next)
-
-"   coc.snippets
-inoremap <C-j> <Plug>(coc-snippets-expand-jump)
-vnoremap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<C-j>'
-let g:coc_snippet_prev = '<C-k>'
-
-" coc rename variale
-nnoremap <leader>rn <Plug>(coc-rename)
-vnoremap <leader>rn <Plug>(coc-rename)
+"inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : 
+"            \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
+"
+"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
+"
+"inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-g>u\<CR>\<c-r>=coc#pum#close()\<CR>" 
+"            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+"inoremap <silent><expr> <space> coc#pum#visible() ? "<C-r>=coc#pum#close()\<Cr>\<Space>"
+"            \: "<space>"
+"
+"" jump to next/previous error
+"nnoremap <silent> <LEADER>, <Plug>(coc-diagnostic-prev)
+"nnoremap <silent> <LEADER>. <Plug>(coc-diagnostic-next)
+"
+""   coc.snippets
+"inoremap <C-j> <Plug>(coc-snippets-expand-jump)
+"vnoremap <C-j> <Plug>(coc-snippets-select)
+"let g:coc_snippet_next = '<C-j>'
+"let g:coc_snippet_prev = '<C-k>'
+"
+"" coc rename variale
+"nnoremap <leader>rn <Plug>(coc-rename)
+"vnoremap <leader>rn <Plug>(coc-rename)
 
 " run command in split window
 "nnoremap <leader>s :VimuxPromptCommand<CR>
 "nnoremap <leader><leader>s :VimuxCloseRunner<CR>
- 
+
 " vim-markdwon
 let g:vim_markdown_folding_disabled        = 1
 let g:vim_markdown_no_default_key_mappings = 0
@@ -212,8 +234,8 @@ let g:VM_highlight_matches = 'hi! Search ctermfg=228 cterm=underline'
 
 let g:VM_leader = '<space>'
 let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<leader>n'  
-let g:VM_maps['Find Subword Under']         = '<leader>n'  
+let g:VM_maps['Find Under']         = '<C-n>'  
+let g:VM_maps['Find Subword Under']         = '<C-n>'  
 let g:VM_custom_remaps = {'s': 'c'}
 
 " vim-autopair
@@ -231,4 +253,5 @@ let g:AutoPairsMapSpace = 1
 let g:matchup_matchparen_offscreen = {}
 omap if i%
 omap af a%
+
 

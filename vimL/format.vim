@@ -11,7 +11,7 @@ set smartindent
 augroup ftTextwidthWrap
     au!
     au filetype zsh,sh setlocal textwidth=0 wrap formatoptions=tcq linebreak shiftwidth=2
-    au filetype vim setlocal textwidth=0 wrap formatoptions=tcq linebreak iskeyword+=\-
+    au filetype vim,lua setlocal textwidth=0 wrap formatoptions=tcq linebreak iskeyword+=\-
     au filetype yaml,conf setlocal textwidth=0 wrap formatoptions=tcq linebreak
     au filetype c,python setlocal textwidth=0 wrap formatoptions=tcq linebreak
     au filetype text,markdown setlocal textwidth=0 wrap formatoptions=tcq2n linebreak iskeyword+=\-,\.

@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.config = {
     {
         'lambdalisue/fern.vim',
         config = function()
@@ -22,4 +24,5 @@ return {
     'sokinpui/my-fern-preview.vim', 
 }
 
+return M
 -- TODO move the configuration from pack to here

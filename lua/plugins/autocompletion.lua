@@ -1,26 +1,12 @@
-return {
+local M = {}
+
+M.config = {
     {
         'SirVer/ultisnips',
-        config = function()
-            vim.g.UltiSnipsExpandTrigger = "<C-j>"
-            vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
-            vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
-        end
     },
-    {
-        "quangnguyen30192/cmp-nvim-ultisnips",
-        config = function()
-            -- optional call to setup (see customization section)
-            require("cmp_nvim_ultisnips").setup{}
-        end,
-    },
-    'FelipeLema/cmp-async-path',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-calc',
-    'onsails/lspkind-nvim',
     {
         "hrsh7th/nvim-cmp",
+        after = "SirVer/ultisnips",
         config = function()
             local t = function(str)
                 return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -128,5 +114,24 @@ return {
                 })
             })
         end
-    }
+    },
+    {
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        config = function()
+            -- optional call to setup (see customization section)
+            require("cmp_nvim_ultisnips").setup{}
+        end,
+    },
+    'FelipeLema/cmp-async-path',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-calc',
+    'onsails/lspkind-nvim',
 }
+
+vim.cmd([[
+    let g:UltiSnipsExpandTrigger = "<C-j>"
+    let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+]])
+return M

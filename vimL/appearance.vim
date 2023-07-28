@@ -10,10 +10,10 @@ endif
 syntax on
 
 set termguicolors
-let g:onedark_config = {
-    \ 'style': 'dark',
-\}
-colorscheme onedark
+"let g:onedark_config = {
+"    \ 'style': 'dark',
+"\}
+"colorscheme onedark
 
 "set concealcursor=""
 set conceallevel=2

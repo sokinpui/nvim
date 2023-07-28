@@ -1,8 +1,13 @@
 " Install plugin if needed
 autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync
-  \| endif
+            \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+            \|   PlugInstall --sync
+            \| endif
+
+" VimPlug
+nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
+nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
+nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
 
 call plug#begin()
 Plug 'machakann/vim-sandwich'
@@ -84,11 +89,11 @@ nmap <leader>~ cciw~.E
 
 " visual
 vmap <leader>( cc(
-vmap <leader>) cc)
+    vmap <leader>) cc)
 vmap <leader>[ cc[
-vmap <leader>] cc]
+    vmap <leader>] cc]
 vmap <leader>{ cc{
-vmap <leader>} cc}
+        vmap <leader>} cc}
 vmap <leader>" cc"
 vmap <leader>' cc'
 vmap <leader>< cc<
@@ -113,18 +118,18 @@ if has('mac')
 elseif has('linux')
     let g:mkdp_browser = 'chromium-browser'
 endif
-     
+
 "   coc.nvim
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : 
-      \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
+            \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
 
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-g>u\<CR>\<c-r>=coc#pum#close()\<CR>" 
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <space> coc#pum#visible() ? "<C-r>=coc#pum#close()\<Cr>\<Space>"
-                              \: "<space>"
+            \: "<space>"
 
 " jump to next/previous error
 nnoremap <silent> <LEADER>, <Plug>(coc-diagnostic-prev)
@@ -143,7 +148,7 @@ vnoremap <leader>rn <Plug>(coc-rename)
 " run command in split window
 "nnoremap <leader>s :VimuxPromptCommand<CR>
 "nnoremap <leader><leader>s :VimuxCloseRunner<CR>
- 
+
 " vim-markdwon
 let g:vim_markdown_folding_disabled        = 1
 let g:vim_markdown_no_default_key_mappings = 0

@@ -8,5 +8,5 @@ if !has('nvim')
 endif
 
 if has('nvim')
-    lua require("plugin")
+    lua require("lazy-init")
 endif

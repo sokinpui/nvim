@@ -2,10 +2,10 @@ return {
     {
         'junegunn/fzf.vim',
         config = function()
-            vim.g.fzf_preview_window = ['right,50%', 'ctrl-/']
-            vim.g.fzf_layout         = {'window': { 'width': 0.9, 'height': 1 }}
-            vim.g.fzf_buffers_jump   = 1
             vim.cmd([[
+                let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
+                let g:fzf_layout         = {'window': { 'width': 0.9, 'height': 1 }}
+                let g:fzf_buffers_jump   = 1
                 nnoremap <leader>ff :Files<cr>
                 nnoremap <leader>fa :Files $HOME<cr>
                 nnoremap <leader>fr :ProjectFiles<cr>

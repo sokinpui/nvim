@@ -4,7 +4,7 @@ return {
         build = "cd app && npm install",
         ft = "markdown",
         lazy = true,
-        cmd = "MarkdownPreview"
+        cmd = "MarkdownPreview",
         config = function()
             vim.g.mkdp_auto_close = false
             vim.g.mkdp_open_to_the_world = false
@@ -16,7 +16,7 @@ return {
         end,
     },
     {
-        "'preservim/vim-markdown'",
+        "preservim/vim-markdown",
         ft = "markdown",
         lazy = true,
         config = function()

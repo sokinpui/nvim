@@ -7,11 +7,13 @@ return {
             vim.g.VM_highlight_matches = 'red'
             vim.g.VM_highlight_matches = 'hi! Search ctermfg=228 cterm=underline'
 
-            vim.g.VM_leader = '<space>'
-            vim.g.VM_maps = {}
-            vim.g.VM_maps['Find Under']         = '<leader>n'  
-            vim.g.VM_maps['Find Subword Under']         = '<leader>n'  
-            vim.g.VM_custom_remaps = {'s': 'c'}
+            vim.cmd([[
+            let g:VM_leader = '<space>'
+            let g:VM_maps = {}
+            let g:VM_maps['Find Under']         = '<leader>n'  
+            let g:VM_maps['Find Subword Under']         = '<leader>n'  
+            let g:VM_custom_remaps = { 's': 'c' }
+            ]])
         end
     },
 }

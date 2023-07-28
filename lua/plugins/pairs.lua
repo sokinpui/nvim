@@ -1,6 +1,6 @@
 return{
     {
-        "andymass/vim-matchup"
+        "andymass/vim-matchup",
         config = function()
             vim.g.matchup_matchparen_offscreen = {}
             vim.cmd([[
@@ -14,10 +14,11 @@ return{
         config = function()
             vim.g.AutoPairsCompatibleMaps = 1
             vim.g.VM_show_warnings = 0
-            vim.g.AutoPairs = {'(':')', '[':']', '{':'}', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
             vim.g.AutoPairsShortcutToggle = ""
             vim.g.AutoPairsMapSpace = 1
+
             vim.cmd([[
+            let g:AutoPairs = {'(':')', '[':']', '{':'}', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
             nnoremap <leader>tp :AutoPairsToggle<cr>
             ]])
         end,

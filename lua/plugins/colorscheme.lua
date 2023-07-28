@@ -10,7 +10,7 @@ return {
             }
             require('onedark').load()
             --enable status line
-            require("config.lualine")
+            --require("config.lualine")
         end,
     },
 }

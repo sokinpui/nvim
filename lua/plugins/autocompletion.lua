@@ -8,21 +8,19 @@ return {
         end
     },
     {
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        config = function()
+            -- optional call to setup (see customization section)
+            require("cmp_nvim_ultisnips").setup{}
+        end,
+    },
+    'FelipeLema/cmp-async-path',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-calc',
+    'onsails/lspkind-nvim',
+    {
         "hrsh7th/nvim-cmp",
-        dependencies = {
-            {
-                "quangnguyen30192/cmp-nvim-ultisnips",
-                config = function()
-                    -- optional call to setup (see customization section)
-                    require("cmp_nvim_ultisnips").setup{}
-                end,
-            },
-            'FelipeLema/cmp-async-path',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-cmdline',
-            'hrsh7th/cmp-calc',
-            'onsails/lspkind-nvim',
-        },
         config = function()
             local t = function(str)
                 return vim.api.nvim_replace_termcodes(str, true, true, true)

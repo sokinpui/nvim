@@ -8,5 +8,5 @@ if !has('nvim')
 endif
 
 if has('nvim')
-    lua require("plugins")
+    lua require("plugin")
 endif

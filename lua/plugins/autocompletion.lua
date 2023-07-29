@@ -18,7 +18,7 @@ M.config = {
             end
 
             local cmp = require 'cmp'
-            local lspkind = require('lspkind')
+            --local lspkind = require('lspkind')
 
             cmp.setup {
                 snippet = {
@@ -32,17 +32,17 @@ M.config = {
                     { name = 'buffer' },
                     --{ name = 'cmdline' },
                     { name = 'async_path' },
-                    { name = 'calc' },
+                    --{ name = 'calc' },
                 },
-                formatting = {
-                    format = lspkind.cmp_format({
-                        mode = 'symbol', -- show only symbol annotations
-                        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                        -- The function below will be called before any actual modifications from lspkind
-                        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                    })
-                },
+                --formatting = {
+                --    format = lspkind.cmp_format({
+                --        mode = 'symbol', -- show only symbol annotations
+                --        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                --        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+                --        -- The function below will be called before any actual modifications from lspkind
+                --        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+                --    })
+                --},
                 mapping = cmp.mapping.preset.insert({
                     ['<c-e>'] = cmp.mapping({
                         i = function(fallback)
@@ -122,6 +122,7 @@ M.config = {
             require("cmp_nvim_ultisnips").setup{}
         end,
     },
+    'hrsh7th/cmp-buffer',
     'FelipeLema/cmp-async-path',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-cmdline',
@@ -134,4 +135,5 @@ vim.cmd([[
     let g:UltiSnipsJumpForwardTrigger = "<C-j>"
     let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 ]])
+
 return M

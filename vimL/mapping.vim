@@ -127,5 +127,5 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 cnoreabbrev toc Toc
 
 command WQA wqa
-cnoreabbrev wa WQA
+cnoreabbrev wq WQA
 

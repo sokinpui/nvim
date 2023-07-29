@@ -1,6 +1,7 @@
 return {
     {
         'junegunn/fzf.vim',
+        lazy = false,
         config = function()
             vim.cmd([[
                 let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
@@ -23,8 +24,8 @@ return {
                 nnoremap <leader>fc :Commands<cr>
 
                 "insert relative path of file in project
-                "inoremap <expr> <C-l> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-cdup 2> /dev/null)')
-                "inoremap <expr> <C-f> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-toplevel 2> /dev/null)')
+                inoremap <expr> <C-l> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-cdup 2> /dev/null)')
+                inoremap <expr> <C-f> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-toplevel 2> /dev/null)')
             ]])
         end,
     },

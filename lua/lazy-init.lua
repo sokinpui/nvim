@@ -15,12 +15,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
-
-vim.go.loadplugins = true
-
 require("lazy").setup({
-    require("plugins/colorscheme"),
     require("plugins/nerdfont"),
+    require("plugins/colorscheme"),
     require("plugins/cleverf"),
     require("plugins/lsp"),
     require("plugins/sandwich"),
@@ -30,7 +27,6 @@ require("lazy").setup({
     require("plugins/autocompletion").config,
     require("plugins/fzf"),
     require("plugins/markdown"),
-    require("plugins/fern").config,
+    --require("plugins/fern").config,
 },{})
 
-vim.go.loadplugins = true

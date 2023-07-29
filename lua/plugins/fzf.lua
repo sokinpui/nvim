@@ -1,6 +1,8 @@
 return {
     {
         'junegunn/fzf.vim',
+        dir = "~/.fzf",
+        build = "./install --all",
         lazy = false,
         config = function()
             vim.cmd([[

@@ -37,22 +37,17 @@ if has("linux")
     inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
     cnoremap <C-v> <C-r>+
     nnoremap gy :1,$y +<cr>
-
 else
     nnoremap <leader>Y "*yy
     nnoremap <leader>X "*dd
     vnoremap Y "*y
-    vnoremap C "*y
     vnoremap X "*x
+    vnoremap <C-c> "*y
     nnoremap <leader>P "*p
     vnoremap <leader>P "*p
-    vnoremap <leader>P "*p
+    inoremap <C-v> <C-o>:set paste<CR><C-r>*<C-o>:set nopaste<CR>
+    cnoremap <C-v> <C-r>*
     nnoremap gy :1,$y *<cr>
-    set pastetoggle=π
-    nnoremap å <c-a>
-    nnoremap ≈ <c-x>
-    vnoremap gå g<c-a>
-    vnoremap g≈ g<c-x>
 endif
 xnoremap <leader>p "_dP
 "nnoremap D dd
@@ -91,7 +86,6 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>w <C-w>w
-nnoremap <C-\> <C-w>w
 nnoremap <leader>q <C-w>q
 nnoremap <C-q> <C-w>q
 
@@ -111,7 +105,6 @@ nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
 nnoremap <Bs> :bn<cr> 
-nnoremap <Del> :bp<cr> 
 nnoremap <C-H> :bp<cr> 
 nnoremap <leader><bs> :b#<cr> 
 nnoremap <CR> :ls<cr>
@@ -127,8 +120,15 @@ cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
 cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
+cnoreabbrev wq wqa
+
 cnoreabbrev toc Toc
 
-command WQA wqa
-cnoreabbrev wq WQA
-
+" VimPlug
+if has('nvim')
+    nnoremap \i :w<cr>:Lazy install<cr>
+    nnoremap \c :w<cr>:Lazy clean<cr>
+else
+    nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
+    nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
+endif

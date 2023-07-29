@@ -172,17 +172,16 @@ local lazy_opts = {
 }
 
 require("lazy").setup({
-    require("plugins/nerdfont"),
-    require("plugins/colorscheme"),
-    require("plugins/cleverf"),
-    require("plugins/lsp"),
-    require("plugins/sandwich"),
-    require("plugins/multi_cursor"),
-    require("plugins/treesitter"),
-    require("plugins/pairs"),
-    require("plugins/autocompletion").config,
-    require("plugins/fzf"),
-    require("plugins/markdown"),
-    require("plugins/fern"),
+    require("plugins.nerdfont"),
+    require("plugins.colorscheme"),
+    require("plugins.cleverf"),
+    require("plugins.lsp"),
+    require("plugins.sandwich").config,
+    require("plugins.multi_cursor"),
+    require("plugins.treesitter"),
+    require("plugins.pairs"),
+    require("plugins.autocompletion").config,
+    require("plugins.fzf"),
+    require("plugins.markdown"),
+    require("plugins.fern"),
 },{ lazy_opts })
-

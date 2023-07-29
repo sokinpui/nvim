@@ -15,7 +15,7 @@ return{
             vim.g.AutoPairsCompatibleMaps = 1
             vim.g.VM_show_warnings = 0
             vim.g.AutoPairsShortcutToggle = ""
-            vim.g.AutoPairsMapSpace = 1
+            vim.g.AutoPairsMapSpace = 0
             --vim.g.AutoPairsMapBS = 1
             --vim.g.AutoPairsMapCh = 1
             vim.g.AutoPairsMapCR = 1

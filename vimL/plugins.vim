@@ -4,11 +4,6 @@ autocmd VimEnter *
             \|   PlugInstall --sync
             \| endif
 
-" VimPlug
-nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
-nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
-
 call plug#begin()
 Plug 'machakann/vim-sandwich'
 Plug 'andymass/vim-matchup'

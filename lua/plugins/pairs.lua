@@ -16,6 +16,9 @@ return{
             vim.g.VM_show_warnings = 0
             vim.g.AutoPairsShortcutToggle = ""
             vim.g.AutoPairsMapSpace = 1
+            --vim.g.AutoPairsMapBS = 1
+            --vim.g.AutoPairsMapCh = 1
+            vim.g.AutoPairsMapCR = 1
             vim.g.AutoPairs = {
                 ['('] = ')',
                 ['['] = ']',

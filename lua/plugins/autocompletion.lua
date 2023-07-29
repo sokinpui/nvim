@@ -5,7 +5,22 @@ M.config = {
         'SirVer/ultisnips',
     },
     {
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-buffer',
+            'FelipeLema/cmp-async-path',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-calc',
+            'onsails/lspkind-nvim',
+            {
+                "quangnguyen30192/cmp-nvim-ultisnips",
+                config = function()
+                    -- optional call to setup (see customization section)
+                    require("cmp_nvim_ultisnips").setup{}
+                end,
+            },
+        },
         after = "SirVer/ultisnips",
         config = function()
             local t = function(str)
@@ -32,17 +47,8 @@ M.config = {
                     { name = 'buffer' },
                     --{ name = 'cmdline' },
                     { name = 'async_path' },
-                    --{ name = 'calc' },
+                    { name = 'calc' },
                 },
-                --formatting = {
-                --    format = lspkind.cmp_format({
-                --        mode = 'symbol', -- show only symbol annotations
-                --        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                --        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                --        -- The function below will be called before any actual modifications from lspkind
-                --        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                --    })
-                --},
                 mapping = cmp.mapping.preset.insert({
                     ['<c-e>'] = cmp.mapping({
                         i = function(fallback)
@@ -104,7 +110,6 @@ M.config = {
                     }),
                 }),
             }
-
             cmp.setup.cmdline(':', {
                 completion = { autocomplete = false },
                 sources = cmp.config.sources({
@@ -115,25 +120,12 @@ M.config = {
             })
         end
     },
-    {
-        "quangnguyen30192/cmp-nvim-ultisnips",
-        config = function()
-            -- optional call to setup (see customization section)
-            require("cmp_nvim_ultisnips").setup{}
-        end,
-    },
-    'hrsh7th/cmp-buffer',
-    'FelipeLema/cmp-async-path',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-calc',
-    'onsails/lspkind-nvim',
 }
 
 vim.cmd([[
-    let g:UltiSnipsExpandTrigger = "<C-j>"
-    let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 ]])
 
 return M

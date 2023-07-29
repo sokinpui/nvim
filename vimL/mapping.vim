@@ -1,5 +1,7 @@
 " delete whole word via Ctrl+backspace
 inoremap <C-H> <C-w>
+cnoremap <C-H> <C-w>
+tnoremap <C-H> <C-w>
 
 " Highlight search
 nnoremap / :set hlsearch<cr>/

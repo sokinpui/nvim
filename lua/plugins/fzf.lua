@@ -1,9 +1,7 @@
 return {
     {
         'junegunn/fzf.vim',
-        dir = "~/.fzf",
-        build = "./install --all",
-        lazy = false,
+        bgild = "./install --all",
         config = function()
             vim.cmd([[
                 let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
@@ -31,4 +29,5 @@ return {
             ]])
         end,
     },
+    'junegunn/fzf',
 }

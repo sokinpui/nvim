@@ -1,8 +1,11 @@
-local M = {}
-
-M.config = {
+return {
     {
         'lambdalisue/fern.vim',
+        dependencies = {
+            'lambdalisue/fern-hijack.vim',
+            "lambdalisue/fern-mapping-project-top.vim",
+            "sokinpui/my-fern-preview.vim",    
+        },
         config = function()
             vim.cmd([[
             let g:fern#mark_symbol                       = '●'
@@ -19,10 +22,4 @@ M.config = {
             ]])
         end,
     },
-    'lambdalisue/fern-hijack.vim',
-    'lambdalisue/fern-mapping-project-top.vim', 
-    'sokinpui/my-fern-preview.vim', 
 }
-
-return M
--- TODO move the configuration from pack to here

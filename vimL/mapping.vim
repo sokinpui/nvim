@@ -1,5 +1,7 @@
 " delete whole word via Ctrl+backspace
 inoremap <C-H> <C-w>
+cnoremap <C-H> <C-w>
+tnoremap <C-H> <C-w>
 
 " Highlight search
 nnoremap / :set hlsearch<cr>/
@@ -110,6 +112,7 @@ nnoremap <leader>e :edit! %<cr>
 " buffer switch
 nnoremap <Bs> :bn<cr> 
 nnoremap <Del> :bp<cr> 
+nnoremap <C-H> :bp<cr> 
 nnoremap <leader><bs> :b#<cr> 
 nnoremap <CR> :ls<cr>
 " keep <cr> function in cli window and quickfix

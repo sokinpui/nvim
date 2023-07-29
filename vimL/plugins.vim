@@ -54,7 +54,7 @@ if has('nvim')
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/cmp-calc'
-    Plug 'onsails/lspkind-nvim'
+    "Plug 'onsails/lspkind-nvim'
 
     "Plug 'epwalsh/obsidian.nvim'
 

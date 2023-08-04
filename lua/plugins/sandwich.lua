@@ -43,11 +43,11 @@ nmap <leader>~ cciw~.E
 
 " visual
 vmap <leader>( cc(
-    vmap <leader>) cc)
+vmap <leader>) cc)
 vmap <leader>[ cc[
-    vmap <leader>] cc]
+vmap <leader>] cc]
 vmap <leader>{ cc{
-        vmap <leader>} cc}
+vmap <leader>} cc}
 vmap <leader>" cc"
 vmap <leader>' cc'
 vmap <leader>< cc<

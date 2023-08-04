@@ -1,4 +1,4 @@
-function! func#IsBlank()
+function! markdown#IsBlank()
     normal! g$
     let char = getline(".")[col(".") - 1]
     if char == "\t" || char == " "

@@ -1,7 +1,7 @@
 return {
     {
         'junegunn/fzf.vim',
-        bgild = "./install --all",
+        build = "./install --all",
         config = function()
             vim.cmd([[
                 let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
@@ -9,12 +9,12 @@ return {
                 let g:fzf_buffers_jump   = 1
                 nnoremap <leader>ff :Files<cr>
                 nnoremap <leader>fa :Files $HOME<cr>
-                nnoremap <leader>fr :ProjectFiles<cr>
+                nnoremap <leader>fp :ProjectFiles<cr>
 
                 nnoremap <leader>fb :Buffers<cr>
                 nnoremap <leader>fs :Lines<cr>
 
-                nnoremap <leader>fp :Rg<cr>
+                nnoremap <leader>gp :Rg<cr>
 
                 nnoremap <leader>f. :History<cr>
                 nnoremap <leader>f/ :History/<cr>

@@ -6,11 +6,12 @@ M.config = {
     },
     {
         'hrsh7th/nvim-cmp',
+        event = "InsertEnter",
         dependencies = {
             'hrsh7th/cmp-buffer',
             'FelipeLema/cmp-async-path',
             'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-cmdline',
+            --'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-calc',
             'onsails/lspkind-nvim',
             {
@@ -21,7 +22,6 @@ M.config = {
                 end,
             },
         },
-        after = "SirVer/ultisnips",
         config = function()
             local t = function(str)
                 return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -42,9 +42,19 @@ M.config = {
                     end,
                 },
                 sources = {
-                    { name = "ultisnips" },
+                    {
+                        name = 'buffer',
+                        keyword_length = 1,
+                        option = {
+                            keyword_length = 4,
+                            keyword_pattern = [[\k\+]],
+                            get_bufnrs = function()
+                                return vim.api.nvim_list_bufs()
+                            end
+                        }
+                    },
                     { name = 'nvim_lsp' },
-                    { name = 'buffer' },
+                    { name = "ultisnips" },
                     --{ name = 'cmdline' },
                     { name = 'async_path' },
                     { name = 'calc' },
@@ -122,10 +132,8 @@ M.config = {
     },
 }
 
-vim.cmd([[
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-]])
+vim.g.UltiSnipsExpandTrigger = "<C-j>"
+vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 return M

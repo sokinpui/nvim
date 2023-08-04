@@ -28,9 +28,8 @@ $1
 endsnippet
 
 # line break
-snippet nl "" w
+snippet nl "" iw
 <br>
-$0
 endsnippet
 
 # Block comment
@@ -67,23 +66,6 @@ snippet _ "" w
 _${1:${VISUAL}}_
 endsnippet
 
-# bold
-snippet * "" w
-**${1:${VISU"" wL}}**
-endsnippet
-
-# bold italics
-snippet ** "" w
-***${1:${VISU"" AL}}***
-endsnippet
-
-# Quote
-snippet > "" !b
- > ${VISUAL:Text}
-
-$0
-endsnippet
-
 # mail templates
 snippet mail "" bw
 Dear $1,
@@ -97,25 +79,25 @@ endsnippet
 
 #   Math expression
 # inline math block
-snippet mk "" wA
-\$${1}\$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
-endsnippet
+#snippet mk "" wA
+#\$${1}\$`!p
+#if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+#    snip.rv = ' '
+#else:
+#    snip.rv = ''
+#`$2
+#endsnippet
   
 # display math block
-snippet dm "" bwA
-\$\$
-$1
-\$\$
-$0
-endsnippet
+#snippet dm "" bwA
+#\$\$
+#$1
+#\$\$
+#$0
+#endsnippet
 
 # \times
-snippet xx "" wA
+snippet x "" w
 \times 
 endsnippet
 

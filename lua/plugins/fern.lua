@@ -1,6 +1,10 @@
 return {
     {
         'lambdalisue/fern.vim',
+        key = {
+            {"<c-e>"},
+            {"<c-e>", mode = "i"},
+        },
         dependencies = {
             'lambdalisue/fern-hijack.vim',
             "lambdalisue/fern-mapping-project-top.vim",
@@ -17,7 +21,7 @@ return {
             let g:fern#disable_default_mappings   = 1
             let g:fern#disable_drawer_auto_quit   = 0
             let g:fern#disable_viewer_hide_cursor = 1
-            inoremap <C-e>   <ESC>:Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
+            inoremap <C-e>   <C-o>:Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
             nnoremap <C-e>   :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
             ]])
         end,

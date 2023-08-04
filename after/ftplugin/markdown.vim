@@ -1,4 +1,4 @@
-setlocal textwidth=0 wrap formatoptions=tc2n linebreak
+setlocal textwidth=0 wrap formatoptions=tc2n linebreak iskeyword+=\-,\.,\*
 nnoremap <leader><C-l> :setlocal formatoptions=tcw2n textwidth=80 linebreak<cr> 
 
 noremap <buffer> j gj
@@ -9,6 +9,8 @@ noremap <buffer> 0 g0
 
 nnoremap <buffer> dd g0vg$D
 nnoremap <buffer> D g0vg$D
+
+nnoremap <buffer> G Gg_
 
 nnoremap <buffer> I g^i
 

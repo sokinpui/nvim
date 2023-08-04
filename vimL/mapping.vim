@@ -66,8 +66,9 @@ nnoremap <c-u> <c-u>zz
 noremap J 5j
 noremap K 5k
 
-noremap <C-j> J
-noremap <C-k> K
+"noremap <C-j> J
+"noremap <C-k> K
+noremap <leader>k K
 
 " Horizontial
 
@@ -80,14 +81,14 @@ nnoremap <c-i> <c-i>
 
 "    Split windows
 " Naviagation
-nnoremap <leader>h <C-w>h
-nnoremap <C-f> <C-w>w
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-nnoremap <leader>w <C-w>w
+"nnoremap <leader>h <C-w>h
+"nnoremap <leader>j <C-w>j
+"nnoremap <leader>k <C-w>k
+"nnoremap <leader>l <C-w>l
+"nnoremap <leader>w <C-w>w
 nnoremap <leader>q <C-w>q
 nnoremap <C-q> <C-w>q
+nnoremap <C-f> <C-w>w
 
 " resize windows
 "nnoremap <leader>= <c-w>=
@@ -126,6 +127,7 @@ cnoreabbrev toc Toc
 
 " VimPlug
 if has('nvim')
+    nnoremap \l :w<cr>:Lazy<cr>
     nnoremap \i :w<cr>:Lazy install<cr>
     nnoremap \c :w<cr>:Lazy clean<cr>
 else

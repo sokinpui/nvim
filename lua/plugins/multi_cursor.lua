@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.config = {
     {
         "mg979/vim-visual-multi",
         branch = "master",
@@ -11,4 +13,12 @@ return {
     },
 }
 
+vim.cmd([[
+let g:VM_maps = {}
+let g:VM_maps['Find Under']                  = '<space>n'
+let g:VM_maps['Find Subword Under']          = '<space>n'
+let g:VM_maps["Add Cursor Down"]             = '<C-j>'
+let g:VM_maps["Add Cursor Up"]               = '<C-k>'
+]])
 
+return M

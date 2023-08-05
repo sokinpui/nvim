@@ -19,7 +19,7 @@ return {
                     "java",
                     "julia",
                     "query",
-                    --"markdown",
+                    "markdown",
                     --"markdown_inline",
                     "bash",
                 },

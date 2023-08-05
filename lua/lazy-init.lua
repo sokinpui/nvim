@@ -18,11 +18,11 @@ vim.g.mapleader = " "
 require("lazy").setup({
     require("plugins.nerdfont"),
     require("plugins.appearance"),
+    require("plugins.treesitter"),
     require("plugins.cleverf"),
     require("plugins.lsp"),
     require("plugins.sandwich").config,
     require("plugins.multi_cursor").config,
-    require("plugins.treesitter"),
     require("plugins.pairs"),
     require("plugins.autocompletion").config,
     require("plugins.fzf"),

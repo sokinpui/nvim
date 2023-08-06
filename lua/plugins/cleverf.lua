@@ -1,7 +1,7 @@
 return {
     {
         "rhysd/clever-f.vim",
-        key = { "f", "F", "t", "T" },
+        keys = { "f", "F", "t", "T" },
         config = function()
             vim.cmd([[
             let g:clever_f_smart_case              = 1

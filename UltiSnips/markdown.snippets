@@ -79,22 +79,22 @@ endsnippet
 
 #   Math expression
 # inline math block
-#snippet mk "" wA
-#\$${1}\$`!p
-#if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-#    snip.rv = ' '
-#else:
-#    snip.rv = ''
-#`$2
-#endsnippet
+snippet mk "" wA
+\$${1}\$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
   
 # display math block
-#snippet dm "" bwA
-#\$\$
-#$1
-#\$\$
-#$0
-#endsnippet
+snippet dm "" bwA
+\$\$
+$1
+\$\$
+$0
+endsnippet
 
 # \times
 snippet x "" w

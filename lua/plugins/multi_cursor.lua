@@ -3,6 +3,12 @@ local M = {}
 M.config = {
     {
         "mg979/vim-visual-multi",
+        keys = {
+            {"<leader>n"},
+            {"<leader>n",mode = "v"},
+            {"<c-j>"},
+            {"<c-k>"},
+        },
         branch = "master",
         config = function()
             vim.g.VM_quit_after_leaving_insert_mode = 1

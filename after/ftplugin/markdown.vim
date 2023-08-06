@@ -17,4 +17,4 @@ nnoremap <buffer> I g^i
 nnoremap <buffer> A :call markdown#IsBlank()<cr>
 
 nnoremap <buffer> V g0vg$
-call markdown_latex#MDSettings()
+"call markdown_latex#MDSettings()

@@ -1,6 +1,12 @@
 return {
     {
         'junegunn/fzf.vim',
+        keys = {
+            {"<leader>f"},
+            {"<leader>gp"},
+            { "<c-l>", mode = "i" },
+            { "<c-f>", mode = "i" },
+        },
         build = "./install --all",
         config = function()
             vim.cmd([[

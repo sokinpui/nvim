@@ -56,6 +56,11 @@ snippet img "" w
 ![$1]($2)$0
 endsnippet
 
+# gif
+snippet gif "" w
+![./img$1](img$1)
+endsnippet
+
 # deleted words
 snippet d "" w
 ~~${1:${VISUAL}}~~
@@ -110,4 +115,19 @@ endsnippet
 ## internal link
 snippet ll "" w
 [[$0]]
+endsnippet
+
+# hugo
+## collapse section
+snippet col "" w
+{{< details "$1" >}}
+$2
+{{< /details >}}
+endsnippet
+
+## center text
+snippet cen "" w
+{{< center >}} 
+${1:${VISUAL}}
+{{< /center >}}
 endsnippet

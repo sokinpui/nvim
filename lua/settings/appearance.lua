@@ -1,3 +1,4 @@
+vim.cmd([[
 "    Appearance
 set background=dark
 
@@ -17,8 +18,6 @@ set termguicolors
 
 "set concealcursor=""
 set conceallevel=2
-
-"highlight! Conceal gui=bold,underline cterm=bold,underline
 
 "  statusline setting
 set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
@@ -55,8 +54,9 @@ augroup Init_buffer
     au!
     au BufEnter * if &buftype == 'terminal' | exec 'normal! i' | endif
     au BufEnter *.txt if &buftype == 'help' | if winnr('$') <= 2 | wincmd H | endif | endif  
-    au BufEnter *.txt if &buftype == 'man' | if winnr('$') <= 2 | wincmd H | endif | endif  
 augroup END
 
 " lualine, beauty statusline
 "lua require('config.nvim-lualine')
+
+]])

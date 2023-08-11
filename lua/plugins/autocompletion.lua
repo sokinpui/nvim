@@ -1,8 +1,11 @@
-local M = {}
-
-M.config = {
+return {
     {
         'SirVer/ultisnips',
+        init = function()
+            vim.g.UltiSnipsExpandTrigger = "<C-j>"
+            vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
+            vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
+        end
     },
     {
         'hrsh7th/nvim-cmp',
@@ -131,9 +134,3 @@ M.config = {
         end
     },
 }
-
-vim.g.UltiSnipsExpandTrigger = "<C-j>"
-vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-return M

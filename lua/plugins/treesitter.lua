@@ -43,6 +43,20 @@ return {
                 indent = {
                     enable = false
                 },
+            })
+            vim.wo.foldmethod = 'expr'
+            vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+            -- 默认不要折叠
+            -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+            vim.wo.foldlevel = 99
+        end
+    },
+    {
+        "nvim-treesitter/playground",
+        cmd = "TSPlaygroundToggle",
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+            configs.setup {
                 playground = {
                     enable = true,
                     disable = {},
@@ -66,15 +80,7 @@ return {
                     use_virtual_text = true,
                     lint_events = {"BufWrite", "CursorHold"},
                 },
-            })
-            vim.wo.foldmethod = 'expr'
-            vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-            -- 默认不要折叠
-            -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
-            vim.wo.foldlevel = 99
+            }
         end
-    },
-    {
-        "nvim-treesitter/playground",
     },
 }

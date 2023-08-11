@@ -1,3 +1,4 @@
+vim.cmd([[
 " delete whole word via Ctrl+backspace
 inoremap <C-H> <C-w>
 cnoremap <C-H> <C-w>
@@ -6,14 +7,12 @@ tnoremap <C-H> <C-w>
 " Highlight search
 nnoremap / :set hlsearch<cr>/
 nnoremap ? :set hlsearch<cr>?
-
-nnoremap <expr> n (v:searchforward ? 'n:set hlsearch<cr>' : 'N:set hlsearch<cr>')
-nnoremap <expr> N (v:searchforward ? 'N:set hlsearch<cr>' : 'n:set hlsearch<cr>')
-
+nnoremap n :set hlsearch<cr>n
+nnoremap N :set hlsearch<cr>N
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
-vnoremap * y/<c-r>0<cr>:set hlsearch<cr>
-vnoremap # y?<c-r>0<cr>:set hlsearch<cr>
+vnoremap * *:set hlsearch<cr>
+vnoremap # #:set hlsearch<cr>
 
 "vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 "xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
@@ -29,30 +28,28 @@ nnoremap <c-w># :set hlsearch<cr><c-w>v<c-w>l#
 
 " copy and paste
 if has("linux")
-    nnoremap <leader>y "+y
-    nnoremap <leader>Y "+Y
+    nnoremap <leader>Y "+yy
+    nnoremap <leader>X "+dd
     vnoremap Y "+y
     vnoremap X "+x
     vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    inoremap <C-v> <C-r><C-o>+
-    "inoremap <C-v> <C-o>"+p
-    cnoremap <C-v> <C-r><C-o>+
+    inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
+    cnoremap <C-v> <C-r>+
     nnoremap gy :1,$y +<cr>
 else
-    nnoremap <leader>y "*y
-    nnoremap <leader>Y "*Y
+    nnoremap <leader>Y "*yy
+    nnoremap <leader>X "*dd
     vnoremap Y "*y
     vnoremap X "*x
     vnoremap <C-c> "*y
     nnoremap <leader>P "*p
     vnoremap <leader>P "*p
-    inoremap <C-v> <C-r><C-o>*
-    cnoremap <C-v> <C-r><C-o>*
+    inoremap <C-v> <C-o>:set paste<CR><C-r>*<C-o>:set nopaste<CR>
+    cnoremap <C-v> <C-r>*
     nnoremap gy :1,$y *<cr>
 endif
-
 xnoremap <leader>p "_dP
 "nnoremap D dd
 nnoremap <leader>v g^vg$
@@ -62,36 +59,26 @@ nnoremap <leader>v g^vg$
 
 "   Motion
 " Vertical
-noremap ( )
-noremap ) (
+nnoremap ( )
+nnoremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
 noremap J 5j
 noremap K 5k
 
-" Horizontial
-noremap <leader>h ^
-noremap <leader>l $
-
-" text object
-onoremap l w
-onoremap h iw
-onoremap L W
-onoremap H iW
-
-noremap <leader>m %
-
 "noremap <C-j> J
 "noremap <C-k> K
 noremap <leader>k K
+
+" Horizontial
 
 " Texts
 vnoremap < <gv
 vnoremap > >gv
 
-" indention formation
-nnoremap =<leader> gg=G'' 
+" Jumps
+nnoremap <c-i> <c-i>
 
 "    Split windows
 " Naviagation
@@ -100,7 +87,7 @@ nnoremap =<leader> gg=G''
 "nnoremap <leader>k <C-w>k
 "nnoremap <leader>l <C-w>l
 "nnoremap <leader>w <C-w>w
-"nnoremap <leader>q <C-w>q
+nnoremap <leader>q <C-w>q
 nnoremap <C-q> <C-w>q
 nnoremap <C-f> <C-w>w
 
@@ -116,7 +103,7 @@ nnoremap <C-f> <C-w>w
 "inoremap {<cr> {<cr>}<esc>%o
 
 " update current file
-"nnoremap <leader>e :edit! %<cr>
+nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
 nnoremap <Bs> :bn<cr> 
@@ -132,19 +119,20 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 "command Test echo "12312"
 "cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
-cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
-cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
-cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
+cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
+cnoreabbrev wq wqa
 
 cnoreabbrev toc Toc
 
 " VimPlug
 if has('nvim')
-    nnoremap \ :w<cr>:Lazy<cr>
+    nnoremap \l :w<cr>:Lazy<cr>
+    nnoremap \i :w<cr>:Lazy install<cr>
+    nnoremap \c :w<cr>:Lazy clean<cr>
 else
     nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
     nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 endif
-
+]])

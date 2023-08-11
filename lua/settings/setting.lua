@@ -1,5 +1,6 @@
+vim.cmd([[
 " basis setting
-let g:markdown_fenced_languages = ['c', 'sh', 'python', 'java', 'lisp']
+let g:markdown_fenced_languages = ['c', 'sh', 'python', 'java']
 let g:mapleader = " "
 
 let $PAGER = ''
@@ -48,3 +49,4 @@ set autochdir
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " auto source .vimrc
 autocmd! bufwritepost .vimrc ++nested source %
+]])

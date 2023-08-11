@@ -2,24 +2,31 @@ return {
     {
         'lambdalisue/fern.vim',
         dependencies = {
-            'lambdalisue/fern-hijack.vim',
-            "lambdalisue/fern-mapping-project-top.vim",
-            "sokinpui/my-fern-preview.vim",    
+            {
+                'lambdalisue/fern-hijack.vim',
+            },
+            {
+                "lambdalisue/fern-mapping-project-top.vim",
+            },
+            {
+                "sokinpui/my-fern-preview.vim",    
+            },
         },
         config = function()
-            vim.cmd([[
-            let g:fern#mark_symbol                       = '●'
-            let g:fern#renderer#default#collapsed_symbol = '▷ '
-            let g:fern#renderer#default#expanded_symbol  = '▼ '
-            let g:fern#renderer#default#leading          = ' '
-            let g:fern#renderer#default#leaf_symbol      = ' '
-            let g:fern#renderer#default#root_symbol      = '~ '
-            let g:fern#disable_default_mappings   = 1
-            let g:fern#disable_drawer_auto_quit   = 0
-            let g:fern#disable_viewer_hide_cursor = 1
-            inoremap <C-e>   <Esc>:Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
-            nnoremap <C-e>   :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
-            ]])
+            -- Set the Fern plugin configuration options in Lua
+            vim.g["fern#mark_symbol"] = '●'
+            vim.g["fern#renderer#default#collapsed_symbol"] = '▷ '
+            vim.g["fern#renderer#default#expanded_symbol"] = '▼ '
+            vim.g["fern#renderer#default#leading"] = ' '
+            vim.g["fern#renderer#default#leaf_symbol"] = ' '
+            vim.g["fern#renderer#default#root_symbol"] = '~ '
+            vim.g["fern#disable_default_mappings"] = 1
+            vim.g["fern#disable_drawer_auto_quit"] = 0
+            vim.g["fern#disable_viewer_hide_cursor"] = 1
+
+            -- Define the key mappings
+            vim.api.nvim_set_keymap('i', '<C-e>', '<Esc>:Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<C-e>', ':Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
         end,
     },
 }

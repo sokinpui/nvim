@@ -1,0 +1,1 @@
+noremmap q <esc>

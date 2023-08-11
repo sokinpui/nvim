@@ -1,6 +1,7 @@
 return{
     {
         "andymass/vim-matchup",
+        event = { "BufReadPost", "BufReadPre", "BufNewFile" },
         config = function()
             vim.g.matchup_matchparen_offscreen = {}
             vim.cmd([[

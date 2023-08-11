@@ -1,7 +1,11 @@
 return {
-    "neovim/nvim-lspconfig",
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+    },
     {
         "williamboman/mason.nvim",
+        cmd = "Mason",
         config = function()
             require("mason").setup()
         end,

@@ -1,138 +1,111 @@
+local map = function(mode, rhs, lhs)
+    vim.api.nvim_set_keymap(mode, rhs, lhs, { noremap = true, silent = true })
+end
+
+-- delete whole word
+map("i", "<C-H>", "<C-w>")
+--map("c", "<C-H>", "<C-w>")
+vim.cmd("cnoremap <C-H> <c-w>")
+map("t", "<C-H>", "<C-w>")
+
+--copy and paste
+if vim.fn.has("linux") ==  1 then
+    map("n", "<leader>y", "\"+y")
+    map("v", "<leader>y", "\"+y")
+    map("n", "<leader>Y", "\"+Y")
+    map("v", "Y", "\"+y")
+    map("v", "X", "\"+x")
+    map("v", "<C-c>", "\"+y")
+    map("n", "<leader>P", "\"+p")
+    map("v", "<leader>P", "\"+p")
+    map("i", "<C-v>", "<C-r><C-o>+")
+    map("c", "<C-v>", "<C-r><C-o>+")
+    map("n", "gy", "<Cmd>1,$y +<cr>")
+elseif vim.fn.has("mac") == 1  then
+    map("n", "<leader>y", "\"*y")
+    map("v", "<leader>y", "\"+y")
+    map("n", "<leader>Y", "\"*Y")
+    map("v", "Y", "\"*y")
+    map("v", "X", "\"*x")
+    map("v", "<C-c>", "\"*y")
+    map("n", "<leader>P", "\"*p")
+    map("v", "<leader>P", "\"*p")
+    map("i", "<C-v>", "<C-r><C-o>*")
+    map("c", "<C-v>", "<C-r><C-o>*")
+    map("n", "gy", "<Cmd>1,$y *<cr>")
+end
+
+-- paste without update register
+map("x", "<leader>p", "\"_dP")
+
+--motion
+---vertical
+map("n", "(", ")")
+map("n", ")", "(")
+map("n", "<c-d>", "<c-d>zz")
+map("n", "<c-u>", "<c-u>zz") 
+
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+map("n", "J", "5j")
+map("n", "K", "5k")
+
+---horizontial
+map("n", "H", "^")
+map("n", "L", "$")
+
+---pair
+map("n", "<leader>m", "%")
+
+-- help
+map("n", "<leader>K", "K")
+
+--search
+map("n", "*", "*zzzv")
+map("n", "#", "#zzzv")
+map("v", "*", "y/<c-r>0<cr>zzzv")  
+map("v", "#", "y?<c-r>0<cr>zzzv")  
+
+function search_direction()
+    return vim.v.searchforward == 1
+end
+vim.api.nvim_set_keymap('n', 'n', 'v:lua.search_direction() ? "nzzzv" : "Nzzzv"', { expr = true, noremap = true })
+vim.api.nvim_set_keymap('n', 'N', 'v:lua.search_direction() ? "Nzzzv" : "nzzzv"', { expr = true, noremap = true })
+
+--Indention
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+--Indent whole file
+map("n", "=<leader>", "gg=G''") 
+
+map("n", "<C-q>", "<C-w>q")
+map("n", "<C-f>", "<C-w>w")
+
+--buffer
+map("n", "<Bs>", "<Cmd>:bn<cr>") 
+map("n", "<C-H>", "<Cmd>:bp<cr>") 
+map("n", "<leader><bs>", "<Cmd>:b#<cr>") 
+map("n", "<CR>", "<Cmd>:ls<cr>")
+
 vim.cmd([[
-" delete whole word via Ctrl+backspace
-inoremap <C-H> <C-w>
-cnoremap <C-H> <C-w>
-tnoremap <C-H> <C-w>
-
-" Highlight search
-nnoremap / :set hlsearch<cr>/
-nnoremap ? :set hlsearch<cr>?
-nnoremap n :set hlsearch<cr>n
-nnoremap N :set hlsearch<cr>N
-nnoremap * :set hlsearch<cr>*
-nnoremap # :set hlsearch<cr>#
-vnoremap * *:set hlsearch<cr>
-vnoremap # #:set hlsearch<cr>
-
-"vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
-"xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
-
-" search in split window
-nnoremap <c-w>/ :set hlsearch<cr><c-w>v<c-w>l/
-nnoremap <c-w>? :set hlsearch<cr><c-w>v<c-w>l?
-nnoremap <c-w>* :set hlsearch<cr><c-w>v<c-w>l*
-nnoremap <c-w># :set hlsearch<cr><c-w>v<c-w>l#
-
-" next full digit
-"nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
-
-" copy and paste
-if has("linux")
-    nnoremap <leader>Y "+yy
-    nnoremap <leader>X "+dd
-    vnoremap Y "+y
-    vnoremap X "+x
-    vnoremap <C-c> "+y
-    nnoremap <leader>P "+p
-    vnoremap <leader>P "+p
-    inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
-    cnoremap <C-v> <C-r>+
-    nnoremap gy :1,$y +<cr>
-else
-    nnoremap <leader>Y "*yy
-    nnoremap <leader>X "*dd
-    vnoremap Y "*y
-    vnoremap X "*x
-    vnoremap <C-c> "*y
-    nnoremap <leader>P "*p
-    vnoremap <leader>P "*p
-    inoremap <C-v> <C-o>:set paste<CR><C-r>*<C-o>:set nopaste<CR>
-    cnoremap <C-v> <C-r>*
-    nnoremap gy :1,$y *<cr>
-endif
-xnoremap <leader>p "_dP
-"nnoremap D dd
-nnoremap <leader>v g^vg$
-
-" increment and decrement of characters
-"set nrformats+=alpha
-
-"   Motion
-" Vertical
-nnoremap ( )
-nnoremap ) (
-nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz 
-
-noremap J 5j
-noremap K 5k
-
-"noremap <C-j> J
-"noremap <C-k> K
-noremap <leader>k K
-
-" Horizontial
-
-" Texts
-vnoremap < <gv
-vnoremap > >gv
-
-" Jumps
-nnoremap <c-i> <c-i>
-
-"    Split windows
-" Naviagation
-"nnoremap <leader>h <C-w>h
-"nnoremap <leader>j <C-w>j
-"nnoremap <leader>k <C-w>k
-"nnoremap <leader>l <C-w>l
-"nnoremap <leader>w <C-w>w
-nnoremap <leader>q <C-w>q
-nnoremap <C-q> <C-w>q
-nnoremap <C-f> <C-w>w
-
-" resize windows
-"nnoremap <leader>= <c-w>=
-"nnoremap <c-right> <c-w>>
-"nnoremap <c-left> <c-w><
-"nnoremap <c-up> <c-w>+
-"nnoremap <c-down> <c-w>-
-
-"    Completion
-" Parethesises
-"inoremap {<cr> {<cr>}<esc>%o
-
-" update current file
-nnoremap <leader>e :edit! %<cr>
-
-" buffer switch
-nnoremap <Bs> :bn<cr> 
-nnoremap <C-H> :bp<cr> 
-nnoremap <leader><bs> :b#<cr> 
-nnoremap <CR> :ls<cr>
-" keep <cr> function in cli window and quickfix
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
+]])
 
+vim.cmd([[
 "   Command alias
 " example
 "command Test echo "12312"
-"cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
+cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
-cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
 cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
+cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
+cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
+cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
-cnoreabbrev wq wqa
-
 cnoreabbrev toc Toc
-
-" VimPlug
-if has('nvim')
-    nnoremap \l :w<cr>:Lazy<cr>
-    nnoremap \i :w<cr>:Lazy install<cr>
-    nnoremap \c :w<cr>:Lazy clean<cr>
-else
-    nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-    nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
-endif
 ]])
+
+map("n", "\\", "<Cmd>w<cr><Cmd>Lazy<cr>")

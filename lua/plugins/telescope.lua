@@ -7,7 +7,7 @@ return {
             "debugloop/telescope-undo.nvim",
         },
         init = function()
-            vim.keymap.set("n", "<leader>u", ":Telescope undo<cr><esc>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>u", "<Cmd>Telescope undo<cr><esc>", { noremap = true, silent = true })
         end,
         config = function()
             require("telescope").setup({

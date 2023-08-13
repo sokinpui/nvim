@@ -1,7 +1,6 @@
 return{
     {
         "andymass/vim-matchup",
-        event = { "BufReadPost", "BufReadPre", "BufNewFile" },
         config = function()
             vim.g.matchup_matchparen_offscreen = {}
             vim.cmd([[
@@ -73,6 +72,6 @@ return{
                 :with_move(cond.none())
                 :with_del(cond.none())
             }
-            end
+        end
     },
 }

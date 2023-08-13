@@ -1,46 +1,37 @@
+--    Appearance
+vim.opt.background = "dark"
+
+vim.cmd("syntax on")
+
+vim.opt.termguicolors = true
+
+--set concealcursor = ""
+vim.opt.conceallevel = 2
+
+--  statusline setting
+vim.opt.statusline = "%<%F %h%m%r%=%-5.(%l,%c-%v%) %p%%"
+vim.opt.laststatus = 2
+
+-- I like block cursor
+vim.opt.guicursor = "i-n-v-c-sm:block,r-cr-o:hor50"
+
+--    Highlight
+--  Search
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.cmd([[
-"    Appearance
-set background=dark
-
-" True color
-if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
-syntax on
-
-set termguicolors
-"let g:onedark_config = {
-"    \ 'style': 'dark',
-"\}
-"colorscheme onedark
-
-"set concealcursor=""
-set conceallevel=2
-
-"  statusline setting
-set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
-set laststatus=2
-
-" cursor shape
-let &t_SR = "\e[4 q" "SR = REPLACE mode
-let &t_EI = "\e[2 q" "EI = NORMAL mode (ELSE)
-let &t_SI = "\e[6 q" "SI = INSERT mode
-
-"    Highlight
-"  Search
-set incsearch
-set ignorecase
-set smartcase
 autocmd insertenter * set nohlsearch
 autocmd textchanged * set nohlsearch
+]])
 
-" Cursorline
-set scrolloff=5
-set cursorline
+-- Cursorline
+vim.opt.scrolloff = 5
+vim.opt.cursorline = true
 
-" auto hide and show cursorline when leave windows
+-- auto hide and show cursorline when leave windows
+vim.cmd([[
 augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -48,15 +39,14 @@ augroup CursorLine
     au BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
+]])
 
+-- buffer split
+vim.cmd([[
 " buffer split
 augroup Init_buffer
     au!
-    au BufEnter * if &buftype == 'terminal' | exec 'normal! i' | endif
-    au BufEnter *.txt if &buftype == 'help' | if winnr('$') <= 2 | wincmd H | endif | endif  
+    au FileType help wincmd H
+    au FileType man wincmd H
 augroup END
-
-" lualine, beauty statusline
-"lua require('config.nvim-lualine')
-
 ]])

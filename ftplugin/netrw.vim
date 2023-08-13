@@ -1,3 +1,3 @@
-nnoremap <silent> <buffer> <Esc> :bd<cr>
-nnoremap <silent> <buffer> <leader>q :bd<cr>
-nnoremap <silent> <buffer> q :bd<cr>
+nnoremap <silent> <buffer> <Esc> <Cmd>bd<cr>
+nnoremap <silent> <buffer> <leader>q <Cmd>bd<cr>
+nnoremap <silent> <buffer> q <Cmd>bd<cr>

@@ -25,8 +25,10 @@ return {
             vim.g["fern#disable_viewer_hide_cursor"] = 1
 
             -- Define the key mappings
-            vim.api.nvim_set_keymap('i', '<C-e>', '<Esc>:Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('n', '<C-e>', ':Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
+            --vim.api.nvim_set_keymap('i', '<C-e>', '<Esc><Cmd>Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
+            --vim.api.nvim_set_keymap('n', '<C-e>', '<Cmd>Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('i', '<C-e>', '<Esc><Cmd>Fern .<cr>', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<C-e>', '<Cmd>Fern .<cr>', { noremap = true, silent = true })
         end,
     },
 }

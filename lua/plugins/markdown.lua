@@ -21,7 +21,7 @@ return {
             vim.g.vim_markdown_no_default_key_mappings = 0
             vim.g.vim_markdown_conceal_code_blocks     = 0
             vim.g.vim_markdown_math                    = 1
-            --vim.g.tex_conceal = ""
+            vim.g.tex_conceal = "abmgs"
             vim.g.vim_markdown_conceal = 1
             vim.g.vim_markdown_toc_autofit = 1
             vim.g.vim_markdown_follow_anchor = 0
@@ -69,9 +69,7 @@ return {
     },
     { 
         "lervag/lists.vim",
-        keys = {
-            {"<C-a>", mode = "i"}
-        },
+        ft = "markdown",
         config = function()
             vim.cmd("ListsEnable")
         end,

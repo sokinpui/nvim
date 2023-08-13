@@ -8,3 +8,7 @@ if has('nvim')
 else
     source ~/.config/nvim/vimL/plugins.vim
 endif
+
+"if exists("g:neovide")
+"    lua require("neovide")
+"endif

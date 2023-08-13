@@ -83,10 +83,10 @@ nnoremap <C-f> <C-w>w
 "nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
-nnoremap <Bs> <Cmd>:bn<cr> 
-nnoremap <C-H> <Cmd>:bp<cr> 
-nnoremap <leader><bs> <Cmd>:b#<cr> 
-nnoremap <CR> <Cmd>:ls<cr>
+nnoremap <Bs> <Cmd>bn<cr> 
+nnoremap <C-H> <Cmd>bp<cr> 
+nnoremap <leader><bs> <Cmd>b#<cr> 
+nnoremap <CR> <Cmd>ls<cr>
 " keep <cr> function in cli window and quickfix
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>

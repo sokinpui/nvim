@@ -4,7 +4,15 @@ return {
     },
     {
         "williamboman/mason.nvim",
-        cmd = "Mason",
+        cmd = {
+            "Mason",
+            "MasonInstall",
+            "MasonUninstall",
+            "MasonUninstallAll",
+            "MasonLog",
+            "MasonUpdate", -- AstroNvim extension here as well
+            "MasonUpdateAll", -- AstroNvim specific
+        },
         config = function()
             require("mason").setup()
         end,

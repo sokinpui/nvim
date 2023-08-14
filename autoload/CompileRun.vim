@@ -10,5 +10,8 @@ function CompileRun#CompileRun()
     elseif &filetype == 'java'
         execute "silent !clear"
         execute "!java %"
+    elseif &filetype == 'julia'
+        execute "silent !clear"
+        execute "!julia %"
     endif
 endfunction

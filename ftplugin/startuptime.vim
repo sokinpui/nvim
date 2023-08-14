@@ -1,1 +1,1 @@
-nnoremap q <C-w>q
+nnoremap <buffer> q <C-w>q

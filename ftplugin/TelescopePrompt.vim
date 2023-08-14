@@ -1,1 +1,1 @@
-noremmap q <esc>
+nnoremap <buffer> q <esc>

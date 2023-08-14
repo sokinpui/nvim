@@ -1,3 +1,5 @@
+inoremap <C-k> <Esc>k
+
 " delete whole word via Ctrl+backspace
 inoremap <C-H> <C-w>
 cnoremap <C-H> <C-w>
@@ -6,19 +8,21 @@ tnoremap <C-H> <C-w>
 " copy and paste
 if has("linux")
     nnoremap <leader>y "+y
+    nnoremap <leader>d "+d
     vnoremap <leader>y "+y
     nnoremap <leader>Y "+Y
     vnoremap Y "+y
     vnoremap X "+x
     vnoremap <C-c> "+y
-    nnoremap <leader>P "+p
-    vnoremap <leader>P "+p
+    nnoremap <leader>P "+p']
+    vnoremap <leader>P "+p']
     inoremap <C-v> <C-r><C-o>+
     "inoremap <C-v> <C-o>"+p
     cnoremap <C-v> <C-r><C-o>+
     nnoremap gy <Cmd>1,$y +<cr>
 else
     nnoremap <leader>y "*y
+    nnoremap <leader>d "*d
     vnoremap <leader>y "+y
     nnoremap <leader>Y "*Y
     vnoremap Y "*y
@@ -32,8 +36,6 @@ else
 endif
 
 xnoremap <leader>p "_dP
-"nnoremap D dd
-nnoremap <leader>v g^vg$
 
 " increment and decrement of characters
 "set nrformats+=alpha
@@ -51,15 +53,8 @@ nnoremap N Nzzzv
 noremap J 5j
 noremap K 5k
 
-" Horizontial
-noremap H ^
-noremap L $
-
-" text object
-
-noremap <leader>m %
-
 noremap <leader>K K
+noremap <leader>J J
 
 nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
 nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
@@ -74,7 +69,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " indention formation
-nnoremap =<leader> gg=G'' 
+nnoremap =<leader> gg=G''zz
 
 nnoremap <C-q> <C-w>q
 nnoremap <C-f> <C-w>w
@@ -106,9 +101,8 @@ cnoreabbrev toc Toc
 
 " VimPlug
 if has('nvim')
-    nnoremap \ <Cmd>w<cr><Cmd>Lazy<cr>
+    "nnoremap \ <Cmd>w<cr><Cmd>Lazy<cr>
 else
     nnoremap \i <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugInstall<cr>
     nnoremap \c <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugClean<cr>
 endif
-

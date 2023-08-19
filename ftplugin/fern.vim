@@ -41,5 +41,7 @@ nnoremap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
 nnoremap <silent> <buffer> <expr> <Plug>(fern-quit-or-close-preview) fern_preview#smart_preview("\<Plug>(fern-action-preview:close)", ":bd\<CR>")
 nnoremap <silent> <buffer> q <Plug>(fern-quit-or-close-preview)
 
+nnoremap <silent> <buffer> <C-e> <Plug>(fern-quit-or-close-preview)
+
 setlocal norelativenumber
 setlocal nonumber

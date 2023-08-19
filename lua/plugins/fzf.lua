@@ -38,7 +38,7 @@ return {
         build = "./install --all",
         config = function()
             vim.cmd([[
-            let g:fzf_preview_window = [ 'right,60%', 'ctrl-/' ]
+            let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
             let g:fzf_layout         = {'window': { 'width': 0.95, 'height': 1 }}
             let g:fzf_buffers_jump   = 1
             nnoremap <leader>ff <Cmd>Files<cr>
@@ -50,7 +50,7 @@ return {
 
             nnoremap <leader>gp <Cmd>Rg<cr>
 
-            nnoremap <leader>f. <Cmd>History<cr>
+            nnoremap <leader>fo <Cmd>History<cr>
             nnoremap <leader>f/ <Cmd>History/<cr>
             nnoremap <leader>f: <Cmd>History:<cr>
 

@@ -5,9 +5,6 @@ syntax on
 
 set termguicolors
 
-"set concealcursor=""
-set conceallevel=2
-
 "  statusline setting
 set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
 set laststatus=2
@@ -30,21 +27,16 @@ autocmd insertenter * set nohlsearch
 autocmd textchanged * set nohlsearch
 
 " Cursorline
-set scrolloff=5
-set cursorline
+set scrolloff=8
+set nocursorline
 
 " auto hide and show cursorline when leave windows
-augroup CursorLine
-    au!
-    au VimEnter * setlocal cursorline
-    au WinEnter * setlocal cursorline
-    au BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
+"augroup CursorLine
+"    au!
+"    au VimEnter * setlocal cursorline
+"    au WinEnter * setlocal cursorline
+"    au BufWinEnter * setlocal cursorline
+"    au WinLeave * setlocal nocursorline
+"augroup END
 
-" buffer split
-augroup Init_buffer
-    au!
-    au FileType help wincmd H
-    au FileType man wincmd H
-augroup END
+set listchars=space:⋅

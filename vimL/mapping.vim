@@ -50,9 +50,6 @@ nnoremap <c-u> <c-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-noremap J 5j
-noremap K 5k
-
 noremap <leader>K K
 noremap <leader>J J
 
@@ -97,7 +94,9 @@ cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'w
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
-cnoreabbrev toc Toc
+" very magic subtitutions
+"cnoreabbrev <expr> s/ getcmdtype() == ':' && getcmdline() =~# '^s/' ? 's/\v' : 's/'
+"cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() =~# '^%s/' ? '%s/\v' : '%s/'
 
 " VimPlug
 if has('nvim')

@@ -10,7 +10,7 @@ return {
             }
             require('onedark').load()
             --enable status line
-            --require("config.lualine")
+            --require("plugins.config.lualine")
         end,
     },
     {
@@ -20,7 +20,7 @@ return {
             require'nvim-web-devicons'.setup {
                 -- your personnal icons can go here (to override)
                 -- you can specify color or cterm_color instead of specifying both of them
-    -- DevIcon will be appended to `name`
+                -- DevIcon will be appended to `name`
                 override = {
                     zsh = {
                         icon = "",
@@ -60,5 +60,16 @@ return {
                 };
             }
         end
-    }
+    },
+    {
+        "anuvyklack/help-vsplit.nvim",
+        config = function()
+            require('help-vsplit').setup({
+                always = false, -- Always open help in a vertical split.
+                side = 'right', -- 'left' or 'right'
+                buftype = { 'help' },
+                filetype = { 'man' }
+            })
+        end
+    },
 }

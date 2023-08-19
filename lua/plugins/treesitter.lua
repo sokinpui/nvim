@@ -20,14 +20,14 @@ return {
                     "julia",
                     "query",
                     "markdown",
-                    --"markdown_inline",
+                    "org",
                     "bash",
                 },
                 -- 启用代码高亮功能
                 highlight = {
                     enable = true,
                     --additional_vim_regex_highlighting = false
-                    additional_vim_regex_highlighting = { "markdown" },
+                    additional_vim_regex_highlighting = { "markdown", "org" },
                 },
                 -- 启用增量选择
                 incremental_selection = {

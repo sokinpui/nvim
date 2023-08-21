@@ -9,11 +9,10 @@ tnoremap <C-H> <C-w>
 if has("linux")
     nnoremap <leader>y "+y
     nnoremap <leader>d "+d
-    vnoremap <leader>y "+y
     nnoremap <leader>Y "+Y
-    vnoremap Y "+y
-    vnoremap X "+x
-    vnoremap <C-c> "+y
+    vnoremap Y "+ygv<esc>
+    vnoremap X "+xgv<esc>
+    vnoremap <C-c> "+ygv<esc>
     nnoremap <leader>P "+p']
     vnoremap <leader>P "+p']
     inoremap <C-v> <C-r><C-o>+
@@ -23,19 +22,23 @@ if has("linux")
 else
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
-    vnoremap <leader>y "+y
     nnoremap <leader>Y "*Y
-    vnoremap Y "*y
-    vnoremap X "*x
-    vnoremap <C-c> "*y
-    nnoremap <leader>P "*p
-    vnoremap <leader>P "*p
+    vnoremap Y "*ygv<esc>
+    vnoremap X "*xgv<esc>
+    vnoremap <C-c> "*ygv<esc>
+    nnoremap <leader>P "*p']
+    vnoremap <leader>P "*p']
     inoremap <C-v> <C-r><C-o>*
     cnoremap <C-v> <C-r><C-o>*
     nnoremap gy <Cmd>1,$y *<cr>
 endif
 
 xnoremap <leader>p "_dP
+
+" select the last pasted text
+nnoremap gp '[v']
+
+" 
 
 " increment and decrement of characters
 "set nrformats+=alpha
@@ -47,27 +50,28 @@ noremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
-nnoremap n nzzzv
-nnoremap N Nzzzv
+noremap K <nop>
+noremap J <nop>
 
 noremap <leader>K K
 noremap <leader>J J
 
-nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
-nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
+" search
+"nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
+"nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
 
 nnoremap * *zzzv
 nnoremap # #zzzv
 vnoremap * y/<c-r>0<cr>zzzv  
 vnoremap # y?<c-r>0<cr>zzzv  
 
-" Texts
-vnoremap < <gv
-vnoremap > >gv
-
 " indention formation
 nnoremap =<leader> gg=G''zz
 
+vnoremap < <gv
+vnoremap > >gv
+
+" shortcut
 nnoremap <C-q> <C-w>q
 nnoremap <C-f> <C-w>w
 
@@ -84,19 +88,12 @@ autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 "   Command alias
-" example
-"command Test echo "12312"
-"cnoreabbrev <expr> test getcmdtype() == ':' && getcmdline() =~# '^test' ? 'Test' : 'test'
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
 cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
-
-" very magic subtitutions
-"cnoreabbrev <expr> s/ getcmdtype() == ':' && getcmdline() =~# '^s/' ? 's/\v' : 's/'
-"cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() =~# '^%s/' ? '%s/\v' : '%s/'
 
 " VimPlug
 if has('nvim')

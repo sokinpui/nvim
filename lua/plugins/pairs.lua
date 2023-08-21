@@ -15,7 +15,7 @@ return{
         config = function()
             require('nvim-autopairs').setup({
                 map_bs = false,
-                enable_check_bracket_line = true,
+                enable_check_bracket_line = false,
                 ignored_next_char = [=[[%(%"%w%%%'%[%"%.%`%$]]=],
             })
             require("plugins.config.nvim-autopairs")

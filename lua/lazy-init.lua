@@ -36,4 +36,7 @@ require("lazy").setup({
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
   },
+  {
+    "kmonad/kmonad-vim",
+  }
 },{})

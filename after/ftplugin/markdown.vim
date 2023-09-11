@@ -1,5 +1,5 @@
 setlocal textwidth=0 wrap formatoptions=tc2n linebreak
-set foldmethod=manual
+set foldmethod=expr
 
 "set concealcursor=""
 set conceallevel=2

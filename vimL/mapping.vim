@@ -51,10 +51,8 @@ nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
 noremap K <nop>
-noremap J <nop>
 
 noremap <leader>K K
-noremap <leader>J J
 
 " search
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')

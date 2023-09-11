@@ -14,6 +14,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
+--vim.g.background = "light"
+vim.g.background = "dark"
 
 require("lazy").setup({
   require("plugins.nerdfont"),

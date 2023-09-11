@@ -1,5 +1,5 @@
 "    Appearance
-set background=dark
+"set background=dark
 
 syntax on
 
@@ -10,7 +10,8 @@ set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack direct
 set laststatus=2
 
 " I like block cursor
-set guicursor=i-n-v-c-sm:block,r-cr-o:hor50
+set guicursor=i-n-v-c-sm:block,r-cr-o:hor50,a:blinkon100
+set guicursor+=a:blinkon100
 
 " cursor shape
 "let &t_SR = "\e[4 q" "SR = REPLACE mode
@@ -20,7 +21,7 @@ set guicursor=i-n-v-c-sm:block,r-cr-o:hor50
 "    Highlight
 "  Search
 set incsearch
-set nohlsearch
+set hlsearch
 set ignorecase
 set smartcase
 autocmd insertenter * set nohlsearch

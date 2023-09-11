@@ -18,7 +18,7 @@ return {
     ft = "markdown",
     config = function()
       vim.g.vim_markdown_folding_disabled        = 1
-      vim.g.vim_markdown_no_default_key_mappings = 0
+      vim.g.vim_markdown_no_default_key_mappings = 1
       vim.g.vim_markdown_conceal_code_blocks     = 0
       vim.g.vim_markdown_math                    = 1
       vim.g.tex_conceal = "abmgs"
@@ -26,6 +26,8 @@ return {
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_follow_anchor = 0
       vim.g.vim_markdown_toml_frontmatter = 1
+      vim.g.vim_markdown_json_frontmatter = 1
+      vim.g.vim_markdown_frontmatter = 1
       vim.g.vim_markdown_strikethrough = 1
     end,
   },
@@ -67,13 +69,13 @@ return {
       }
     end
   },
-  { 
-    "lervag/lists.vim",
-    ft = "markdown",
-    config = function()
-      vim.cmd("ListsEnable")
-    end,
-  },
+  --{ 
+  --  "lervag/lists.vim",
+  --  ft = "markdown",
+  --  config = function()
+  --    vim.cmd("ListsEnable")
+  --  end,
+  --},
   {
     "KabbAmine/lazyList.vim",
     cmd = "LazyList",
@@ -91,13 +93,15 @@ return {
       vim.g.textobj_markdown_no_default_key_mappings = 1
     end
   },
-  {
-    "AckslD/nvim-FeMaco.lua",
-    cmd = "FeMaco",
-    config = function()
-      require("femaco").setup()
-    end
-  },
+
+  --{
+  --  "AckslD/nvim-FeMaco.lua",
+  --  cmd = "FeMaco",
+  --  config = function()
+  --    require("femaco").setup()
+  --  end
+  --},
+
   {
     "sokinpui/open-in-obsidian.nvim",
     cmd = "Obsidian",

@@ -1,0 +1,7 @@
+{
+  "o": {
+    "prefix": "o",
+    "description": "",
+    "body": "System.out.println($0);"
+  }
+}

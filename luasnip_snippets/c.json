@@ -1,0 +1,72 @@
+{
+  "for": {
+    "prefix": "for",
+    "description": "",
+    "body": "for (${1:i=0}; ${2:i < $3}; ${4:i++}) $5"
+  },
+  "ffor": {
+    "prefix": "ffor",
+    "description": "",
+    "body": [
+      "for (${1:i=0}; ${2:i < $3}; ${4:i++}) {",
+      "    for ( ${5:j=0} ; ${6:j < $7} ; ${8:j++} ) $9",
+      "\\}"
+    ]
+  },
+  "o": {
+    "prefix": "o",
+    "description": "",
+    "body": "printf(\"$1$TM_SELECTED_TEXT${2:\\n}\"$3);"
+  },
+  "dp": {
+    "prefix": "dp",
+    "description": "",
+    "body": "printf(\"$TM_SELECTED_TEXT = %$1\\n\", $2$TM_SELECTED_TEXT);"
+  },
+  "i": {
+    "prefix": "i",
+    "description": "",
+    "body": "scanf(\"%$1\", $2$TM_SELECTED_TEXT);"
+  },
+  "nl": {
+    "prefix": "nl",
+    "description": "",
+    "body": "putchar('\\n');"
+  },
+  "to": {
+    "prefix": "to",
+    "description": "",
+    "body": "// TODO: $1"
+  },
+  "com": {
+    "prefix": "com",
+    "description": "",
+    "body": [
+      "/*",
+      "$TM_SELECTED_TEXT",
+      " */"
+    ]
+  },
+  "str": {
+    "prefix": "str",
+    "description": "",
+    "body": [
+      "typedef struct $1{",
+      "    $2",
+      "\\} $1;"
+    ]
+  },
+  "case": {
+    "prefix": "case",
+    "description": "",
+    "body": [
+      "switch ($1) {",
+      "    case $2:",
+      "        $3",
+      "        break;",
+      "    default:",
+      "        break;",
+      "\\}"
+    ]
+  }
+}

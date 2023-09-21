@@ -50,9 +50,7 @@ noremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
-noremap K <nop>
-
-noremap <leader>K K
+"noremap <leader>K K
 
 " search
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
@@ -66,12 +64,18 @@ vnoremap # y?<c-r>0<cr>zzzv
 " indention formation
 nnoremap =<leader> gg=G''zz
 
-vnoremap < <gv
-vnoremap > >gv
+" should be leverge the built in . repeat
+"vnoremap < <gv
+"vnoremap > >gv
 
 " shortcut
 nnoremap <C-q> <C-w>q
 nnoremap <C-f> <C-w>w
+
+nnoremap =h <C-w>h
+nnoremap =j <C-w>j
+nnoremap =k <C-w>k
+nnoremap =l <C-w>l
 
 " update current file
 "nnoremap <leader>e :edit! %<cr>
@@ -80,10 +84,10 @@ nnoremap <C-f> <C-w>w
 nnoremap <Bs> <Cmd>bn<cr> 
 nnoremap <C-H> <Cmd>bp<cr> 
 nnoremap <leader><bs> <Cmd>b#<cr> 
-nnoremap <CR> <Cmd>ls<cr>
+nnoremap =<Bs> <Cmd>ls<cr>
 " keep <cr> function in cli window and quickfix
-autocmd CmdwinEnter * nnoremap <CR> <CR>
-autocmd BufReadPost quickfix nnoremap <CR> <CR>
+"autocmd CmdwinEnter * nnoremap <CR> <CR>
+"autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
@@ -100,3 +104,4 @@ else
     nnoremap \i <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugInstall<cr>
     nnoremap \c <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugClean<cr>
 endif
+

@@ -18,7 +18,8 @@ nnoremap <buffer> G Gg_
 
 nnoremap <buffer> I g^i
 
-nnoremap <buffer> A <Cmd>call markdown#IsBlank()<cr>
+nnoremap <buffer> A g$a
+"nnoremap <buffer> A <Cmd>call markdown#IsBlank()<cr>
 
 nnoremap <buffer> gV g0vg$
 "call markdown_latex#MDSettings()

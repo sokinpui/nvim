@@ -1,0 +1,30 @@
+{
+  "def": {
+    "prefix": "def",
+    "description": "",
+    "body": [
+      "def $1()",
+      "    $2",
+      "enddef"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "description": "",
+    "body": [
+      "if $1",
+      "    $2",
+      "endif"
+    ]
+  },
+  "au": {
+    "prefix": "au",
+    "description": "",
+    "body": [
+      "augroup $1",
+      "    au!",
+      "    augroup $2",
+      "augropu END"
+    ]
+  }
+}

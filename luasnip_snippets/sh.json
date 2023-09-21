@@ -1,0 +1,62 @@
+{
+  "fu": {
+    "prefix": "fu",
+    "description": "",
+    "body": [
+      "$1() {",
+      "    $2",
+      "\\}"
+    ]
+  },
+  "i": {
+    "prefix": "i",
+    "description": "",
+    "body": [
+      "echo -n \"$1\"",
+      "read",
+      "$2"
+    ]
+  },
+  "re": {
+    "prefix": "re",
+    "description": "",
+    "body": "\\$REPLY"
+  },
+  "if": {
+    "prefix": "if",
+    "description": "",
+    "body": [
+      "if [ $1 ]; then",
+      "    $2",
+      "fi"
+    ]
+  },
+  "case": {
+    "prefix": "case",
+    "description": "",
+    "body": [
+      "case",
+      "    $1)",
+      "        $2",
+      "        ;;",
+      "    *) $3 ;;",
+      "esac"
+    ]
+  },
+  "opt": {
+    "prefix": "opt",
+    "description": "",
+    "body": [
+      "while getopts \"$1:\" opt; do",
+      "    case \\$opt in",
+      "        $1)",
+      "            $2",
+      "            ;;",
+      "        \\?)",
+      "            echo \"Invalid option: -\\$OPTARG\" >&2",
+      "            return ;;",
+      "    esac",
+      "done"
+    ]
+  }
+}

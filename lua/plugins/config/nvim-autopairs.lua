@@ -8,7 +8,7 @@ npairs.get_rules("'")[1]:with_pair(cond.not_after_text("["))
 
 -- Add spaces between parentheses
 npairs.add_rules {
-    Rule('=', '', {"-zsh","-sh","-vim","-markdown"})
+    Rule('=', '', {"-zsh","-sh","-conf","-vim","-markdown"})
     :with_pair(cond.not_inside_quote())
     :with_pair(function(opts)
         local last_char = opts.line:sub(opts.col - 1, opts.col - 1)

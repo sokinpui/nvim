@@ -10,7 +10,7 @@ return {
     'mbbill/undotree',
     cmd = "UndotreeToggle",
     init = function()
-      vim.api.nvim_set_keymap('n', '<leader>u', '<Cmd>UndotreeToggle<cr>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>u', '<Cmd>UndotreeToggle<cr>', { noremap = true, silent = true })
     end,
     config = function()
       vim.g.undotree_SetFocusWhenToggle = 1

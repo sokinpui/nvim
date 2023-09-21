@@ -10,8 +10,8 @@ return {
             vim.g.clever_f_fix_key_direction = 1
         end,
         config = function()
-            vim.api.nvim_set_keymap('', ';', '<Plug>(clever-f-repeat-forward)', { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('', ',', '<Plug>(clever-f-repeat-back)', { noremap = true, silent = true })
+            vim.keymap.set('', ';', '<Plug>(clever-f-repeat-forward)', { noremap = true, silent = true })
+            vim.keymap.set('', ',', '<Plug>(clever-f-repeat-back)', { noremap = true, silent = true })
         end
     },
 }

@@ -16,7 +16,8 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       --'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-calc',
-      'onsails/lspkind-nvim',
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      --'onsails/lspkind-nvim',
       {
         "quangnguyen30192/cmp-nvim-ultisnips",
         config = function()
@@ -44,6 +45,7 @@ return {
             vim.fn["UltiSnips#Anon"](args.body)
           end,
         },
+
         sources = {
           {
             name = 'buffer',
@@ -56,13 +58,23 @@ return {
               end
             }
           },
-          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
+          {
+            name = 'nvim_lsp',
+            keyword_length = 1,
+            option = {
+              java = {
+                keyword_length = 1,
+              }
+            }
+          },
           { name = "ultisnips" },
           --{ name = 'cmdline' },
           { name = 'async_path' },
           { name = 'calc' },
-          --{ name = 'orgmode' },
+          { name = "orgmode" },
         },
+
         mapping = cmp.mapping.preset.insert({
           ['<c-e>'] = cmp.mapping({
             i = function(fallback)
@@ -126,15 +138,9 @@ return {
           }),
         }),
       }
-      --cmp.setup.cmdline(':', {
-      --  completion = { autocomplete = false },
-      --  sources = cmp.config.sources({
-      --    { name = 'async_path' }
-      --  }, {
-      --    { name = 'cmdline' }
-      --  })
-      --})
+
       cmp.setup.cmdline(':', {
+        --completion = { autocomplete = false },
         sources = cmp.config.sources({
           { name = 'async_path' }
         }, {

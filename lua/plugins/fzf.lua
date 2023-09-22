@@ -6,7 +6,8 @@ return {
         },
         keys = {
             {"<leader>f"},
-            {"<leader>gp"},
+            {"<C-p>"},
+            {"<C-f>"},
             { "<c-l>", mode = "i" },
             { "<c-f>", mode = "i" },
         },
@@ -41,18 +42,15 @@ return {
             let g:fzf_preview_window = [ 'right,50%', 'ctrl-/' ]
             let g:fzf_layout         = {'window': { 'width': 0.95, 'height': 1 }}
             let g:fzf_buffers_jump   = 1
-            nnoremap <leader>ff <Cmd>Files<cr>
-            nnoremap <leader>fa <Cmd>Files $HOME<cr>
-            nnoremap <leader>fp <Cmd>execute 'Files' system('git rev-parse --show-toplevel 2> /dev/null')[:-2]<cr>
+            nnoremap <C-f> <Cmd>Files<cr>
+            nnoremap <leader>ff <Cmd>execute 'Files' system('git rev-parse --show-toplevel 2> /dev/null')[:-2]<cr>
 
             nnoremap <leader>fb <Cmd>Buffers<cr>
             nnoremap <leader>fs <Cmd>Lines<cr>
 
-            nnoremap <leader>gp <Cmd>Rg<cr>
+            nnoremap <C-p> <Cmd>Rg<cr>
 
             nnoremap <leader>fo <Cmd>History<cr>
-            nnoremap <leader>f/ <Cmd>History/<cr>
-            nnoremap <leader>f: <Cmd>History:<cr>
 
             nnoremap <leader>fh <Cmd>Helptags<cr>
             nnoremap <leader>fc <Cmd>Commands<cr>

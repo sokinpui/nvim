@@ -4,8 +4,7 @@ return {
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()
-      vim.keymap.set('i', '<C-e>', '<Esc><Cmd>Oil<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<C-e>', '<Cmd>Oil<cr>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>e', '<Cmd>Oil<cr>', { noremap = true, silent = true })
     end,
     config = function()
       require("oil").setup({

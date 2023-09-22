@@ -40,7 +40,7 @@ vnoremap <buffer> ic <plug>(textobj-markdown-Bchunk-i)
 vnoremap <buffer> ac <plug>(textobj-markdown-Bchunk-a)
 
 "AckslD/nvim-FeMaco.lua",
-nnoremap <buffer> <leader>e <Cmd>FeMaco<cr>
+nnoremap <buffer> <leader>c <Cmd>FeMaco<cr>
 
 highlight! Conceal gui=bold cterm=bold
 

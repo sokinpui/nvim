@@ -10,7 +10,7 @@ return {
         end
       },
       {
-        'andreadev-it/orgmode-multi-key',
+        'sokinpui/orgmode-multi-key',
         config = function()
           require('orgmode-multi-key').setup()
         end

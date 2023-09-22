@@ -23,7 +23,6 @@ require("lazy").setup({
   require("plugins.appearance"),
   require("plugins.treesitter"),
   require("plugins.cleverf"),
-  --require("plugins.flit"),
   require("plugins.harpoon"),
   require("plugins.comments"),
   require("plugins.lsp"),
@@ -40,8 +39,11 @@ require("lazy").setup({
   { "kmonad/kmonad-vim", ft = "lisp"},
   { 'alohaia/fcitx.nvim', config = function () require 'fcitx' { } end },
   --require("plugins.fern"),
+  --require("plugins.flit"),
   --require("plugins.neorg"),
   --require("plugins.which-key"),
   --require("plugins.telescope"),
   --'wellle/targets.vim',
 }, {})
+
+

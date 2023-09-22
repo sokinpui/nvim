@@ -38,8 +38,6 @@ xnoremap <leader>p "_dP
 " select the last pasted text
 nnoremap gp '[v']
 
-" 
-
 " increment and decrement of characters
 "set nrformats+=alpha
 
@@ -69,9 +67,11 @@ nnoremap =<leader> gg=G''zz
 "vnoremap > >gv
 
 " shortcut
-nnoremap <C-q> <C-w>q
-nnoremap <C-f> <C-w>w
+"nnoremap <C-q> <C-w>q
+"nnoremap <C-f> <C-w>w
 
+nnoremap =d <Cmd>bd<cr>
+nnoremap =q <C-w>q
 nnoremap =h <C-w>h
 nnoremap =j <C-w>j
 nnoremap =k <C-w>k
@@ -83,11 +83,9 @@ nnoremap =l <C-w>l
 " buffer switch
 nnoremap <Bs> <Cmd>bn<cr> 
 nnoremap <C-H> <Cmd>bp<cr> 
-nnoremap <leader><bs> <Cmd>b#<cr> 
+" This is same as C-^, the alternative file
+"nnoremap <leader><bs> <Cmd>b#<cr> 
 nnoremap =<Bs> <Cmd>ls<cr>
-" keep <cr> function in cli window and quickfix
-"autocmd CmdwinEnter * nnoremap <CR> <CR>
-"autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'

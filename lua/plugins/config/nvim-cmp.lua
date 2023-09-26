@@ -8,12 +8,16 @@ local has_words_before = function()
 end
 
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 -- local lspkind = require('lspkind')
 
 cmp.setup {
+
+  preselect = cmp.PreselectMode.None,
+
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
 
@@ -24,7 +28,6 @@ cmp.setup {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         luasnips = "[Snippet]",
-        ultisnips = "[Snippet]",
       })[entry.source.name]
       return vim_item
     end
@@ -33,12 +36,9 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lsp"},
-    { name = "ultisnips" },
-    --{ name = "cmdline" },
+    { name = "luasnip" },
     { name = "async_path" },
-    -- { name = "calc" },
     { name = "orgmode" },
-    -- { name = 'nvim_lua' },
     {
       name = "buffer",
       keyword_length = 1,
@@ -66,7 +66,10 @@ cmp.setup {
   },
 
   mapping = cmp.mapping.preset.insert({
-    ["<C-y>"] = cmp.mapping.confirm(),
+    --["<C-y>"] = cmp.mapping.confirm(),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
     ['<c-e>'] = cmp.mapping({
       i = function(fallback)
         cmp.close()
@@ -150,5 +153,27 @@ cmp.setup.cmdline(':', {
   end
 })
 
+-- Snippet
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  if luasnip.expand_or_locally_jumpable() then
+    luasnip.expand_or_jump()
+  end
+end, { silent = true })
 
+vim.keymap.set({"i", "s"}, "<C-k>", function()
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  end
+end, {silent = true})
+
+luasnip.config.set_config({
+  store_selection_keys = '<C-j>',
+  history = true, --keep around last snippet local to jump back
+	updateevents = "TextChanged,TextChangedI",
+})
+
+-- Predefined snippet
+--require("luasnip.loaders.from_vscode").lazy_load()
+
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "~/.config/nvim/snipmates" } })
 

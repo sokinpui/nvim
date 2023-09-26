@@ -7,13 +7,11 @@ return {
         style = 'dark'
       }
       require('onedark').load()
-      --enable status line
-      --require("plugins.config.lualine")
     end,
   },
-  { 
-    'nvim-lualine/lualine.nvim',
-  },
+  -- { 
+  --   'nvim-lualine/lualine.nvim',
+  -- },
   { 
     "nvim-tree/nvim-web-devicons",
     lazy = true,
@@ -66,11 +64,15 @@ return {
     "anuvyklack/help-vsplit.nvim",
     config = function()
       require('help-vsplit').setup({
-        always = false, -- Always open help in a vertical split.
+        always = true, -- Always open help in a vertical split.
         side = 'right', -- 'left' or 'right'
         buftype = { 'help' },
         filetype = { 'man' }
       })
     end
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
   },
 }

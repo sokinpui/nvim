@@ -17,6 +17,18 @@ cmp.setup {
     end,
   },
 
+  formatting = {
+    format = function(entry, vim_item)
+      -- Source
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        ultisnips = "[snippet]",
+      })[entry.source.name]
+      return vim_item
+    end
+  },
+
   sources = {
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lsp"},

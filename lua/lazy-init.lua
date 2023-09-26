@@ -36,6 +36,7 @@ require("lazy").setup({
   { "dstein64/vim-startuptime", cmd = "StartupTime", },
   { "kmonad/kmonad-vim", ft = "lisp"},
   { 'alohaia/fcitx.nvim', config = function () require 'fcitx' { } end },
+
   --require("plugins.fern"),
   --require("plugins.flit"),
   --require("plugins.neorg"),

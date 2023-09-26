@@ -2,7 +2,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function () 
+    event = { "BufReadPost", "BufNewFile" },
+    config = function ()
       local configs = require("nvim-treesitter.configs")
       configs.setup({
         -- 安装 language parser

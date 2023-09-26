@@ -3,50 +3,16 @@ return {
     "sokinpui/onedark-modified",
     config = function()
       --enable colorscheme
-      if vim.g.background == "dark" then
-        require('onedark').setup {
-          style = 'dark'
-        }
-        require('onedark').load()
-        --enable status line
-        --require("plugins.config.lualine")
-      end
+      require('onedark').setup {
+        style = 'dark'
+      }
+      require('onedark').load()
+      --enable status line
+      --require("plugins.config.lualine")
     end,
   },
   { 
     'nvim-lualine/lualine.nvim',
-  },
-  { 
-    'shaunsingh/solarized.nvim',
-    cond = vim.env.TERMINAL_THEME == "light",
-    config = function()
-      vim.g.solarized_italic_comments = true
-      vim.opt.background = light
-      require('solarized').set()
-      require('lualine').setup {
-        options = { theme = 'solarized' },
-        sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {'location'},
-          lualine_y = {},
-          lualine_z = {}
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {'location'},
-          lualine_y = {},
-          lualine_z = {}
-        },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = {}
-      }
-    end
   },
   { 
     "nvim-tree/nvim-web-devicons",

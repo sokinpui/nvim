@@ -109,4 +109,8 @@ return {
       require("obs")
     end,
   },
+  {
+    'jghauser/follow-md-links.nvim',
+    ft = "markdown",
+  }
 }

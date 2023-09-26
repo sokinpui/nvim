@@ -5,16 +5,18 @@ local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-  --"lua_ls",
+  "lua_ls",
   "jdtls",
   "pyright"
 }
+
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp].setup({
     -- on_attach = my_custom_on_attach,
     capabilities = capabilities,
-  }
+  })
 end
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)

@@ -18,7 +18,7 @@ if has("linux")
     inoremap <C-v> <C-r><C-o>+
     "inoremap <C-v> <C-o>"+p
     cnoremap <C-v> <C-r><C-o>+
-    nnoremap gy <Cmd>1,$y +<cr>
+    nnoremap gY <Cmd>1,$y +<cr>
 else
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
@@ -30,7 +30,7 @@ else
     vnoremap <leader>P "*p']
     inoremap <C-v> <C-r><C-o>*
     cnoremap <C-v> <C-r><C-o>*
-    nnoremap gy <Cmd>1,$y *<cr>
+    nnoremap gY <Cmd>1,$y *<cr>
 endif
 
 xnoremap <leader>p "_dP
@@ -54,13 +54,18 @@ nnoremap <c-u> <c-u>zz
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
 "nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
 
-nnoremap * *zzzv
-nnoremap # #zzzv
-vnoremap * y/<c-r>0<cr>zzzv  
-vnoremap # y?<c-r>0<cr>zzzv  
+nnoremap n <Cmd>set hlsearch<Cr>nzzzv
+nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
+nnoremap * <Cmd>set hlsearch<Cr>*zzzv
+nnoremap # <Cmd>set hlsearch<Cr>#zzzv
+vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv  
+vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv  
 
 " indention formation
 nnoremap =<leader> gg=G''zz
+
+" formating code
+nnoremap <leader>gq gggqG<C-o>zz
 
 " should be leverge the built in . repeat
 "vnoremap < <gv

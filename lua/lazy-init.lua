@@ -1,4 +1,4 @@
----lazy.nvim
+--lazy.nvim
 ---install plugin if missed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,8 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "="
---vim.g.background = "light"
-vim.g.background = "dark"
 
 require("lazy").setup({
   require("plugins.nerdfont"),
@@ -29,7 +27,7 @@ require("lazy").setup({
   require("plugins.sandwich"),
   require("plugins.visual-multi"),
   require("plugins.auto-pairs"),
-  require("plugins.autocompletion"),
+  require("plugins.nvim-cmp"),
   require("plugins.fzf"),
   require("plugins.markdown"),
   require("plugins.oil"),

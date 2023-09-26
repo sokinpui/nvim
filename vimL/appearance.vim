@@ -9,7 +9,7 @@ set termguicolors
 set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
 set laststatus=2
 
-" I like block cursor
+" I like block blink cursor
 set guicursor=i-n-v-c-sm:block,r-cr-o:hor50,a:blinkon100
 set guicursor+=a:blinkon100
 
@@ -27,7 +27,11 @@ set smartcase
 autocmd insertenter * set nohlsearch
 autocmd textchanged * set nohlsearch
 
-" Cursorline
+" highlight yanked text
+"autocmd! TextYankPost * silent! lua vim.highlight.on_yank()
+"autocmd! TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=250}
+
+
 set scrolloff=8
 set nocursorline
 

@@ -10,7 +10,7 @@ return {
       require("oil").setup({
         default_file_explorer = true,
         columns = {
-          "icon",
+          "",
         },
         buf_options = {
           buflisted = false,

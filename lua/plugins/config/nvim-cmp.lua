@@ -23,7 +23,8 @@ cmp.setup {
       vim_item.menu = ({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
-        ultisnips = "[snippet]",
+        luasnips = "[Snippet]",
+        ultisnips = "[Snippet]",
       })[entry.source.name]
       return vim_item
     end
@@ -35,9 +36,9 @@ cmp.setup {
     { name = "ultisnips" },
     --{ name = "cmdline" },
     { name = "async_path" },
-    { name = "calc" },
+    -- { name = "calc" },
     { name = "orgmode" },
-    { name = 'nvim_lua' },
+    -- { name = 'nvim_lua' },
     {
       name = "buffer",
       keyword_length = 1,

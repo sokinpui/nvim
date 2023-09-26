@@ -15,10 +15,9 @@ return {
       'FelipeLema/cmp-async-path',
       'hrsh7th/cmp-nvim-lsp',
       --'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-calc',
+      --'hrsh7th/cmp-calc',
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "lukas-reineke/cmp-under-comparator",
-      "uga-rosa/cmp-dynamic",
       "hrsh7th/cmp-nvim-lua",
       -- 'onsails/lspkind-nvim',
       {

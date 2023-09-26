@@ -31,8 +31,8 @@ return {
         trash_command = "trash-put",
         prompt_save_on_select_new_entry = false,
         keymaps = {
-          ["l"] = "actions.select",
-          ["h"] = "actions.parent",
+          ["L"] = "actions.select",
+          ["H"] = "actions.parent",
           ["_"] = "actions.open_cwd",
           ["`"] = "actions.cd",
           ["~"] = "actions.tcd",

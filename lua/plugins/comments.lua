@@ -2,9 +2,9 @@ return {
   {
     'numToStr/Comment.nvim',
     keys = {
-      {"glc"},
+      {"gcc"},
       {"gbc"},
-      { "gl", mode = "v" },
+      { "gc", mode = "v" },
       { "gb", mode = "v" },
     },
     config = function()
@@ -18,14 +18,14 @@ return {
         ---LHS of toggle mappings in NORMAL mode
         toggler = {
           ---Line-comment toggle keymap
-          line = 'glc',
+          line = 'gcc',
           ---Block-comment toggle keymap
           block = 'gbc',
         },
         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
         opleader = {
           ---Line-comment keymap
-          line = 'gl',
+          line = 'gc',
           ---Block-comment keymap
           block = 'gb',
         },

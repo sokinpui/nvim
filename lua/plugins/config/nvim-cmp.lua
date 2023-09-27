@@ -21,17 +21,17 @@ cmp.setup {
     end,
   },
 
-  formatting = {
-    format = function(entry, vim_item)
-      -- Source
-      vim_item.menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnips = "[Snippet]",
-      })[entry.source.name]
-      return vim_item
-    end
-  },
+  -- formatting = {
+  --   format = function(entry, vim_item)
+  --     -- Source
+  --     vim_item.menu = ({
+  --       buffer = "[Buffer]",
+  --       nvim_lsp = "[LSP]",
+  --       luasnips = "[Snippet]",
+  --     })[entry.source.name]
+  --     return vim_item
+  --   end
+  -- },
 
   sources = {
     { name = "nvim_lsp_signature_help" },

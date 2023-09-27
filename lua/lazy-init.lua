@@ -41,8 +41,6 @@ require("lazy").setup({
     end,
   },
   { "kmonad/kmonad-vim", ft = "kbd"},
-  { 'alohaia/fcitx.nvim', config = function () require 'fcitx' { } end },
-
 
   --require("plugins.fern"),
   --require("plugins.flit"),

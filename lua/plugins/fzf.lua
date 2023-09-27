@@ -52,12 +52,14 @@ return {
 
             nnoremap <leader>fo <Cmd>History<cr>
 
+            nnoremap <leader>fm <Cmd>Marks<cr>
+
             nnoremap <leader>fh <Cmd>Helptags<cr>
             nnoremap <leader>fc <Cmd>Commands<cr>
 
             "insert relative path of file in project
-            inoremap <expr> <C-l> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-cdup 2> /dev/null)')
-            inoremap <expr> <C-f> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-toplevel 2> /dev/null)')
+            " inoremap <expr> <C-l> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-cdup 2> /dev/null)')
+            " inoremap <expr> <C-f> fzf#vim#complete#path('fd --type=file . $(git rev-parse --show-toplevel 2> /dev/null)')
             ]])
         end,
     },

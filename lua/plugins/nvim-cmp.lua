@@ -1,36 +1,51 @@
+-- Auto completion and Snippets
 return {
-  {
-    'SirVer/ultisnips',
-    init = function()
-      vim.g.UltiSnipsExpandTrigger = "<C-j>"
-      vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
-      vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
-    end
-  },
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
     dependencies = {
-      'hrsh7th/cmp-buffer',
-      'FelipeLema/cmp-async-path',
-      'hrsh7th/cmp-nvim-lsp',
-      --'hrsh7th/cmp-cmdline',
-      --'hrsh7th/cmp-calc',
-      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-buffer",
+      "FelipeLema/cmp-async-path",
       "lukas-reineke/cmp-under-comparator",
-      "hrsh7th/cmp-nvim-lua",
-      -- 'onsails/lspkind-nvim',
+
+      -- LSP
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+
+      -- Snippets
+      "saadparwaiz1/cmp_luasnip",
       {
-        "quangnguyen30192/cmp-nvim-ultisnips",
-        config = function()
-          -- optional call to setup (see customization section)
-          require("cmp_nvim_ultisnips").setup{}
-        end,
-      },
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+      }
     },
     config = function()
       require("plugins.config.nvim-cmp")
     end
   },
-} 
+  {
+    "smjonas/snippet-converter.nvim",
+    cmd = "ConvertSnippets",
+    config = function()
+      local template = {
+        -- name = "t1", (optionally give your template a name to refer to it in the `ConvertSnippets` command)
+        sources = {
+          ultisnips = {
+            vim.fn.stdpath("config") .. "/UltiSnips",
+          },
+        },
+        output = {
+          -- Specify the output formats and paths
+          snipmate = {
+            vim.fn.stdpath("config") .. "/snipmates",
+          },
+        },
+      }
+
+      require("snippet_converter").setup {
+        templates = { template },
+      }
+    end
+  }
+}
 

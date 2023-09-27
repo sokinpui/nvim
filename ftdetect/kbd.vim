@@ -1,2 +1,2 @@
-autocmd BufNewFile,BufRead *.kbd set filetype=lisp
+autocmd BufNewFile,BufRead *.kbd set filetype=kbd
 

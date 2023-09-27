@@ -19,7 +19,7 @@ if has("linux")
     "inoremap <C-v> <C-o>"+p
     cnoremap <C-v> <C-r><C-o>+
     nnoremap gY <Cmd>1,$y +<cr>
-else
+elseif has("mac")
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
     nnoremap <leader>Y "*Y
@@ -46,7 +46,7 @@ nnoremap gp '[v']
 noremap ( )
 noremap ) (
 nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz 
+nnoremap <c-u> <c-u>zz
 
 "noremap <leader>K K
 
@@ -58,14 +58,14 @@ nnoremap n <Cmd>set hlsearch<Cr>nzzzv
 nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
 nnoremap * <Cmd>set hlsearch<Cr>*zzzv
 nnoremap # <Cmd>set hlsearch<Cr>#zzzv
-vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv  
-vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv  
+vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
+vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
 
 " indention formation
 nnoremap =<leader> gg=G''zz
 
 " formating code
-nnoremap <leader>gq gggqG<C-o>zz
+"nnoremap <leader>gq gggqG<C-o>zz
 
 " should be leverge the built in . repeat
 "vnoremap < <gv
@@ -75,36 +75,28 @@ nnoremap <leader>gq gggqG<C-o>zz
 "nnoremap <C-q> <C-w>q
 "nnoremap <C-f> <C-w>w
 
-nnoremap =d <Cmd>bd<cr>
-nnoremap =q <C-w>q
-nnoremap =h <C-w>h
-nnoremap =j <C-w>j
-nnoremap =k <C-w>k
-nnoremap =l <C-w>l
+nnoremap <c-w>d <Cmd>bd<cr>
+" nnoremap =q <C-w>q
+" nnoremap =h <C-w>h
+" nnoremap =j <C-w>j
+" nnoremap =k <C-w>k
+" nnoremap =l <C-w>l
 
 " update current file
 "nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
-nnoremap <Bs> <Cmd>bn<cr> 
-nnoremap <C-H> <Cmd>bp<cr> 
+nnoremap <Bs> <Cmd>bn<cr>
+nnoremap <C-H> <Cmd>bp<cr>
 " This is same as C-^, the alternative file
-"nnoremap <leader><bs> <Cmd>b#<cr> 
-nnoremap =<Bs> <Cmd>ls<cr>
+"nnoremap <leader><bs> <Cmd>b#<cr>
+"nnoremap =<Bs> <Cmd>ls<cr>
 
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
-cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
+            cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
 cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
-
-" VimPlug
-if has('nvim')
-    "nnoremap \ <Cmd>w<cr><Cmd>Lazy<cr>
-else
-    nnoremap \i <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugInstall<cr>
-    nnoremap \c <Cmd>w<cr><Cmd>source ~/.config/nvim/init.vim<cr><Cmd>PlugClean<cr>
-endif
 

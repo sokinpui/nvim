@@ -14,14 +14,15 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
-vim.g.maplocalleader = "="
+-- vim.g.maplocalleader = "="
 
 require("lazy").setup({
   require("plugins.nerdfont"),
   require("plugins.appearance"),
   require("plugins.treesitter"),
   require("plugins.cleverf"),
-  require("plugins.buffer_manager"),
+  require("plugins.buffer"),
+  require("plugins.quickfix"),
   require("plugins.comments"),
   require("plugins.lsp"),
   require("plugins.sandwich"),

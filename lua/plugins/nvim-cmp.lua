@@ -16,8 +16,9 @@ return {
       "saadparwaiz1/cmp_luasnip",
       {
         "L3MON4D3/LuaSnip",
+        event = "InsertEnter",
         dependencies = { "rafamadriz/friendly-snippets" },
-      }
+      },
     },
     config = function()
       require("plugins.config.nvim-cmp")

@@ -10,7 +10,7 @@ return {
     config = function()
       require('Comment').setup({
         ---Add a space b/w comment and the line
-        padding = true,
+        padding = false,
         ---Whether the cursor should stay at its position
         sticky = true,
         ---Lines to be ignored while (un)comment

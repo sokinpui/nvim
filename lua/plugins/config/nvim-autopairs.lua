@@ -37,12 +37,11 @@ npairs.add_rules {
     :with_del(cond.none())
 }
 
--- math block in markdown
-npairs.add_rules({
-    Rule("$", "$", "markdown")
-    :with_move(cond.done()),
-})
-
+---- math block in markdown
+--npairs.add_rules({
+--    Rule("$", "$", "markdown")
+--    :with_move(cond.done()),
+--})
 
 -- disable in escaped chararcter
 for _, char in ipairs {

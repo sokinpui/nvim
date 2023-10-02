@@ -51,15 +51,6 @@ return {
       })
     end
   },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   -- event = { "BufReadPre", "BufNewFile" },
-  --   event = "LspAttach",
-  --   opts = {},
-  --   config = function(_, opts)
-  --     require("plugins.config.lsp_signature")
-  --   end
-  -- },
   {
     'mfussenegger/nvim-jdtls',
     ft = "java",

@@ -4,10 +4,6 @@ return{
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             vim.g.matchup_matchparen_offscreen = {}
-            vim.cmd([[
-            omap if i%
-            omap af a%
-            ]])
         end,
     },
     {

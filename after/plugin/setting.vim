@@ -9,7 +9,7 @@ let &t_TE = "\<Esc>[>4;m"
 
 filetype plugin on
 filetype plugin indent on
-packadd! matchit
+"packadd! matchit
 
 set path=$PWD/**
 set undodir=~/.local/state/nvim/undo//
@@ -20,7 +20,7 @@ set nocompatible
 set nopaste
 set autoread
 
-set backspace=indent,eol,start 
+set backspace=indent,eol,start
 set ttimeoutlen=0
 set encoding=utf-8
 

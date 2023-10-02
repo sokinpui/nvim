@@ -22,8 +22,8 @@ return {
       require('orgmode').setup_ts_grammar()
 
       require('orgmode').setup({
-        org_agenda_files = '~/Task-manage/**/*',
-        org_default_notes_file = '~/Task-manage/index.org',
+        org_agenda_files = '~/git_repo/mine/Task/**/*',
+        org_default_notes_file = '~/git_repo/mine/Task/index.org',
         org_highlight_latex_and_related = "entities",
         org_hide_leading_stars = true,
       })

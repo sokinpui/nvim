@@ -1,5 +1,5 @@
 return {
-  { 
+  {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     ft = "markdown",
@@ -33,9 +33,7 @@ return {
   },
   {
     "postfen/clipboard-image.nvim",
-    keys = {
-      { "<leader>i", "<cmd>PasteImg<CR>"},
-    },
+    ft = "markdown",
     config = function()
       require'clipboard-image'.setup {
         -- Default configuration for all filetype
@@ -69,20 +67,13 @@ return {
       }
     end
   },
-  --{ 
+  --{
   --  "lervag/lists.vim",
   --  ft = "markdown",
   --  config = function()
   --    vim.cmd("ListsEnable")
   --  end,
   --},
-  {
-    "KabbAmine/lazyList.vim",
-    cmd = "LazyList",
-    config = function()
-      vim.g.lazylist_omap = 'il'
-    end,
-  },
   {
     "coachshea/vim-textobj-markdown",
     dependencies = {

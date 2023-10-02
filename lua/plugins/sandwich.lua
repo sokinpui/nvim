@@ -39,18 +39,18 @@ return {
       vmap <leader>[ gs[
       vmap <leader>] gs]
       vmap <leader>{ gs{
-        vmap <leader>} gs}
-        vmap <leader>" gs"
-        vmap <leader>' gs'
-        vmap <leader>< gs<
-        vmap <leader>> gs>
-        vmap <leader>` gs`
-        vmap <leader>$ gs$
-        vmap <leader>_ gs_
-        vmap <leader>* gs*.
-        vmap <leader>~ gs~.
-        vmap <leader><space> gs<space>
-        ]])
-      end
-    },
-  }
+      vmap <leader>} gs}
+      vmap <leader>" gs"
+      vmap <leader>' gs'
+      vmap <leader>< gs<
+      vmap <leader>> gs>
+      vmap <leader>` gs`
+      vmap <leader>$ gs$
+      vmap <leader>_ gs_
+      vmap <leader>* gs*.
+      vmap <leader>~ gs~.
+      vmap <leader><space> gs<space>
+      ]])
+    end
+  },
+}

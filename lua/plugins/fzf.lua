@@ -73,6 +73,7 @@ return {
     keys = {
       {"<C-f>"},
       {"<C-p>"},
+      {"<C-g>"},
       {"<C-l>"},
       {"<leader><C-f>"},
       {"<leader>f"},
@@ -133,6 +134,7 @@ return {
       local fzf = require('fzf-lua')
       vim.keymap.set("n", "<C-f>", function () fzf.files() end, opts)
       vim.keymap.set("n", "<C-p>", function () fzf.grep_project() end, opts)
+      vim.keymap.set("n", "<C-g>", function () fzf.grep({ search = "" }) end, opts)
       vim.keymap.set("n", "<C-l>", function () fzf.lines() end, opts)
 
       vim.keymap.set("n", "<leader>fh", function () fzf.help_tags() end, opts)

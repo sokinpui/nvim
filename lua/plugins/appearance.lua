@@ -1,5 +1,5 @@
 return {
-  { 
+  {
     "sokinpui/onedark-modified",
     config = function()
       --enable colorscheme
@@ -9,10 +9,10 @@ return {
       require('onedark').load()
     end,
   },
-  -- { 
+  -- {
   --   'nvim-lualine/lualine.nvim',
   -- },
-  { 
+  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
     config = function()
@@ -62,6 +62,7 @@ return {
   },
   {
     "anuvyklack/help-vsplit.nvim",
+    event = "VeryLazy",
     config = function()
       require('help-vsplit').setup({
         always = true, -- Always open help in a vertical split.

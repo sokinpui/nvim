@@ -3,10 +3,8 @@ return {
     'stevearc/oil.nvim',
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
-      vim.keymap.set('n', '<leader>e', '<Cmd>Oil<cr>', { noremap = true, silent = true })
-    end,
     config = function()
+      vim.keymap.set('n', '<leader>e', '<Cmd>Oil<cr>', { noremap = true, silent = true })
       require("oil").setup({
         default_file_explorer = true,
         columns = {

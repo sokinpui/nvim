@@ -69,7 +69,6 @@ return {
     -- optional for icon support
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      { "junegunn/fzf", build = "./install --bin" },
     },
     keys = {
       {"<C-f>"},
@@ -80,6 +79,7 @@ return {
     },
     cmd = "FzfLua",
     config = function()
+      local actions = require "fzf-lua.actions"
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({
         global_file_icons    = false,
@@ -97,13 +97,41 @@ return {
           cursorline = "Search",
           buf_name = "Normal"
         },
+        actions = {
+          -- These override the default tables completely
+          -- no need to set to `false` to disable an action
+          -- delete or modify is sufficient
+          files = {
+            -- providers that inherit these actions:
+            --   files, git_files, git_status, grep, lsp
+            --   oldfiles, quickfix, loclist, tags, btags
+            --   args
+            -- default action opens a single selection
+            -- or sends multiple selection to quickfix
+            -- replace the default action with the below
+            -- to open all files whether single or multiple
+            -- ["default"]     = actions.file_edit,
+            ["default"]     = actions.file_edit_or_qf,
+            ["ctrl-s"]      = actions.file_split,
+            ["ctrl-v"]      = actions.file_vsplit,
+            ["ctrl-t"]      = actions.file_tabedit,
+            ["ctrl-q"]       = actions.file_sel_to_qf,
+            ["alt-l"]       = actions.file_sel_to_ll,
+          },
+          buffers = {
+            -- providers that inherit these actions:
+            --   buffers, tabs, lines, blines
+            ["default"]     = actions.buf_edit,
+            ["ctrl-s"]      = actions.buf_split,
+            ["ctrl-v"]      = actions.buf_vsplit,
+            ["ctrl-t"]      = actions.buf_tabedit,
+            ["ctrl-q"]       = actions.file_sel_to_qf,
+          }
+        },
       })
       local opts = {silent = true, noremap = true}
       local fzf = require('fzf-lua')
-      vim.keymap.set("n", "<leader><C-f>", "<Cmd>FzfLua<cr>", opts)
-
       vim.keymap.set("n", "<C-f>", function () fzf.files() end, opts)
-
       vim.keymap.set("n", "<C-p>", function () fzf.grep_project() end, opts)
       vim.keymap.set("n", "<C-l>", function () fzf.lines() end, opts)
 
@@ -112,6 +140,8 @@ return {
       vim.keymap.set("n", "<leader>fo", function () fzf.oldfiles() end, opts)
       vim.keymap.set("n", "<leader>ff", function () fzf.git_files() end, opts)
       vim.keymap.set("n", "<leader>fc", function () fzf.commands() end, opts)
+
+      --vim.keymap.set("t", "<C-v>", "<C-\\><C-n>\"+pA", opts)
     end
   }
 }

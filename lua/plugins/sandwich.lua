@@ -1,7 +1,7 @@
 return {
   {
     "machakann/vim-sandwich",
-    event = { "BufReadPre", "BufNewFile" },
+    --event = { "BufReadPre", "BufNewFile" },
     init = function()
       vim.cmd([[
       let g:sandwich_no_default_key_mappings = 1

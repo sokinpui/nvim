@@ -43,17 +43,27 @@ npairs.add_rules {
 --    :with_move(cond.done()),
 --})
 
--- disable in escaped chararcter
-for _, char in ipairs {
-  "'",
-  '"',
-  '`',
-} do
-for _, r in ipairs(npairs.get_rule(char)) do
-  r:with_move(cond.not_before_text('\\'))
-  :with_del(function(opts)
-    local prev_col = vim.api.nvim_win_get_cursor(0)[2] - 1
-    return opts.line:sub(prev_col, prev_col) ~= '\\'
-  end)
-end
-end
+---- disable in escaped chararcter
+--for _, char in ipairs {
+--  "'",
+--  '"',
+--  '`',
+--} do
+--for _, r in ipairs(npairs.get_rule(char)) do
+--  r:with_move(cond.not_before_text('\\'))
+--  :with_del(function(opts)
+--    local prev_col = vim.api.nvim_win_get_cursor(0)[2] - 1
+--    return opts.line:sub(prev_col, prev_col) ~= '\\'
+--  end)
+--end
+--end
+
+
+npairs.add_rules({
+   Rule('\\'.. '\"', ''),
+   Rule('\\'.. '[', ''),
+   Rule('\\'.. '`', ''),
+   Rule('\\'.. '\'', ''),
+   Rule('\\'.. '{', ''),
+   Rule('\\'.. '(', ''),
+})

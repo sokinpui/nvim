@@ -1,5 +1,5 @@
 if exists("g:loaded_delete_pair")
-        finish
+    finish
 endif
 let g:loaded_delete_pair = 1
 

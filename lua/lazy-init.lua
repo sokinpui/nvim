@@ -17,7 +17,7 @@ vim.g.mapleader = " "
 -- vim.g.maplocalleader = "="
 
 require("lazy").setup({
-  require("plugins.nerdfont"),
+  require("plugins.ultis"),
   require("plugins.appearance"),
   require("plugins.treesitter"),
   require("plugins.cleverf"),
@@ -25,7 +25,7 @@ require("lazy").setup({
   require("plugins.quickfix"),
   require("plugins.comments"),
   require("plugins.lsp"),
-  require("plugins.sandwich"),
+  require("plugins.surround"),
   require("plugins.visual-multi"),
   require("plugins.auto-pairs"),
   require("plugins.nvim-cmp"),
@@ -34,13 +34,6 @@ require("lazy").setup({
   require("plugins.oil"),
   require("plugins.undo"),
   require("plugins.orgmode"),
-  {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-    init = function()
-      vim.g.startuptime_tries = 10
-    end,
-  },
   { "kmonad/kmonad-vim", ft = "kbd"},
 
   --require("plugins.fern"),
@@ -52,5 +45,4 @@ require("lazy").setup({
 
 }, {})
 
-
-
+vim.keymap.set("n", "<leader>L", "<Cmd>Lazy<Cr>", { noremap = true })

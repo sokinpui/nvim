@@ -1,7 +1,7 @@
 "    Appearance
 "set background=dark
 
-syntax on
+"syntax on
 
 set termguicolors
 
@@ -11,7 +11,6 @@ set laststatus=2
 
 " I like block blink cursor
 set guicursor=i-n-v-c-sm:block,r-cr-o:hor50,a:blinkon100
-set guicursor+=a:blinkon100
 
 " cursor shape
 "let &t_SR = "\e[4 q" "SR = REPLACE mode
@@ -44,3 +43,10 @@ set nocursorline
 "augroup END
 
 set listchars=space:⋅
+
+highlight Visual ctermbg=242 guibg=#3e6452
+highlight MatchParen ctermbg=6 gui=bold guifg=#ff0000 guibg=#31353f
+highlight Search ctermfg=0 ctermbg=11 gui=bold,italic guifg=#080808 guibg=#61afef
+highlight IncSearch cterm=reverse gui=bold,italic guifg=#31353f guibg=#e5c07b
+highlight CurSearch gui=bold,italic guifg=#080808 guibg=#d19a66
+highlight Comment ctermfg=14 gui=bold,italic guifg=#808080

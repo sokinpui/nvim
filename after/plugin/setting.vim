@@ -1,5 +1,4 @@
 " basis setting
-let g:markdown_fenced_languages = ['c', 'sh', 'python', 'java', 'lisp']
 let g:mapleader = " "
 
 let $PAGER = ''

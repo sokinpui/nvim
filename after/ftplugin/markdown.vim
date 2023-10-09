@@ -2,7 +2,6 @@ setlocal textwidth=0 wrap formatoptions=tc2n linebreak
 set foldmethod=expr
 
 "set concealcursor=""
-set conceallevel=2
 nnoremap <buffer> <expr> <leader><C-l> &conceallevel == 0 ? "<Cmd>set conceallevel=2<Cr>" : "<Cmd>set conceallevel=0<cr>"
 
 noremap <buffer> j gj

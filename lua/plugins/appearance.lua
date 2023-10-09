@@ -2,6 +2,7 @@ return {
   {
     "sokinpui/onedark-modified",
     config = function()
+      vim.opt.background = "dark"
       --enable colorscheme
       require('onedark').setup {
         style = 'dark'

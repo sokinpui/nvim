@@ -73,8 +73,4 @@ return {
       })
     end
   },
-  {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-  },
 }

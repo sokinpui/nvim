@@ -33,6 +33,8 @@ autocmd textchanged * set nohlsearch
 set scrolloff=8
 set nocursorline
 
+set signcolumn=yes
+
 " auto hide and show cursorline when leave windows
 "augroup CursorLine
 "    au!

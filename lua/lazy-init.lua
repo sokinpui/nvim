@@ -34,6 +34,7 @@ require("lazy").setup({
   require("plugins.oil"),
   require("plugins.undo"),
   require("plugins.orgmode"),
+  require("plugins.fun"),
   { "kmonad/kmonad-vim", ft = "kbd"},
 
   --require("plugins.fern"),

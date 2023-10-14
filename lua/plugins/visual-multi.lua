@@ -1,11 +1,11 @@
 return {
-  { 
+  {
     "mg979/vim-visual-multi",
     keys = {
       {"<C-n>"},
       {"<C-n>",mode = "v"},
-      {"<C-S-j>"},
-      {"<C-S-k>"},
+      {"<C-down>"},
+      {"<C-up>"},
       {"u"},
       {"<C-r>"},
     },
@@ -14,8 +14,8 @@ return {
       vim.g.VM_maps = {
         ['Find Under'] = '<C-n>',
         ['Find Subword Under'] = '<C-n>',
-        ['Add Cursor Down'] = '<C-S-J>',
-        ['Add Cursor Up'] = '<C-S-K>',
+        ['Add Cursor Down'] = '<C-down>',
+        ['Add Cursor Up'] = '<C-up>',
         ["Undo"] = 'u',
         ["Redo"] = '<C-r>',
       }

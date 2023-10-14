@@ -28,7 +28,7 @@ return {
       vim.g.vim_markdown_toml_frontmatter = 1
       vim.g.vim_markdown_json_frontmatter = 1
       vim.g.vim_markdown_frontmatter = 1
-      vim.g.vim_markdown_strikethrough = 1
+      vim.g.vim_markdown_strikethrough = 0
     end,
   },
   {

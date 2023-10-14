@@ -18,7 +18,7 @@ if has("linux")
     inoremap <C-v> <C-r><C-o>+
     "inoremap <C-v> <C-o>"+p
     cnoremap <C-v> <C-r><C-o>+
-    nnoremap gY <Cmd>1,$y +<cr>
+    nnoremap gy <Cmd>1,$y +<cr>
 elseif has("mac")
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
@@ -30,7 +30,7 @@ elseif has("mac")
     vnoremap <leader>P "*p']
     inoremap <C-v> <C-r><C-o>*
     cnoremap <C-v> <C-r><C-o>*
-    nnoremap gY <Cmd>1,$y *<cr>
+    nnoremap gy <Cmd>1,$y *<cr>
 endif
 
 xnoremap <leader>p "_dP

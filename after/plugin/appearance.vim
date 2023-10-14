@@ -26,15 +26,19 @@ set smartcase
 autocmd insertenter * set nohlsearch
 autocmd textchanged * set nohlsearch
 
-" highlight yanked text
-"autocmd! TextYankPost * silent! lua vim.highlight.on_yank()
-"autocmd! TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=250}
+highlight Visual ctermbg=242 guibg=#3e6452
+highlight MatchParen ctermbg=6 gui=bold guifg=#ff0000 guibg=#31353f
+highlight Search ctermfg=0 ctermbg=11 gui=bold,italic guifg=#080808 guibg=#61afef
+highlight IncSearch cterm=reverse gui=bold,italic guifg=#31353f guibg=#e5c07b
+highlight CurSearch gui=bold,italic guifg=#080808 guibg=#d19a66
+highlight Comment gui=bold,italic guifg=#808080
+highlight @comment gui=bold,italic guifg=#808080
 
 set scrolloff=8
-set nocursorline
-
 set signcolumn=yes
+set listchars=space:⋅
 
+set nocursorline
 " auto hide and show cursorline when leave windows
 "augroup CursorLine
 "    au!
@@ -44,11 +48,4 @@ set signcolumn=yes
 "    au WinLeave * setlocal nocursorline
 "augroup END
 
-set listchars=space:⋅
 
-highlight Visual ctermbg=242 guibg=#3e6452
-highlight MatchParen ctermbg=6 gui=bold guifg=#ff0000 guibg=#31353f
-highlight Search ctermfg=0 ctermbg=11 gui=bold,italic guifg=#080808 guibg=#61afef
-highlight IncSearch cterm=reverse gui=bold,italic guifg=#31353f guibg=#e5c07b
-highlight CurSearch gui=bold,italic guifg=#080808 guibg=#d19a66
-highlight Comment ctermfg=14 gui=bold,italic guifg=#808080

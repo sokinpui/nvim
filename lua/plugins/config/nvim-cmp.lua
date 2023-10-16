@@ -21,18 +21,6 @@ cmp.setup {
     end,
   },
 
-  -- formatting = {
-  --   format = function(entry, vim_item)
-  --     -- Source
-  --     vim_item.menu = ({
-  --       buffer = "[Buffer]",
-  --       nvim_lsp = "[LSP]",
-  --       luasnips = "[Snippet]",
-  --     })[entry.source.name]
-  --     return vim_item
-  --   end
-  -- },
-
   sources = {
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lsp"},
@@ -72,6 +60,10 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
     ['<c-e>'] = cmp.mapping({
       i = function(fallback)
+        cmp.close()
+        fallback()
+      end,
+      c = function(fallback)
         cmp.close()
         fallback()
       end
@@ -133,24 +125,31 @@ cmp.setup {
   }),
 }
 
-cmp.setup.cmdline(':', {
-  --completion = { autocomplete = false },
-  sources = cmp.config.sources({
-    { name = 'async_path' }
-  }, {
-    { name = 'cmdline' },
-  }),
-  enabled = function()
-    -- Set of commands where cmp will be disabled
-    local disabled = {
-      --IncRename = true
+for _, cmd_type in ipairs({'/', '?'}) do
+  cmp.setup.cmdline(cmd_type, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      {
+        name = 'buffer',
+        keyword_length = 1,
+        option = {
+          keyword_length = 4,
+        }
+      }
     }
-    -- Get first word of cmdline
-    local cmd = vim.fn.getcmdline():match("%S+")
-    -- Return true if cmd isn't disabled
-    -- else call/return cmp.close(), which returns false
-    return not disabled[cmd] or cmp.close()
-  end
+  })
+end
+
+local function send_wildchar()
+  local char = vim.fn.nr2char(vim.opt.wildchar:get())
+  local key = vim.api.nvim_replace_termcodes(char, true, false, true)
+  vim.api.nvim_feedkeys(key, "nt", true)
+end
+cmp.setup.cmdline(":", {
+  mapping = {
+    ["<Tab>"] = {c = send_wildchar}
+  },
+  sources = cmp.config.sources({})
 })
 
 -- Snippet
@@ -169,7 +168,7 @@ end, {silent = true})
 luasnip.config.set_config({
   store_selection_keys = '<C-j>',
   history = true, --keep around last snippet local to jump back
-	updateevents = "TextChanged,TextChangedI",
+  updateevents = "TextChanged,TextChangedI",
 })
 
 -- Predefined snippet

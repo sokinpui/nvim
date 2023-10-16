@@ -3,6 +3,10 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
+    keys = {
+      "/",
+      "?",
+    },
     dependencies = {
       "hrsh7th/cmp-buffer",
       "FelipeLema/cmp-async-path",

@@ -48,6 +48,10 @@ noremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz
 
+"make {count}j/k become jumps
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count . "j" : "j")
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count . "k" : "k")
+
 "noremap <leader>K K
 
 " search
@@ -101,4 +105,3 @@ cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'w
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 "nnoremap <leader><leader> <Cmd>source<Cr>
-

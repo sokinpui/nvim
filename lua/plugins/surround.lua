@@ -6,20 +6,20 @@ return {
       { "gS", mode = { "n", "v" }},
       "ds",
       "cs",
-      "<leader>~",
-      "<leader>*",
-      "<leader>$",
-      "<leader>`",
-      "<leader>>",
-      "<leader><",
-      "<leader>'",
-      "<leader>\"",
-      "<leader>}",
-      "<leader>{",
-      "<leader>]",
-      "<leader>[",
-      "<leader>)",
-      "<leader>(",
+      { "<leader>~", mode = { "n", "v" }},
+      { "<leader>*", mode = { "n", "v" }},
+      { "<leader>$", mode = { "n", "v" }},
+      { "<leader>`", mode = { "n", "v" }},
+      { "<leader>>", mode = { "n", "v" }},
+      { "<leader><", mode = { "n", "v" }},
+      { "<leader>'", mode = { "n", "v" }},
+      { "<leader>\"", mode = { "n", "v" }},
+      { "<leader>}", mode = { "n", "v" }},
+      { "<leader>{", mode = { "n", "v" }},
+      { "<leader>]", mode = { "n", "v" }},
+      { "<leader>[", mode = { "n", "v" }},
+      { "<leader>)", mode = { "n", "v" }},
+      { "<leader>(", mode = { "n", "v" }},
     },
     config = function ()
       vim.cmd([[highlight default link NvimSurroundHighlight DiffChange]])
@@ -52,6 +52,21 @@ return {
       nmap <leader>$ gsiw$f$
       nmap <leader>* gsiw*f*
       nmap <leader>~ gsiw~f~
+
+      vmap <leader>( gs(
+      vmap <leader>) gs)
+      vmap <leader>[ gs[
+      vmap <leader>] gs]
+      vmap <leader>{ gs{
+      vmap <leader>} gs}
+      vmap <leader>" gs"
+      vmap <leader>' gs'
+      vmap <leader>< gs<
+      vmap <leader>> gs>
+      vmap <leader>` gs`
+      vmap <leader>$ gs$
+      vmap <leader>* gs*
+      vmap <leader>~ gs~
       ]])
     end
   }

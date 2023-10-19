@@ -6,6 +6,8 @@ return {
       {"<C-n>",mode = "v"},
       {"<C-down>"},
       {"<C-up>"},
+      {"<C-S-j>"},
+      {"<C-S-k>"},
       {"u"},
       {"<C-r>"},
     },
@@ -14,8 +16,10 @@ return {
       vim.g.VM_maps = {
         ['Find Under'] = '<C-n>',
         ['Find Subword Under'] = '<C-n>',
-        ['Add Cursor Down'] = '<C-down>',
-        ['Add Cursor Up'] = '<C-up>',
+        ['Add Cursor Up'] = '<C-S-k>',
+        ['Add Cursor Down'] = '<C-S-j>',
+        --['Add Cursor Up'] = '<C-up>',
+        --['Add Cursor Down'] = '<C-down>',
         ["Undo"] = 'u',
         ["Redo"] = '<C-r>',
       }

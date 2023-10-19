@@ -45,12 +45,12 @@ nnoremap gp '[v']
 " Vertical
 noremap ( )
 noremap ) (
-nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz
+noremap <c-d> <c-d>zz
+noremap <c-u> <c-u>zz
 
 "make {count}j/k become jumps
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count . "j" : "j")
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count . "k" : "k")
+nnoremap <expr> j (v:count > 2 ? "m'" . v:count . "j" : "j")
+nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
 
 "noremap <leader>K K
 
@@ -72,8 +72,8 @@ nnoremap =<leader> gg=G''zz
 "nnoremap <leader>gq gggqG<C-o>zz
 
 " should be leverge the built in . repeat
-"vnoremap < <gv
-"vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " shortcut
 "nnoremap <C-q> <C-w>q

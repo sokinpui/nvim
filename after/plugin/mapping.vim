@@ -57,12 +57,12 @@ nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
 "nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
 
-nnoremap n <Cmd>set hlsearch<Cr>nzzzv
-nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
-nnoremap * <Cmd>set hlsearch<Cr>*zzzv
-nnoremap # <Cmd>set hlsearch<Cr>#zzzv
-vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
-vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
+"nnoremap n <Cmd>set hlsearch<Cr>nzzzv
+"nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
+"nnoremap * <Cmd>set hlsearch<Cr>*zzzv
+"nnoremap # <Cmd>set hlsearch<Cr>#zzzv
+"vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
+"vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
 
 " indention formation
 nnoremap =<leader> gg=G''zz

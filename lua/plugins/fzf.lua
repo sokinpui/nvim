@@ -75,6 +75,7 @@ return {
 
       vim.keymap.set("n", "<leader>fh", function () fzf.help_tags() end, opts)
       vim.keymap.set("n", "<leader>fm", function () fzf.marks() end, opts)
+      vim.keymap.set("n", "<leader>fM", function () fzf.keymaps() end, opts)
       vim.keymap.set("n", "<leader>fo", function () fzf.oldfiles() end, opts)
       vim.keymap.set("n", "<leader>ff", function () fzf.git_files() end, opts)
       vim.keymap.set("n", "<leader>fc", function () fzf.commands() end, opts)

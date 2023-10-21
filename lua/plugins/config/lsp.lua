@@ -7,7 +7,8 @@ local lspconfig = require('lspconfig')
 local servers = {
   "lua_ls",
   "jdtls",
-  "pyright"
+  "pyright",
+  --"bashls",
 }
 
 for _, lsp in ipairs(servers) do

@@ -38,20 +38,20 @@ return {
         },
       })
       vim.cmd([[
-      nmap <leader>( gsiw(f)
-      nmap <leader>) gsiw)f)
-      nmap <leader>[ gsiw[f]
-      nmap <leader>] gsiw]f]
-      nmap <leader>{ gsiw{f}
-      nmap <leader>} gsiw}f}
-      nmap <leader>" gsiw"f"
-      nmap <leader>' gsiw'f'
-      nmap <leader>< gsiw<f>
-      nmap <leader>> gsiw>f>
-      nmap <leader>` gsiw`f`
-      nmap <leader>$ gsiw$f$
-      nmap <leader>* gsiw*f*
-      nmap <leader>~ gsiw~f~
+      nmap <leader>( gsiw(
+      nmap <leader>) gsiw)
+      nmap <leader>[ gsiw[
+      nmap <leader>] gsiw]
+      nmap <leader>{ gsiw{
+      nmap <leader>} gsiw}
+      nmap <leader>" gsiw"
+      nmap <leader>' gsiw'
+      nmap <leader>< gsiw<
+      nmap <leader>> gsiw>
+      nmap <leader>` gsiw`
+      nmap <leader>$ gsiw$
+      nmap <leader>* gsiw*
+      nmap <leader>~ gsiw~
 
       vmap <leader>( gs(
       vmap <leader>) gs)

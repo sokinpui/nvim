@@ -14,7 +14,18 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
-  --{
+
+  -- {
+  --   'CosmicNvim/cosmic-ui',
+  --   dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('cosmic-ui').setup({
+  --       border_style = 'rounded',
+  --     })
+  --   end,
+  -- },
+
+  -- {
   --  "folke/noice.nvim",
   --  opts = {
   --    -- add any options here
@@ -46,7 +57,8 @@ return {
   --      },
   --    })
   --  end
-  --}
+  -- }
+  --
   --"nathom/filetype.nvim",
   --{
   --  'stevearc/dressing.nvim',

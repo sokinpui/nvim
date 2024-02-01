@@ -23,8 +23,12 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-autocmd insertenter * set nohlsearch
-autocmd textchanged * set nohlsearch
+augroup AutoHighlighting
+    au!
+    autocmd insertenter * set nohlsearch
+    autocmd textchanged * set nohlsearch
+    autocmd CmdlineEnter /,\? set hlsearch
+augroup END
 
 highlight Visual ctermbg=242 guibg=#3e6452
 highlight MatchParen ctermbg=6 gui=bold guifg=#ff0000 guibg=#31353f

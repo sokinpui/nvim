@@ -44,6 +44,11 @@ return {
         indent = {
           enable = false
         },
+        matchup = {
+          enable = true,              -- mandatory, false will disable the whole extension
+          disable = {},  -- optional, list of language that will be disabled
+          -- [options]
+        },
       })
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
@@ -54,6 +59,7 @@ return {
       vim.opt.foldenable = false
     end
   },
+
   --{
   --  'kevinhwang91/nvim-ufo',
   --  dependencies = {

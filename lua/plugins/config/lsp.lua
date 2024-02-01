@@ -8,6 +8,8 @@ local servers = {
   "lua_ls",
   "jdtls",
   "pyright",
+  "clangd",
+  "jsonls",
   --"bashls",
 }
 

@@ -9,7 +9,7 @@ return {
     },
     config = function()
       vim.cmd([[highlight CleverFDefaultLabel cterm=bold ctermfg=9 gui=bold guifg=Red]])
-      vim.g.clever_f_smart_case = 0
+      vim.g.clever_f_smart_case = 1
       vim.g.clever_f_across_no_line = 0
       vim.g.clever_f_chars_match_any_signs = '\t'
       vim.g.clever_f_repeat_last_char_inputs = { '\r' }

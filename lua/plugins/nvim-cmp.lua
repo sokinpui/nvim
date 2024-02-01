@@ -53,6 +53,6 @@ return {
         templates = { template },
       }
     end
-  }
+  },
 }
 

@@ -9,8 +9,10 @@ return {
       {"<C-f>"},
       {"<C-p>"},
       {"<C-g>"},
+      {"<C-g>", mode = "v"},
       {"<C-l>"},
       {"<leader>f"},
+      {"<leader>F"},
     },
     cmd = "FzfLua",
     config = function()
@@ -71,11 +73,12 @@ return {
       vim.keymap.set("n", "<C-f>", function () fzf.files() end, opts)
       vim.keymap.set("n", "<C-p>", function () fzf.grep_project() end, opts)
       vim.keymap.set("n", "<C-g>", function () fzf.grep({ search = "" }) end, opts)
+      vim.keymap.set("v", "<C-g>", function () fzf.grep_visual() end, opts)
       vim.keymap.set("n", "<C-l>", function () fzf.lines() end, opts)
 
       vim.keymap.set("n", "<leader>fh", function () fzf.help_tags() end, opts)
       vim.keymap.set("n", "<leader>fm", function () fzf.marks() end, opts)
-      vim.keymap.set("n", "<leader>fM", function () fzf.keymaps() end, opts)
+      vim.keymap.set("n", "<leader>FM", function () fzf.keymaps() end, opts)
       vim.keymap.set("n", "<leader>fo", function () fzf.oldfiles() end, opts)
       vim.keymap.set("n", "<leader>ff", function () fzf.git_files() end, opts)
       vim.keymap.set("n", "<leader>fc", function () fzf.commands() end, opts)

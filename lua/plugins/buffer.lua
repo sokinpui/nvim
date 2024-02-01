@@ -2,7 +2,7 @@ return {
   {
     "j-morano/buffer_manager.nvim",
     keys = {
-      {"<C-b>"},
+      {"<c-b>"},
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -14,14 +14,15 @@ return {
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         height = 24,
         width = 80,
+        line_keys = "",
       })
-      vim.keymap.set("n", "<C-b>", require("buffer_manager.ui").toggle_quick_menu, opts)
+      vim.keymap.set("n", "<c-b>", require("buffer_manager.ui").toggle_quick_menu, opts)
     end
   },
   {
     "cbochs/grapple.nvim",
     keys = {
-      {"M"},
+      {"<leader>m"},
       {"<leader>a"},
     },
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -38,7 +39,7 @@ return {
       })
       local grapple = require("grapple")
       vim.keymap.set("n", "<leader>a", grapple.tag)
-      vim.keymap.set("n", "M", grapple.popup_tags)
+      vim.keymap.set("n", "<leader>m", grapple.popup_tags)
     end
   },
 }

@@ -4,6 +4,8 @@ return {
     keys = {
       {"gcc"},
       {"gbc"},
+      {"gc"},
+      {"gb"},
       { "gc", mode = "v" },
       { "gb", mode = "v" },
     },

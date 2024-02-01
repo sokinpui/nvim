@@ -1,5 +1,7 @@
 inoremap <C-k> <Esc>k
 
+nnoremap <Esc> <Cmd>nohlsearch<CR><Esc>
+
 " delete whole word via Ctrl+backspace
 inoremap <C-H> <C-w>
 cnoremap <C-H> <C-w>
@@ -57,15 +59,17 @@ nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
 "nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
 
-"nnoremap n <Cmd>set hlsearch<Cr>nzzzv
-"nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
-"nnoremap * <Cmd>set hlsearch<Cr>*zzzv
-"nnoremap # <Cmd>set hlsearch<Cr>#zzzv
-"vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
-"vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
+" nnoremap n <Cmd>set hlsearch<Cr>nzzzv
+" nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
+" nnoremap * <Cmd>set hlsearch<Cr>*zzzv
+" nnoremap # <Cmd>set hlsearch<Cr>#zzzv
+" vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
+" vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
+" nnoremap g* <Cmd>set hlsearch<Cr>g*zzzv
+" nnoremap g# <Cmd>set hlsearch<Cr>g#zzzv
 
 " indention formation
-nnoremap =<leader> gg=G''zz
+nnoremap =<leader> gg=G`'zz
 
 " formating code
 "nnoremap <leader>gq gggqG<C-o>zz
@@ -97,7 +101,7 @@ nnoremap <C-H> <Cmd>bp<cr>
 
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
-            cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
+cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'
 cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'Wq'
 cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'

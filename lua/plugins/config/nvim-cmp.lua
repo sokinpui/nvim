@@ -13,6 +13,11 @@ local luasnip = require 'luasnip'
 
 cmp.setup {
 
+  window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+
   preselect = cmp.PreselectMode.None,
 
   snippet = {
@@ -56,8 +61,10 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert({
     --["<C-y>"] = cmp.mapping.confirm(),
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+    --['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    --['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
     ['<c-e>'] = cmp.mapping({
       i = function(fallback)
         cmp.close()
@@ -175,3 +182,4 @@ luasnip.config.set_config({
 
 require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "~/.config/nvim/snipmates" } })
 
+-- completion ui config

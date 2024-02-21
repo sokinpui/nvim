@@ -10,6 +10,7 @@ local servers = {
   "pyright",
   "clangd",
   "jsonls",
+  "asm_lsp"
   --"bashls",
 }
 

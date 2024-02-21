@@ -35,7 +35,10 @@ require("lazy").setup({
   require("plugins.undo"),
   require("plugins.orgmode"),
   require("plugins.fun"),
+  require("plugins.copilot"),
   { "kmonad/kmonad-vim", ft = "kbd"},
+
+  -- 'nanotee/zoxide.vim',
 
   --require("plugins.fern"),
   --require("plugins.flit"),

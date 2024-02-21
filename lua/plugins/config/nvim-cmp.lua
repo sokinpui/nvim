@@ -2,9 +2,15 @@ local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+-- local has_words_before = function()
+--   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+--   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+-- end
 local has_words_before = function()
+  unpack = unpack or table.unpack
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
 end
 
 local cmp = require 'cmp'
@@ -28,6 +34,8 @@ cmp.setup {
 
   sources = {
     { name = "nvim_lsp_signature_help" },
+    -- { name = "copilot", group_index = 2 },
+    { name = "copilot" },
     { name = "nvim_lsp"},
     { name = "luasnip" },
     { name = "async_path" },
@@ -36,7 +44,7 @@ cmp.setup {
       name = "buffer",
       keyword_length = 1,
       option = {
-        keyword_length = 4,
+        keyword_length = 3,
         --keyword_pattern = [[\k\+]],
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
@@ -46,11 +54,26 @@ cmp.setup {
   },
 
   sorting = {
+    priority_weight = 2,
     comparators = {
+      require("copilot_cmp.comparators").prioritize,
+
+      -- cmp.config.compare.offset,
+      -- cmp.config.compare.exact,
+      -- cmp.config.compare.score,
+      -- require "cmp-under-comparator".under,
+      -- cmp.config.compare.kind,
+      -- cmp.config.compare.sort_text,
+      -- cmp.config.compare.length,
+      -- cmp.config.compare.order,
+
+      -- Below is the default comparitor list and order for nvim-cmp
       cmp.config.compare.offset,
+      -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
       cmp.config.compare.exact,
       cmp.config.compare.score,
-      require "cmp-under-comparator".under,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
       cmp.config.compare.length,
@@ -75,6 +98,17 @@ cmp.setup {
         fallback()
       end
     }),
+    ["<CR>"] = cmp.mapping({
+      i = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        else
+          fallback()
+        end
+      end,
+      s = cmp.mapping.confirm({ select = true }),
+      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    }),
     ["<Tab>"] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
@@ -83,6 +117,25 @@ cmp.setup {
           cmp.complete()
         else
           fallback()
+        end
+        -- if cmp.visible() and has_words_before() then
+        --   cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        -- else
+        --   fallback()
+        -- end
+      end,
+      c = function(_)
+        if cmp.visible() then
+          if #cmp.get_entries() == 1 then
+            cmp.confirm({ select = true })
+          else
+            cmp.select_next_item()
+          end
+        else
+          cmp.complete()
+          if #cmp.get_entries() == 1 then
+            cmp.confirm({ select = true })
+          end
         end
       end,
     }),
@@ -183,3 +236,4 @@ luasnip.config.set_config({
 require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "~/.config/nvim/snipmates" } })
 
 -- completion ui config
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})

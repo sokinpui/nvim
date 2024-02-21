@@ -41,6 +41,7 @@ highlight @comment gui=bold,italic guifg=#808080
 set scrolloff=8
 set signcolumn=yes
 set listchars=space:⋅
+set pumheight=30
 
 set nocursorline
 " auto hide and show cursorline when leave windows

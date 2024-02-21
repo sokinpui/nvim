@@ -50,7 +50,7 @@ return {
           if nearest then
             local cnt = #posList
             if indicator ~= '' then
-              text = ('[%s]'):format(indicator, idx, cnt)
+              text = ('%s'):format('', idx, cnt)
             else
               text = ('[%d/%d]'):format(idx, cnt)
             end

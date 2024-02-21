@@ -2,12 +2,19 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    event = "InsertEnter",
+    -- event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     keys = {
       "/",
       "?",
     },
     dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+          require("copilot_cmp").setup()
+        end
+      },
       "hrsh7th/cmp-buffer",
       "FelipeLema/cmp-async-path",
       "lukas-reineke/cmp-under-comparator",

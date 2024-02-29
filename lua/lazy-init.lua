@@ -17,26 +17,35 @@ vim.g.mapleader = " "
 -- vim.g.maplocalleader = "="
 
 require("lazy").setup({
+  -- editor
   require("plugins.ultis"),
   require("plugins.appearance"),
   require("plugins.treesitter"),
-  require("plugins.cleverf"),
-  require("plugins.buffer"),
+  require("plugins.undo"),
   require("plugins.quickfix"),
   require("plugins.comments"),
-  require("plugins.lsp"),
-  require("plugins.surround"),
-  require("plugins.visual-multi"),
-  require("plugins.auto-pairs"),
-  require("plugins.nvim-cmp"),
-  require("plugins.fzf"),
-  require("plugins.markdown"),
+  -- buffer jump
+  require("plugins.buffer"),
   require("plugins.oil"),
-  require("plugins.undo"),
+  -- motion
+  require("plugins.cleverf"),
+  require("plugins.visual-multi"),
+  require("plugins.surround"),
+  require("plugins.auto-pairs"),
+  require("plugins.fzf"),
+  -- filetype
+  require("plugins.markdown"),
   require("plugins.orgmode"),
-  require("plugins.fun"),
-  require("plugins.copilot"),
   { "kmonad/kmonad-vim", ft = "kbd"},
+  -- completion
+  require("plugins.lsp"),
+  require("plugins.nvim-cmp"),
+  require("plugins.copilot"),
+
+  -- git
+  require("plugins.git"),
+
+  require("plugins.fun"),
 
   -- 'nanotee/zoxide.vim',
 

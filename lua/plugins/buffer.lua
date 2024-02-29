@@ -2,7 +2,7 @@ return {
   {
     "j-morano/buffer_manager.nvim",
     keys = {
-      {"<c-b>"},
+      {"<C-H>"},
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -16,7 +16,7 @@ return {
         width = 80,
         line_keys = "",
       })
-      vim.keymap.set("n", "<c-b>", require("buffer_manager.ui").toggle_quick_menu, opts)
+      vim.keymap.set("n", "<C-H>", require("buffer_manager.ui").toggle_quick_menu, opts)
     end
   },
   {

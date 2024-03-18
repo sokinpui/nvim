@@ -1,23 +1,15 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
-<<<<<<< HEAD
-  "CopilotChat.nvim": { "branch": "main", "commit": "f448632572fef3f0d7fad9fe2df95c48a003eb9c" },
-  "LuaSnip": { "branch": "master", "commit": "cdbf6f41381e5ee4810b4b09284b603d8f18365d" },
-  "buffer_manager.nvim": { "branch": "main", "commit": "855d31cf63b7b4399bfef48f59e6aa956fd78850" },
-||||||| 3dfaf8c
-  "LuaSnip": { "branch": "master", "commit": "cdbf6f41381e5ee4810b4b09284b603d8f18365d" },
-  "buffer_manager.nvim": { "branch": "main", "commit": "855d31cf63b7b4399bfef48f59e6aa956fd78850" },
-=======
+  "CopilotChat.nvim": { "branch": "main", "commit": "4248f51a1c8ad6a426aa9c3118420e0292ef2890" },
   "LuaSnip": { "branch": "master", "commit": "480b032f6708573334f4437d3f83307d143f1a72" },
   "buffer_manager.nvim": { "branch": "main", "commit": "5daffda54f78a02a070834ede77d108531f7058d" },
->>>>>>> refs/remotes/origin/lua
   "cellular-automaton.nvim": { "branch": "main", "commit": "b7d056dab963b5d3f2c560d92937cb51db61cb5b" },
   "clever-f.vim": { "branch": "master", "commit": "6a3ac5e3688598af9411ab741737f98c47370c22" },
   "clipboard-image.nvim": { "branch": "main", "commit": "af8fdaad7e6fed0741e18dbf2f57bdc7494adaee" },
-  "cmp-async-path": { "branch": "main", "commit": "d8229a93d7b71f22c66ca35ac9e6c6cd850ec61d" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-nvim-lsp-signature-help": { "branch": "main", "commit": "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1" },
+  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-under-comparator": { "branch": "master", "commit": "6857f10272c3cfe930cece2afa2406e1385bfef8" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "copilot-cmp": { "branch": "master", "commit": "72fbaa03695779f8349be3ac54fa8bd77eed3ee3" },

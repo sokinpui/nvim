@@ -16,7 +16,8 @@ return {
         end
       },
       "hrsh7th/cmp-buffer",
-      "FelipeLema/cmp-async-path",
+      -- "FelipeLema/cmp-async-path",
+      "https://github.com/hrsh7th/cmp-path.git",
       "lukas-reineke/cmp-under-comparator",
 
       -- LSP

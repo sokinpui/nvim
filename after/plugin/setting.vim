@@ -1,5 +1,6 @@
 " basis setting
 let g:mapleader = " "
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 let $PAGER = ''
 

@@ -35,10 +35,13 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp_signature_help" },
     -- { name = "copilot", group_index = 2 },
-    { name = "copilot" },
+    {
+      name = "copilot",
+      keyword_length = 0,
+    },
     { name = "nvim_lsp"},
     { name = "luasnip" },
-    { name = "async_path" },
+    { name = "path" },
     { name = "orgmode" },
     {
       name = "buffer",

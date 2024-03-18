@@ -6,7 +6,10 @@ return {
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
-        suggestion = { enabled = false },
+        suggestion = {
+          enabled = false,
+          auto_trigger = true,
+        },
         panel = { enabled = false },
       })
 
@@ -46,6 +49,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    cmd = "CopilotChat",
     opts = {
       show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
       debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log

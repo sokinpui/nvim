@@ -93,8 +93,8 @@ nnoremap <c-w>d <Cmd>bd<cr>
 "nnoremap <leader>e :edit! %<cr>
 
 " buffer switch
-nnoremap <Bs> <Cmd>bn<cr>
-nnoremap <C-H> <Cmd>bp<cr>
+" nnoremap <Bs> <Cmd>bn<cr>
+" nnoremap <C-H> <Cmd>bp<cr>
 " This is same as C-^, the alternative file
 "nnoremap <leader><bs> <Cmd>b#<cr>
 "nnoremap =<Bs> <Cmd>ls<cr>

@@ -3,6 +3,7 @@ return {
     "j-morano/buffer_manager.nvim",
     keys = {
       {"<C-H>"},
+      {"<Backspace>"},
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -17,6 +18,7 @@ return {
         line_keys = "",
       })
       vim.keymap.set("n", "<C-H>", require("buffer_manager.ui").toggle_quick_menu, opts)
+      vim.keymap.set("n", "<Backspace>", require("buffer_manager.ui").toggle_quick_menu, opts)
     end
   },
   {

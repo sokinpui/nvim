@@ -33,6 +33,7 @@ require("lazy").setup({
   require("plugins.surround"),
   require("plugins.auto-pairs"),
   require("plugins.fzf"),
+  -- require("plugins.scroll"),
   -- filetype
   require("plugins.markdown"),
   require("plugins.orgmode"),

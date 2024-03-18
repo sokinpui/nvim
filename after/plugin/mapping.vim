@@ -46,8 +46,8 @@ nnoremap gp '[v']
 " Vertical
 noremap ( )
 noremap ) (
-noremap <c-d> <c-d>zz
-noremap <c-u> <c-u>zz
+" noremap <c-d> <c-d>zz
+" noremap <c-u> <c-u>zz
 
 "make {count}j/k become jumps
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count . "j" : "j")

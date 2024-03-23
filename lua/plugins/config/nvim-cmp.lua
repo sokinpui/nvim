@@ -240,3 +240,5 @@ require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "~/.config/nvim/s
 
 -- completion ui config
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' }) -- line to fix de background color border
+

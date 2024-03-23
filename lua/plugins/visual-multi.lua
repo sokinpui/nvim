@@ -65,15 +65,15 @@ return {
 
       local kopts = {noremap = true, silent = true}
 
-      vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR>zzzv<Cmd>lua require('hlslens').start()<CR>]],
+      vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR>zv<Cmd>lua require('hlslens').start()<CR>]],
       kopts)
       vim.keymap.set('n', 'N',
-      [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR>zzzv<Cmd>lua require('hlslens').start()<CR>]],
+      [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR>zv<Cmd>lua require('hlslens').start()<CR>]],
       kopts)
-      vim.keymap.set('n', '*', [[*zzzv<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.keymap.set('n', '#', [[#zzzv<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.keymap.set('n', 'g*', [[g*zzzv<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.keymap.set('n', 'g#', [[g#zzzv<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.keymap.set('n', '*', [[*zv<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.keymap.set('n', '#', [[#zv<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.keymap.set('n', 'g*', [[g*zv<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.keymap.set('n', 'g#', [[g#zv<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
       -- vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
     end

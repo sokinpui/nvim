@@ -46,6 +46,10 @@ require("lazy").setup({
   -- git
   require("plugins.git"),
 
+  --tmux
+  require("plugins.tmux"),
+
+  -- useless
   require("plugins.fun"),
 
   -- 'nanotee/zoxide.vim',

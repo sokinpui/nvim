@@ -99,6 +99,7 @@ nnoremap <c-w>d <Cmd>bd<cr>
 "nnoremap <leader><bs> <Cmd>b#<cr>
 "nnoremap =<Bs> <Cmd>ls<cr>
 
+
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> WQ getcmdtype() == ':' && getcmdline() =~# '^WQ' ? 'wqa' : 'WQ'

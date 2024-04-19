@@ -82,7 +82,7 @@ vnoremap > >gv
 "nnoremap <C-q> <C-w>q
 "nnoremap <C-f> <C-w>w
 
-nnoremap <c-w>d <Cmd>bd<cr>
+" nnoremap <c-w>d <Cmd>bd<cr>
 " nnoremap =q <C-w>q
 " nnoremap =h <C-w>h
 " nnoremap =j <C-w>j
@@ -109,3 +109,17 @@ cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'w
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 "nnoremap <leader><leader> <Cmd>source<Cr>
+
+" scrolling
+map <ScrollWheelUp> <nop>
+map <S-ScrollWheelUp> <nop>
+map <C-ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
+map <S-ScrollWheelDown> <nop>
+map <C-ScrollWheelDown> <nop>
+map <ScrollWheelLeft> <nop>
+map <S-ScrollWheelLeft> <nop>
+map <C-ScrollWheelLeft> <nop>
+map <ScrollWheelRight> <nop>
+map <S-ScrollWheelRight> <nop>
+map <C-ScrollWheelRight> <nop>

@@ -6,7 +6,16 @@
 set termguicolors
 
 "  statusline setting
-set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
+" function Gitbranch()
+"     return "[" . trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null")) . "]"
+" endfunction
+"
+" augroup Gitget
+"     autocmd!
+"     autocmd BufEnter * let b:git_branch = Gitbranch()
+" augroup END
+
+" set statusline=%{b:git_branch}\ %<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
 set laststatus=2
 
 " I like block blink cursor
@@ -31,7 +40,9 @@ augroup AutoHighlighting
 augroup END
 
 highlight Visual ctermbg=242 guibg=#3e6452
-highlight MatchParen ctermbg=6 gui=bold guifg=#ff0000 guibg=#31353f
+" highlight MatchParen ctermbg=6 gui=bold guifg=yellowgreen guibg=#282c34
+highlight MatchParen ctermbg=6 gui=bold guifg=tomato guibg=#282c34
+highlight MatchWord ctermbg=6 gui=italic guifg=yellowgreen guibg=#282c34
 highlight Search ctermfg=0 ctermbg=11 gui=bold,italic guifg=#080808 guibg=#61afef
 highlight IncSearch cterm=reverse gui=bold,italic guifg=#31353f guibg=#e5c07b
 highlight CurSearch gui=bold,italic guifg=#080808 guibg=#d19a66

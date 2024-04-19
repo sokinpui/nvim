@@ -26,9 +26,10 @@ require("lazy").setup({
   require("plugins.comments"),
   -- buffer jump
   require("plugins.buffer"),
-  require("plugins.oil"),
+  -- require("plugins.oil"),
   -- motion
-  require("plugins.cleverf"),
+  -- require("plugins.cleverf"),
+  require("plugins.jump"),
   require("plugins.visual-multi"),
   require("plugins.surround"),
   require("plugins.auto-pairs"),
@@ -36,7 +37,7 @@ require("lazy").setup({
   -- require("plugins.scroll"),
   -- filetype
   require("plugins.markdown"),
-  require("plugins.orgmode"),
+  -- require("plugins.orgmode"),
   { "kmonad/kmonad-vim", ft = "kbd"},
   -- completion
   require("plugins.lsp"),
@@ -44,13 +45,13 @@ require("lazy").setup({
   require("plugins.copilot"),
 
   -- git
-  require("plugins.git"),
+  -- require("plugins.git"),
 
   --tmux
   require("plugins.tmux"),
 
   -- useless
-  require("plugins.fun"),
+  -- require("plugins.fun"),
 
   -- 'nanotee/zoxide.vim',
 
@@ -63,4 +64,4 @@ require("lazy").setup({
 
 }, {})
 
-vim.keymap.set("n", "<leader>L", "<Cmd>Lazy<Cr>", { noremap = true })
+-- vim.keymap.set("n", "<leader>L", "<Cmd>Lazy<Cr>", { noremap = true })

@@ -2,7 +2,7 @@ return {
   {
     "j-morano/buffer_manager.nvim",
     keys = {
-      {"<C-H>"},
+      -- {"<C-b>"},
       {"<Backspace>"},
     },
     dependencies = {
@@ -17,31 +17,43 @@ return {
         width = 80,
         line_keys = "",
       })
-      vim.keymap.set("n", "<C-H>", require("buffer_manager.ui").toggle_quick_menu, opts)
+      -- vim.keymap.set("n", "<C-b>", require("buffer_manager.ui").toggle_quick_menu, opts)
       vim.keymap.set("n", "<Backspace>", require("buffer_manager.ui").toggle_quick_menu, opts)
     end
   },
   {
-    "cbochs/grapple.nvim",
+    "ThePrimeagen/harpoon",
     keys = {
-      {"<leader>m"},
-      {"<leader>a"},
+      "<leader>m",
+      "<cr>",
     },
+    branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
-      require("grapple").setup({
-        popup_options = {
-          relative = "editor",
-          width = 80,
-          height = 12,
-          style = "minimal",
-          focusable = false,
-          border = "single",
-        },
-      })
-      local grapple = require("grapple")
-      vim.keymap.set("n", "<leader>a", grapple.tag)
-      vim.keymap.set("n", "<leader>m", grapple.popup_tags)
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup()
+      vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
+      vim.keymap.set("n", "<cr>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
     end
   },
+  -- {
+  --   "cbochs/grapple.nvim",
+  --   keys = {
+  --     "<Enter>",
+  --     "<leader>m",
+  --     "<leader>a",
+  --   },
+  --   cmd = {
+  --     "Grapple",
+  --   },
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function ()
+  --     local grapple = require("grapple")
+  --     grapple.setup()
+  --     vim.keymap.set("n", "<leader>m", function() grapple.tag() end, {})
+  --     vim.keymap.set("n", "<leader>a", function() grapple.tag() end, {})
+  --     vim.keymap.set("n", "<Enter>", function() grapple.open_tags() end, {})
+  --   end
+  -- },
 }

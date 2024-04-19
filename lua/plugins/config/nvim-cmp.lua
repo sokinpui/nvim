@@ -34,10 +34,9 @@ cmp.setup {
 
   sources = {
     { name = "nvim_lsp_signature_help" },
-    -- { name = "copilot", group_index = 2 },
     {
       name = "copilot",
-      keyword_length = 0,
+      -- keyword_length = 0,
     },
     { name = "nvim_lsp"},
     { name = "luasnip" },
@@ -85,7 +84,15 @@ cmp.setup {
   },
 
   mapping = cmp.mapping.preset.insert({
-    --["<C-y>"] = cmp.mapping.confirm(),
+    -- ['<C-l>'] = cmp.mapping(function(fallback)
+    --   local fallback_key = vim.api.nvim_replace_termcodes('<Tab>', true, true, true)
+    --   local resolved_key = vim.fn['copilot#Accept'](fallback)
+    --   if fallback_key == resolved_key then
+    --     cmp.confirm({ select = true })
+    --   else
+    --     vim.api.nvim_feedkeys(resolved_key, 'n', true)
+    --   end
+    -- end),
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
@@ -116,6 +123,24 @@ cmp.setup {
       i = function(fallback)
         if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        elseif has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+        -- if cmp.visible() and has_words_before() then
+        --   cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        -- else
+        --   fallback()
+        -- end
+      end,
+      s = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -146,45 +171,56 @@ cmp.setup {
       i = function(fallback)
         if cmp.visible() then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end,
+      s = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
         else
           fallback()
         end
       end,
     }),
-    ['<C-n>'] = cmp.mapping({
-      c = function()
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        else
-          vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
-        end
-      end,
-      i = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end
-    }),
-    ['<C-p>'] = cmp.mapping({
-      c = function()
-        if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-        else
-          vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
-        end
-      end,
-      i = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-        else
-          fallback()
-        end
-      end
-    }),
+    -- ['<C-n>'] = cmp.mapping({
+    --   c = function()
+    --     if cmp.visible() then
+    --       cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    --     else
+    --       vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
+    --     end
+    --   end,
+    --   i = function(fallback)
+    --     if cmp.visible() then
+    --       cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    --     elseif has_words_before() then
+    --       cmp.complete()
+    --     else
+    --       fallback()
+    --     end
+    --   end
+    -- }),
+    -- ['<C-p>'] = cmp.mapping({
+    --   c = function()
+    --     if cmp.visible() then
+    --       cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+    --     else
+    --       vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
+    --     end
+    --   end,
+    --   i = function(fallback)
+    --     if cmp.visible() then
+    --       cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+    --     else
+    --       fallback()
+    --     end
+    --   end
+    -- }),
   }),
 }
 
@@ -216,23 +252,23 @@ cmp.setup.cmdline(":", {
 })
 
 -- Snippet
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-  if luasnip.expand_or_locally_jumpable() then
-    luasnip.expand_or_jump()
-  end
-end, { silent = true })
-
-vim.keymap.set({"i", "s"}, "<C-k>", function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  end
-end, {silent = true})
-
-luasnip.config.set_config({
-  store_selection_keys = '<C-j>',
-  history = true, --keep around last snippet local to jump back
-  updateevents = "TextChanged,TextChangedI",
-})
+-- vim.keymap.set({ "i", "s" }, "<C-j>", function()
+--   if luasnip.expand_or_locally_jumpable() then
+--     luasnip.expand_or_jump()
+--   end
+-- end, { silent = true })
+--
+-- vim.keymap.set({"i", "s"}, "<C-k>", function()
+--   if luasnip.jumpable(-1) then
+--     luasnip.jump(-1)
+--   end
+-- end, {silent = true})
+--
+-- luasnip.config.set_config({
+--   store_selection_keys = '<C-j>',
+--   history = true, --keep around last snippet local to jump back
+--   updateevents = "TextChanged,TextChangedI",
+-- })
 
 -- Predefined snippet
 

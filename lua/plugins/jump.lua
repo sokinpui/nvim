@@ -1,4 +1,27 @@
 return {
+  -- {
+  --   'echasnovski/mini.jump',
+  --   version = false,
+  --   keys = {
+  --     {"f", mode = {"n", "v", "o"}},
+  --     {"F", mode = {"n", "v", "o"}},
+  --     {"t", mode = {"n", "v", "o"}},
+  --     {"T", mode = {"n", "v", "o"}},
+  --   },
+  --   config = function()
+  --     require('mini.jump').setup({
+  --       mappings = {
+  --         -- forward = ';',
+  --         -- backward = ',',
+  --         -- repeat_jump = '',
+  --       },
+  --       delay = {
+  --         highlight = 0,
+  --       }
+  --     })
+  --   end
+  -- },
+
   {
     "rhysd/clever-f.vim",
     keys = {

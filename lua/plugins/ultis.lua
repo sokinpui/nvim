@@ -6,9 +6,9 @@ return {
   "folke/neodev.nvim",
   {
     "dstein64/vim-startuptime",
-    keys = {
-      { "<leader>S", "<Cmd>StartupTime<Cr>"}
-    },
+    -- keys = {
+    --   { "<leader>S", "<Cmd>StartupTime<Cr>"}
+    -- },
     cmd = "StartupTime",
     config = function()
       vim.g.startuptime_tries = 10

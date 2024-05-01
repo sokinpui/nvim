@@ -68,6 +68,9 @@ nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
 " nnoremap g* <Cmd>set hlsearch<Cr>g*zzzv
 " nnoremap g# <Cmd>set hlsearch<Cr>g#zzzv
 
+" exact search
+nnoremap <leader>/ /\<\><Left><Left>
+
 " indention formation
 nnoremap =<leader> gg=G`'zz
 

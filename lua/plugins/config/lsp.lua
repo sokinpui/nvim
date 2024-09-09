@@ -9,8 +9,8 @@ local servers = {
   "jdtls",
   "pyright",
   "clangd",
-  "jsonls",
-  "asm_lsp"
+  "jqls",
+  "asm_lsp",
   --"bashls",
 }
 

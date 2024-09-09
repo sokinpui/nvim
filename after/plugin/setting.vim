@@ -7,6 +7,7 @@ let $PAGER = ''
 let &t_TI = "\<Esc>[>4;2m"
 let &t_TE = "\<Esc>[>4;m"
 
+
 filetype plugin on
 filetype plugin indent on
 "packadd! matchit
@@ -35,6 +36,10 @@ set relativenumber
 
 set wildmenu
 set wildoptions = ""
+
+" set list
+" set listchars=
+" set listchars=trail:·
 
 set mousescroll=ver:5,hor:5
 

@@ -1,4 +1,5 @@
 inoremap <C-k> <Esc>k
+nnoremap <C-q> <Cmd>q<cr>
 
 nnoremap <Esc> <Cmd>nohlsearch<CR><Esc>
 
@@ -24,7 +25,8 @@ elseif has("mac")
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
     nnoremap <leader>Y "*Y
-    vnoremap Y "*ygv<esc>
+    vnoremap Y "*y
+    vnoremap <Space><Space> "*y
     vnoremap X "*xgv<esc>
     vnoremap <C-c> "*ygv<esc>
     nnoremap <leader>P "*p']
@@ -46,12 +48,14 @@ nnoremap gp '[v']
 " Vertical
 noremap ( )
 noremap ) (
-" noremap <c-d> <c-d>zz
-" noremap <c-u> <c-u>zz
+noremap <c-d> <c-d>zz
+noremap <c-u> <c-u>zz
 
 "make {count}j/k become jumps
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count . "j" : "j")
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
+
+nnoremap Q @q
 
 "noremap <leader>K K
 
@@ -59,20 +63,23 @@ nnoremap <expr> k (v:count > 2 ? "m'" . v:count . "k" : "k")
 "nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
 "nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
 
-" nnoremap n <Cmd>set hlsearch<Cr>nzzzv
-" nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
-" nnoremap * <Cmd>set hlsearch<Cr>*zzzv
-" nnoremap # <Cmd>set hlsearch<Cr>#zzzv
-" vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
-" vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
-" nnoremap g* <Cmd>set hlsearch<Cr>g*zzzv
-" nnoremap g# <Cmd>set hlsearch<Cr>g#zzzv
+nnoremap n <Cmd>set hlsearch<Cr>nzzzv
+nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
+nnoremap * <Cmd>set hlsearch<Cr>*zzzv
+nnoremap # <Cmd>set hlsearch<Cr>#zzzv
+vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
+vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
+nnoremap g* <Cmd>set hlsearch<Cr>g*zzzv
+nnoremap g# <Cmd>set hlsearch<Cr>g#zzzv
+nnoremap <c-o> <c-o>zz
+nnoremap <c-i> <c-i>zz
+
 
 " exact search
 nnoremap <leader>/ /\<\><Left><Left>
 
 " indention formation
-nnoremap =<leader> gg=G`'zz
+nnoremap =<leader> gg=G`'
 
 " formating code
 "nnoremap <leader>gq gggqG<C-o>zz
@@ -102,6 +109,8 @@ vnoremap > >gv
 "nnoremap <leader><bs> <Cmd>b#<cr>
 "nnoremap =<Bs> <Cmd>ls<cr>
 
+" file explorer
+" nnoremap <C-e> :Explore<cr>
 
 "   Command alias
 cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
@@ -126,3 +135,9 @@ map <C-ScrollWheelLeft> <nop>
 map <ScrollWheelRight> <nop>
 map <S-ScrollWheelRight> <nop>
 map <C-ScrollWheelRight> <nop>
+
+" change tmux pane focus
+nnoremap <A-h> <Cmd>silent !tmux select-pane -L<cr>
+nnoremap <A-j> <Cmd>silent !tmux select-pane -D<cr>
+nnoremap <A-k> <Cmd>silent !tmux select-pane -U<cr>
+nnoremap <A-l> <Cmd>silent !tmux select-pane -R<cr>

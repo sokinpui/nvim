@@ -3,11 +3,14 @@ return {
     "ibhagwan/fzf-lua",
     -- optional for icon support
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      -- "nvim-tree/nvim-web-devicons",
     },
     keys = {
       {"<C-f>"},
-      {"<C-p>"},
+      "<S-F19>",
+      "<Space><Space>",
+      -- "<Cr>",
+      -- {"<C-p>"},
       {"<C-g>"},
       {"<C-g>", mode = "v"},
       {"<C-l>"},
@@ -35,6 +38,24 @@ return {
         hls = {
           cursorline = "Search",
           buf_name = "Normal"
+        },
+        buffers = {
+          -- prompt            = 'Buffers❯ ',
+          -- file_icons        = "devicons",         -- show file icons (true|"devicons"|"mini")?
+          -- file_icons        = false,         -- show file icons (true|"devicons"|"mini")?
+          color_icons       = true,         -- colorize file|git icons
+          sort_lastused     = false,         -- sort buffers() by last used
+          show_unloaded     = true,         -- show unloaded buffers
+          cwd_only          = false,        -- buffers for the cwd only
+          cwd               = nil,          -- buffers list for a given dir
+          actions = {
+            -- actions inherit from 'actions.files' and merge
+            -- by supplying a table of functions we're telling
+            -- fzf-lua to not close the fzf window, this way we
+            -- can resume the buffers picker on the same window
+            -- eliminating an otherwise unaesthetic win "flash"
+            ["ctrl-x"]      = { fn = actions.buf_del, reload = true },
+          }
         },
         actions = {
           -- These override the default tables completely
@@ -70,17 +91,19 @@ return {
       })
       local opts = {silent = true, noremap = true}
       local fzf = require('fzf-lua')
+      vim.keymap.set("n", "<space>ff", "<cmd>FzfLua<cr>", opts)
       vim.keymap.set("n", "<C-f>", function () fzf.files() end, opts)
-      vim.keymap.set("n", "<C-p>", function () fzf.grep_project() end, opts)
-      vim.keymap.set("n", "<C-g>", function () fzf.grep({ search = "" }) end, opts)
-      vim.keymap.set("v", "<C-g>", function () fzf.grep_visual() end, opts)
-      vim.keymap.set("n", "<C-l>", function () fzf.lines() end, opts)
+      vim.keymap.set("n", "<space>fp", function () fzf.grep_project() end, opts)
+      -- vim.keymap.set("n", "<C-g>", function () fzf.grep({ search = "" }) end, opts)
+      vim.keymap.set("v", "<space>fp", function () fzf.grep_visual() end, opts)
+      vim.keymap.set("n", "<space>fl", function () fzf.lines() end, opts)
+      vim.keymap.set("n", "<Space><Space>", function () fzf.buffers() end, opts)
 
       vim.keymap.set("n", "<leader>fh", function () fzf.help_tags() end, opts)
       vim.keymap.set("n", "<leader>fm", function () fzf.marks() end, opts)
       vim.keymap.set("n", "<leader>fk", function () fzf.keymaps() end, opts)
       vim.keymap.set("n", "<leader>fo", function () fzf.oldfiles() end, opts)
-      vim.keymap.set("n", "<leader>ff", function () fzf.git_files() end, opts)
+      vim.keymap.set("n", "<leader>fgf", function () fzf.git_files() end, opts)
       vim.keymap.set("n", "<leader>fc", function () fzf.commands() end, opts)
 
       vim.keymap.set("n", "<leader>fl", function () fzf.resume() end, opts)

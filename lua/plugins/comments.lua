@@ -41,7 +41,7 @@ return {
           eol = 'gcA',
         },
         ---Enable keybindings
-        ---NOTE: If given `false` then the plugin won't create any mappings
+        -- NOTE: If given `false` then the plugin won't create any mappings
         mappings = {
           ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
           basic = true,
@@ -54,5 +54,18 @@ return {
         post_hook = nil,
       })
     end
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    config = function()
+      require('todo-comments').setup()
+    end
+
   }
 }

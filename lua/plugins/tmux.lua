@@ -35,11 +35,11 @@ return {
       vim.keymap.set("n", "<A-k>", function () tmux.move_top() end, opts)
       vim.keymap.set("n", "<A-l>", function () tmux.move_right() end, opts)
 
-      -- reisze
-      vim.keymap.set("n", "<S-A-h>", function () tmux.resize_left() end, opts)
-      vim.keymap.set("n", "<S-A-j>", function () tmux.resize_bottom() end, opts)
-      vim.keymap.set("n", "<S-A-k>", function () tmux.resize_top() end, opts)
-      vim.keymap.set("n", "<S-A-l>", function () tmux.resize_right() end, opts)
+      -- -- reisze
+      -- vim.keymap.set("n", "<S-A-h>", function () tmux.resize_left() end, opts)
+      -- vim.keymap.set("n", "<S-A-j>", function () tmux.resize_bottom() end, opts)
+      -- vim.keymap.set("n", "<S-A-k>", function () tmux.resize_top() end, opts)
+      -- vim.keymap.set("n", "<S-A-l>", function () tmux.resize_right() end, opts)
 
     end
   }

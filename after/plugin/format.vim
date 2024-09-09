@@ -19,3 +19,10 @@ augroup ftTextwidthWrap
     au filetype java setlocal formatoptions-=ro
     "au filetype text,markdown setlocal formatoptions=tcaw2n textwidth=80 linebreak
 augroup END
+
+
+augroup ttt
+    au!
+    " kill empty buffer after TermClose
+    au TermClose * if &buftype == 'terminal' && line('$') == 1 && getline(1) == '' | q! | endif
+augroup END

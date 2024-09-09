@@ -18,7 +18,6 @@ local luasnip = require 'luasnip'
 -- local lspkind = require('lspkind')
 
 cmp.setup {
-
   window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -35,18 +34,18 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp_signature_help" },
     {
-      name = "copilot",
+      -- name = "copilot",
       -- keyword_length = 0,
     },
     { name = "nvim_lsp"},
     { name = "luasnip" },
-    { name = "path" },
-    { name = "orgmode" },
+    -- { name = "path" },
+    -- { name = "orgmode" },
     {
       name = "buffer",
-      keyword_length = 1,
+      keyword_length = 4,
       option = {
-        keyword_length = 3,
+        -- keyword_length = 3,
         --keyword_pattern = [[\k\+]],
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
@@ -93,7 +92,7 @@ cmp.setup {
     --     vim.api.nvim_feedkeys(resolved_key, 'n', true)
     --   end
     -- end),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    -- ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     --['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
@@ -123,8 +122,8 @@ cmp.setup {
       i = function(fallback)
         if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+        -- elseif luasnip.expand_or_jumpable() then
+        --   luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -139,8 +138,8 @@ cmp.setup {
       s = function(fallback)
         if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+        -- elseif luasnip.expand_or_jumpable() then
+        --   luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -171,8 +170,8 @@ cmp.setup {
       i = function(fallback)
         if cmp.visible() then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        -- elseif luasnip.jumpable(-1) then
+        --   luasnip.jump(-1)
         else
           fallback()
         end
@@ -180,8 +179,8 @@ cmp.setup {
       s = function(fallback)
         if cmp.visible() then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        -- elseif luasnip.jumpable(-1) then
+        --   luasnip.jump(-1)
         else
           fallback()
         end
@@ -252,23 +251,23 @@ cmp.setup.cmdline(":", {
 })
 
 -- Snippet
--- vim.keymap.set({ "i", "s" }, "<C-j>", function()
---   if luasnip.expand_or_locally_jumpable() then
---     luasnip.expand_or_jump()
---   end
--- end, { silent = true })
---
--- vim.keymap.set({"i", "s"}, "<C-k>", function()
---   if luasnip.jumpable(-1) then
---     luasnip.jump(-1)
---   end
--- end, {silent = true})
---
--- luasnip.config.set_config({
---   store_selection_keys = '<C-j>',
---   history = true, --keep around last snippet local to jump back
---   updateevents = "TextChanged,TextChangedI",
--- })
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  if luasnip.expand_or_locally_jumpable() then
+    luasnip.expand_or_jump()
+  end
+end, { silent = true })
+
+vim.keymap.set({"i", "s"}, "<C-k>", function()
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  end
+end, {silent = true})
+
+luasnip.config.set_config({
+  store_selection_keys = '<C-j>',
+  history = true, --keep around last snippet local to jump back
+  updateevents = "TextChanged,TextChangedI",
+})
 
 -- Predefined snippet
 

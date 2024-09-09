@@ -19,13 +19,12 @@ return {
     },
     config = function()
       -- Load treesitter grammar for org
-      require('orgmode').setup_ts_grammar()
 
       require('orgmode').setup({
-        org_agenda_files = '~/git_repo/mine/Task/**/*',
-        org_default_notes_file = '~/git_repo/mine/Task/index.org',
-        org_highlight_latex_and_related = "entities",
-        org_hide_leading_stars = true,
+        org_agenda_files = '~/org/**/*',
+        org_default_notes_file = '~/org/index.org',
+        -- org_highlight_latex_and_related = "entities",
+        -- org_hide_leading_stars = true,
       })
     end,
   }

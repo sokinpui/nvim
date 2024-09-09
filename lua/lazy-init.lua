@@ -24,21 +24,29 @@ require("lazy").setup({
   require("plugins.undo"),
   require("plugins.quickfix"),
   require("plugins.comments"),
+  require("plugins.terminal"),
+
   -- buffer jump
   require("plugins.buffer"),
-  -- require("plugins.oil"),
+
+  require("plugins.file_explorer"),
+
   -- motion
   -- require("plugins.cleverf"),
   require("plugins.jump"),
   require("plugins.visual-multi"),
   require("plugins.surround"),
   require("plugins.auto-pairs"),
+
+  -- fzf
   require("plugins.fzf"),
   -- require("plugins.scroll"),
   -- filetype
-  require("plugins.markdown"),
+  -- require("plugins.markdown"),
+
   -- require("plugins.orgmode"),
-  { "kmonad/kmonad-vim", ft = "kbd"},
+  -- { "kmonad/kmonad-vim", ft = "kbd"},
+
   -- completion
   require("plugins.lsp"),
   require("plugins.nvim-cmp"),
@@ -48,7 +56,10 @@ require("lazy").setup({
   -- require("plugins.git"),
 
   --tmux
-  require("plugins.tmux"),
+  -- require("plugins.tmux"),
+
+  --create directory if not exist
+  -- 'jghauser/mkdir.nvim'
 
   -- useless
   -- require("plugins.fun"),

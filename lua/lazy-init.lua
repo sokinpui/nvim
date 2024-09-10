@@ -24,7 +24,7 @@ require("lazy").setup({
   require("plugins.undo"),
   require("plugins.quickfix"),
   require("plugins.comments"),
-  require("plugins.terminal"),
+  -- require("plugins.terminal"),
 
   -- buffer jump
   require("plugins.buffer"),

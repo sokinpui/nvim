@@ -141,3 +141,5 @@ nnoremap <A-h> <Cmd>silent !tmux select-pane -L<cr>
 nnoremap <A-j> <Cmd>silent !tmux select-pane -D<cr>
 nnoremap <A-k> <Cmd>silent !tmux select-pane -U<cr>
 nnoremap <A-l> <Cmd>silent !tmux select-pane -R<cr>
+
+nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>

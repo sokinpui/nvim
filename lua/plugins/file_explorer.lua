@@ -29,7 +29,7 @@ return {
         disable_netrw_warning = true,
       })
 
-      vim.keymap.set("n", "<C-e>", "<Cmd>Lf<CR>")
+      vim.keymap.set("n", "L", "<Cmd>Lf<CR>")
 
       vim.api.nvim_create_autocmd(
       "User",{

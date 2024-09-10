@@ -29,7 +29,7 @@ return {
       "<leader>m",
       "<leader>a",
       "<C-CR>",
-      "<C-h>",
+      "H",
     },
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -39,7 +39,7 @@ return {
       vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
       vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
       vim.keymap.set("n", "<C-CR>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-      vim.keymap.set("n", "<C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      vim.keymap.set("n", "H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
       vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
       vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)

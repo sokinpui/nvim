@@ -1,3 +1,5 @@
+local opts = {silent = true, noremap = true}
+-- local fzf = require('fzf-lua')
 return {
   {
     "ibhagwan/fzf-lua",
@@ -6,16 +8,21 @@ return {
       -- "nvim-tree/nvim-web-devicons",
     },
     keys = {
-      {"<C-f>"},
-      "<S-F19>",
-      "<Space><Space>",
-      -- "<Cr>",
-      -- {"<C-p>"},
-      {"<C-g>"},
-      {"<C-g>", mode = "v"},
-      {"<C-l>"},
-      {"<leader>f"},
-      {"<leader>F"},
+      { "<space>ff", "<cmd>FzfLua<cr>" },
+      { "<space><space>", function () require('fzf-lua').files() end },
+      -- { "<space>pp", function () require('fzf-lua').grep_project() end },
+      { "<space>gp", function () require('fzf-lua').grep({ search = "" }) end },
+      { "<space>fl", function () require('fzf-lua').lines() end },
+
+      -- { "<leader>fh", function () require('fzf-lua').help_tags() end },
+      -- { "<leader>fm", function () require('fzf-lua').marks() end },
+      -- { "<leader>fk", function () require('fzf-lua').keymaps() end },
+      -- { "<leader>fo", function () require('fzf-lua').oldfiles() end },
+      { "<leader>fgf", function () require('fzf-lua').git_files() end },
+      -- { "<leader>fc", function () require('fzf-lua').commands() end },
+
+      -- { "<leader>fl", function () require('fzf-lua').resume() end },
+      -- { "<leader>fz", function () require('fzf-lua').builtin() end },
     },
     cmd = "FzfLua",
     config = function()
@@ -89,25 +96,6 @@ return {
           }
         },
       })
-      local opts = {silent = true, noremap = true}
-      local fzf = require('fzf-lua')
-      vim.keymap.set("n", "<space>ff", "<cmd>FzfLua<cr>", opts)
-      vim.keymap.set("n", "<C-f>", function () fzf.files() end, opts)
-      vim.keymap.set("n", "<space>fp", function () fzf.grep_project() end, opts)
-      -- vim.keymap.set("n", "<C-g>", function () fzf.grep({ search = "" }) end, opts)
-      vim.keymap.set("v", "<space>fp", function () fzf.grep_visual() end, opts)
-      vim.keymap.set("n", "<space>fl", function () fzf.lines() end, opts)
-      vim.keymap.set("n", "<Space><Space>", function () fzf.buffers() end, opts)
-
-      vim.keymap.set("n", "<leader>fh", function () fzf.help_tags() end, opts)
-      vim.keymap.set("n", "<leader>fm", function () fzf.marks() end, opts)
-      vim.keymap.set("n", "<leader>fk", function () fzf.keymaps() end, opts)
-      vim.keymap.set("n", "<leader>fo", function () fzf.oldfiles() end, opts)
-      vim.keymap.set("n", "<leader>fgf", function () fzf.git_files() end, opts)
-      vim.keymap.set("n", "<leader>fc", function () fzf.commands() end, opts)
-
-      vim.keymap.set("n", "<leader>fl", function () fzf.resume() end, opts)
-      vim.keymap.set("n", "<leader>fz", function () fzf.builtin() end, opts)
 
       --vim.keymap.set("t", "<C-v>", "<C-\\><C-n>\"+pA", opts)
     end

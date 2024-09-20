@@ -1,2 +1,2 @@
 vim.loader.enable()
-require("lazy-init")
+require("setup")

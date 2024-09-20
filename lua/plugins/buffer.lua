@@ -26,29 +26,25 @@ return {
   {
     "ThePrimeagen/harpoon",
     keys = {
-      "<leader>m",
-      "<leader>a",
-      "<C-CR>",
-      "H",
+      { mode="n", "<leader>m", function() require('harpoon'):list():add() end},
+      { mode="n", "<leader>a", function() require('harpoon'):list():add() end},
+      { mode="n", "<C-CR>", function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end},
+      { mode="n", "H", function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end},
+
+      { mode="n", "<C-j>", function() require('harpoon'):list():select(1) end},
+      { mode="n", "<C-k>", function() require('harpoon'):list():select(2) end},
+      { mode="n", "<C-l>", function() require('harpoon'):list():select(3) end},
+      { mode="n", "<C-;>", function() require('harpoon'):list():select(4) end},
+      { mode="n", "<leader><C-j>", function() require('harpoon'):list():replace_at(1) end},
+      { mode="n", "<leader><C-k>", function() require('harpoon'):list():replace_at(2) end},
+      { mode="n", "<leader><C-l>", function() require('harpoon'):list():replace_at(3) end},
+      { mode="n", "<leader><C-;>", function() require('harpoon'):list():replace_at(4) end},
     },
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local harpoon = require("harpoon")
       harpoon:setup()
-      vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-      vim.keymap.set("n", "<C-CR>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-      vim.keymap.set("n", "H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-      vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<C-;>", function() harpoon:list():select(4) end)
-      vim.keymap.set("n", "<leader><C-j>", function() harpoon:list():replace_at(1) end)
-      vim.keymap.set("n", "<leader><C-k>", function() harpoon:list():replace_at(2) end)
-      vim.keymap.set("n", "<leader><C-l>", function() harpoon:list():replace_at(3) end)
-      vim.keymap.set("n", "<leader><C-;>", function() harpoon:list():replace_at(4) end)
     end
   },
   -- {

@@ -2,23 +2,51 @@ return {
   {
     "kylechui/nvim-surround",
     keys = {
-      { "<c-s>", mode = { "n", "v" }},
-      { "ds", mode = { "n", "v" }},
-      { "cs", mode = { "n", "v" }},
-      { "<leader>~", mode = { "n", "v" }},
-      { "<leader>*", mode = { "n", "v" }},
-      { "<leader>$", mode = { "n", "v" }},
-      { "<leader>`", mode = { "n", "v" }},
-      { "<leader>>", mode = { "n", "v" }},
-      { "<leader><", mode = { "n", "v" }},
-      { "<leader>'", mode = { "n", "v" }},
-      { "<leader>\"", mode = { "n", "v" }},
-      { "<leader>}", mode = { "n", "v" }},
-      { "<leader>{", mode = { "n", "v" }},
-      { "<leader>]", mode = { "n", "v" }},
-      { "<leader>[", mode = { "n", "v" }},
-      { "<leader>)", mode = { "n", "v" }},
-      { "<leader>(", mode = { "n", "v" }},
+      -- { "zs", mode = { "n", "v" }},
+      -- { "ds", mode = { "n", "v" }},
+      -- { "cs", mode = { "n", "v" }},
+      -- { "<leader>~", mode = { "n", "v" }},
+      -- { "<leader>*", mode = { "n", "v" }},
+      -- { "<leader>$", mode = { "n", "v" }},
+      -- { "<leader>`", mode = { "n", "v" }},
+      -- { "<leader>>", mode = { "n", "v" }},
+      -- { "<leader><", mode = { "n", "v" }},
+      -- { "<leader>'", mode = { "n", "v" }},
+      -- { "<leader>\"", mode = { "n", "v" }},
+      -- { "<leader>}", mode = { "n", "v" }},
+      -- { "<leader>{", mode = { "n", "v" }},
+      -- { "<leader>]", mode = { "n", "v" }},
+      -- { "<leader>[", mode = { "n", "v" }},
+      -- { "<leader>)", mode = { "n", "v" }},
+      { mode="n", "<leader>(", "<Plug>(nvim-surround-normal)iw(" },
+      { mode="n", "<leader>)", "<Plug>(nvim-surround-normal)iw)" },
+      { mode="n", "<leader>[", "<Plug>(nvim-surround-normal)iw[" },
+      { mode="n", "<leader>]", "<Plug>(nvim-surround-normal)iw]" },
+      { mode="n", "<leader>{", "<Plug>(nvim-surround-normal)iw{" },
+      { mode="n", "<leader>}", "<Plug>(nvim-surround-normal)iw}" },
+      { mode="n", "<leader>\"", "<Plug>(nvim-surround-normal)iw\"" },
+      { mode="n", "<leader>'", "<Plug>(nvim-surround-normal)iw'" },
+      { mode="n", "<leader><", "<Plug>(nvim-surround-normal)iw<" },
+      { mode="n", "<leader>>", "<Plug>(nvim-surround-normal)iw>" },
+      { mode="n", "<leader>`", "<Plug>(nvim-surround-normal)iw`" },
+      { mode="n", "<leader>$", "<Plug>(nvim-surround-normal)iw$" },
+      { mode="n", "<leader>*", "<Plug>(nvim-surround-normal)iw*" },
+      { mode="n", "<leader>~", "<Plug>(nvim-surround-normal)iw~" },
+
+      { mode="v", "<leader>(", "<Plug>(nvim-surround-visual)(" },
+      { mode="v", "<leader>)", "<Plug>(nvim-surround-visual))" },
+      { mode="v", "<leader>[", "<Plug>(nvim-surround-visual)[" },
+      { mode="v", "<leader>]", "<Plug>(nvim-surround-visual)]" },
+      { mode="v", "<leader>{", "<Plug>(nvim-surround-visual){" },
+      { mode="v", "<leader>}", "<Plug>(nvim-surround-visual)}" },
+      { mode="v", "<leader>\"", "<Plug>(nvim-surround-visual)\"" },
+      { mode="v", "<leader>'", "<Plug>(nvim-surround-visual)'" },
+      { mode="v", "<leader><", "<Plug>(nvim-surround-visual)<" },
+      { mode="v", "<leader>>", "<Plug>(nvim-surround-visual)>" },
+      { mode="v", "<leader>`", "<Plug>(nvim-surround-visual)`" },
+      { mode="v", "<leader>$", "<Plug>(nvim-surround-visual)$" },
+      { mode="v", "<leader>*", "<Plug>(nvim-surround-visual)*" },
+      { mode="v", "<leader>~", "<Plug>(nvim-surround-visual)~" },
     },
     config = function ()
       vim.cmd([[highlight default link NvimSurroundHighlight DiffChange]])
@@ -26,47 +54,16 @@ return {
         keymaps = {
           insert = "<C-g>s",
           insert_line = "<C-g>S",
-          normal = "<c-s>",
-          normal_cur = "<c-s>w",
-          normal_line = "<c-s>l",
-          normal_cur_line = "<c-s>S",
-          visual = "<c-s>",
-          visual_line = "<c-s>l",
+          normal = "zs",
+          normal_cur = "zsw",
+          normal_line = "zsl",
+          normal_cur_line = "zsS",
+          visual = "zs",
+          visual_line = "zsl",
           delete = "ds",
           change = "cs",
         },
       })
-      vim.cmd([[
-      nmap <leader>( <c-s>iw(
-      nmap <leader>) <c-s>iw)
-      nmap <leader>[ <c-s>iw[
-      nmap <leader>] <c-s>iw]
-      nmap <leader>{ <c-s>iw{
-      nmap <leader>} <c-s>iw}
-      nmap <leader>" <c-s>iw"
-      nmap <leader>' <c-s>iw'
-      nmap <leader>< <c-s>iw<
-      nmap <leader>> <c-s>iw>
-      nmap <leader>` <c-s>iw`
-      nmap <leader>$ <c-s>iw$
-      nmap <leader>* <c-s>iw*
-      nmap <leader>~ <c-s>iw~
-
-      vmap <leader>( <c-s>(
-      vmap <leader>) <c-s>)
-      vmap <leader>[ <c-s>[
-      vmap <leader>] <c-s>]
-      vmap <leader>{ <c-s>{
-      vmap <leader>} <c-s>}
-      vmap <leader>" <c-s>"
-      vmap <leader>' <c-s>'
-      vmap <leader>< <c-s><
-      vmap <leader>> <c-s>>
-      vmap <leader>` <c-s>`
-      vmap <leader>$ <c-s>$
-      vmap <leader>* <c-s>*
-      vmap <leader>~ <c-s>~
-      ]])
     end
   }
 }

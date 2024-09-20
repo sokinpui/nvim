@@ -59,7 +59,7 @@ return {
       "CopilotChatSend",
     },
     keys = {
-      "<leader>cc",
+      { "<leader>cc", "<cmd>CopilotChatOpen<cr>" }
     },
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
@@ -68,7 +68,6 @@ return {
     config = function()
       require("CopilotChat").setup()
       -- leader cc to for CopilotChatOpen
-      vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatOpen<cr>")
     end
     -- See Commands section for default commands if you want to lazy load on them
   },

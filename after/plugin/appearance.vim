@@ -5,17 +5,42 @@
 
 set termguicolors
 
-"  statusline setting
+" "  statusline setting
 " function Gitbranch()
-"     return "[" . trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null")) . "]"
+"     return "  " . trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null")) . " "
 " endfunction
 "
 " augroup Gitget
 "     autocmd!
 "     autocmd BufEnter * let b:git_branch = Gitbranch()
 " augroup END
-
-" set statusline=%{b:git_branch}\ %<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%% " more setting in pack directory
+"
+" let g:currentmode={
+"       \ 'n'  : 'n',
+"       \ 'v'  : 'v',
+"       \ 'V'  : 'vl',
+"       \ '' : 'vb',
+"       \ 'i'  : 'i',
+"       \ 'R'  : 'r',
+"       \ 'Rv' : 'rv',
+"       \ 'c'  : 'c',
+"       \ 't'  : 'f',
+"       \}
+"
+" hi GitBranchColor gui=bold guifg=#282c34 guibg=#98c379
+" hi StatusLineText guifg=#abb2bf guibg=#3e4452
+"
+" hi NormalColor gui=bold guifg=#282c34 guibg=#e06c75
+" hi InsertColor gui=bold guifg=#282c34 guibg=#e5c07b
+" hi lualine_a_normal gui=bold guifg=#282c34 guibg=#98c379
+" hi lualine_a_insert gui=bold guifg=#282c34 guibg=#61afef
+"
+" set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='n')?'b:git_branch':''}
+" set statusline+=%#InsertColor#%{(g:currentmode[mode()]=='i')?'b:git_branch':''}
+" set statusline+=%#ReplaceColor#%{(g:currentmode[mode()]=='r')?'b:git_branch':''}
+" set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='c')?'b:git_branch':''}
+" " set statusline+=%#GitBranchColor#%{b:git_branch}%#StatusLineText#\ %<%F\ %h%m%r%=%-5.(%l-%c%)\ %p%%
+" set statusline+=%#StatusLineText#\ %<%F\ %h%m%r%=%-5.(%l-%c%)\ %p%%
 set laststatus=2
 
 " I like block blink cursor

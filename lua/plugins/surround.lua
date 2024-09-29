@@ -2,9 +2,9 @@ return {
   {
     "kylechui/nvim-surround",
     keys = {
-      -- { "zs", mode = { "n", "v" }},
-      -- { "ds", mode = { "n", "v" }},
-      -- { "cs", mode = { "n", "v" }},
+      { "zs", mode = { "n", "v" }},
+      { "ds", mode = { "n", "v" }},
+      { "cs", mode = { "n", "v" }},
       -- { "<leader>~", mode = { "n", "v" }},
       -- { "<leader>*", mode = { "n", "v" }},
       -- { "<leader>$", mode = { "n", "v" }},

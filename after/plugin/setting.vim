@@ -53,3 +53,5 @@ set autochdir
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " auto source .vimrc
 autocmd! bufwritepost .vimrc ++nested source %
+
+set noswapfile

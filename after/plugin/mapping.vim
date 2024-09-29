@@ -24,7 +24,7 @@ if has("linux")
 elseif has("mac")
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
-    nnoremap <leader>Y "*Y
+    nnoremap <leader>Y "*y$
     vnoremap Y "*y
     vnoremap <Space><Space> "*y
     vnoremap X "*xgv<esc>

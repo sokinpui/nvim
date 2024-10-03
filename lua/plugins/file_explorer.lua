@@ -15,7 +15,9 @@ return {
   -- Sample configuration is supplied
   {
     "lmburns/lf.nvim",
-    dependencies = {"toggleterm.nvim"},
+    dependencies = {
+      "akinsho/toggleterm.nvim"
+    },
     config = function()
       local fn = vim.fn
       -- This feature will not work if the plugin is lazy-loaded

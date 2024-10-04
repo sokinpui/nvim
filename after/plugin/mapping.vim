@@ -1,3 +1,17 @@
+func! ModifiedZZ()
+    " modify to your liking
+    let l:max_pad_lines = 10
+
+    norm! zz
+    let l:to_scr_end = winheight(0) - winline()
+    let l:to_buf_end = getpos('$')[1] - getpos('.')[1]
+
+    let l:adjustment = l:to_scr_end - l:to_buf_end - l:max_pad_lines
+    if l:adjustment > 0
+        exe "norm! " . l:adjustment . "\<c-y>"
+    endif
+endfunc
+
 inoremap <C-k> <Esc>k
 nnoremap <C-q> <Cmd>q<cr>
 
@@ -48,8 +62,8 @@ nnoremap gp '[v']
 " Vertical
 noremap ( )
 noremap ) (
-noremap <c-d> <c-d>zz
-noremap <c-u> <c-u>zz
+noremap <c-d> <c-d><CMD>call ModifiedZZ()<cr>
+noremap <c-u> <c-u><CMD>call ModifiedZZ()<cr>
 
 "make {count}j/k become jumps
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count . "j" : "j")
@@ -60,19 +74,19 @@ nnoremap Q @q
 "noremap <leader>K K
 
 " search
-"nnoremap <expr> n (v:searchforward ? 'nzzzv' : 'Nzzzv')
-"nnoremap <expr> N (v:searchforward ? 'Nzzzv' : 'nzzzv')
+"nnoremap <expr> n (v:searchforward ? 'n<CMD>call ModifiedZZ()<cr>zv' : 'Nzzzv')
+"nnoremap <expr> N (v:searchforward ? 'N<CMD>call ModifiedZZ()<cr>zv' : 'nzzzv')
 
-nnoremap n <Cmd>set hlsearch<Cr>nzzzv
-nnoremap N <Cmd>set hlsearch<Cr>Nzzzv
-nnoremap * <Cmd>set hlsearch<Cr>*zzzv
-nnoremap # <Cmd>set hlsearch<Cr>#zzzv
-vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>zzzv
-vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>zzzv
-nnoremap g* <Cmd>set hlsearch<Cr>g*zzzv
-nnoremap g# <Cmd>set hlsearch<Cr>g#zzzv
-nnoremap <c-o> <c-o>zz
-nnoremap <c-i> <c-i>zz
+nnoremap n <Cmd>set hlsearch<Cr>n<CMD>call ModifiedZZ()<cr>zv
+nnoremap N <Cmd>set hlsearch<Cr>N<CMD>call ModifiedZZ()<cr>zv
+nnoremap * <Cmd>set hlsearch<Cr>*<CMD>call ModifiedZZ()<cr>zv
+nnoremap # <Cmd>set hlsearch<Cr>#<CMD>call ModifiedZZ()<cr>zv
+vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr><CMD>call ModifiedZZ()<cr>zv
+vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr><CMD>call ModifiedZZ()<cr>zv
+nnoremap g* <Cmd>set hlsearch<Cr>g*<CMD>call ModifiedZZ()<cr>zv
+nnoremap g# <Cmd>set hlsearch<Cr>g#<CMD>call ModifiedZZ()<cr>zv
+nnoremap <c-o> <c-o><CMD>call ModifiedZZ()<cr>
+nnoremap <c-i> <c-i><CMD>call ModifiedZZ()<cr>
 
 
 " exact search
@@ -82,7 +96,7 @@ nnoremap <leader>/ /\<\><Left><Left>
 nnoremap =<leader> gg=G`'
 
 " formating code
-"nnoremap <leader>gq gggqG<C-o>zz
+"nnoremap <leader>gq gggqG<C-o><CMD>call ModifiedZZ()<cr>
 
 " should be leverge the built in . repeat
 vnoremap < <gv

@@ -2,6 +2,9 @@ return{
     {
         "andymass/vim-matchup",
         event = { "BufReadPre", "BufNewFile" },
+        init = function()
+          vim.g.loaded_matchit = 1
+        end,
         config = function()
             vim.g.matchup_matchparen_offscreen = {}
         end,
@@ -18,4 +21,5 @@ return{
             require("plugins.config.nvim-autopairs")
         end
     },
+
 }

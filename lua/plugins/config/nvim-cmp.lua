@@ -23,6 +23,12 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
 end
 
+local check_backspace = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
+
+
 -- local lspkind = require('lspkind')
 
 cmp.setup {
@@ -47,7 +53,7 @@ cmp.setup {
     },
     { name = "nvim_lsp"},
     { name = "luasnip" },
-    -- { name = "path" },
+    { name = "path" },
     -- { name = "orgmode" },
     {
       name = "buffer",
@@ -106,15 +112,19 @@ cmp.setup {
         end
     end),
 
-    ["<Tab>"] = vim.schedule_wrap(function(fallback)
-      if cmp.visible() and has_words_before() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        elseif luasnip.locally_jumpable(1) then
+    ["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() and has_words_before() then
+				cmp.select_next_item()
+			elseif require("copilot.suggestion").is_visible() then
+				require("copilot.suggestion").accept()
+      elseif luasnip.locally_jumpable(1) then
         luasnip.jump(1)
-      else
-        fallback()
-      end
-    end),
+      elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end),
 
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then

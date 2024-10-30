@@ -58,4 +58,20 @@ return {
       })
     end
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    keys = {
+      { "<leader>ll", "<CMD>IBLToggle<CR>" },
+    },
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      require("ibl").setup()
+      local ibl = require("ibl")
+      local conf = require "ibl.config"
+      ibl.update { enabled = not conf.get_config(-1).enabled }
+    end
+  },
 }

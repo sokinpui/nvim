@@ -21,8 +21,8 @@ augroup ftTextwidthWrap
 augroup END
 
 
-augroup ttt
-    au!
-    " kill empty buffer after TermClose
-    au TermClose * if &buftype == 'terminal' && line('$') == 1 && getline(1) == '' | q! | endif
-augroup END
+" augroup ttt
+"     au!
+"     " kill empty buffer after TermClose
+"     au TermClose * if &buftype == 'terminal' && line('$') == 1 && getline(1) == '' | q! | endif
+" augroup END

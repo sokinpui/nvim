@@ -136,24 +136,30 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 "nnoremap <leader><leader> <Cmd>source<Cr>
 
-" scrolling
-map <ScrollWheelUp> <nop>
-map <S-ScrollWheelUp> <nop>
-map <C-ScrollWheelUp> <nop>
-map <ScrollWheelDown> <nop>
-map <S-ScrollWheelDown> <nop>
-map <C-ScrollWheelDown> <nop>
-map <ScrollWheelLeft> <nop>
-map <S-ScrollWheelLeft> <nop>
-map <C-ScrollWheelLeft> <nop>
-map <ScrollWheelRight> <nop>
-map <S-ScrollWheelRight> <nop>
-map <C-ScrollWheelRight> <nop>
+" " scrolling
+" map <ScrollWheelUp> <nop>
+" map <S-ScrollWheelUp> <nop>
+" map <C-ScrollWheelUp> <nop>
+" map <ScrollWheelDown> <nop>
+" map <S-ScrollWheelDown> <nop>
+" map <C-ScrollWheelDown> <nop>
+" map <ScrollWheelLeft> <nop>
+" map <S-ScrollWheelLeft> <nop>
+" map <C-ScrollWheelLeft> <nop>
+" map <ScrollWheelRight> <nop>
+" map <S-ScrollWheelRight> <nop>
+" map <C-ScrollWheelRight> <nop>
 
-" change tmux pane focus
-nnoremap <A-h> <Cmd>silent !tmux select-pane -L<cr>
-nnoremap <A-j> <Cmd>silent !tmux select-pane -D<cr>
-nnoremap <A-k> <Cmd>silent !tmux select-pane -U<cr>
-nnoremap <A-l> <Cmd>silent !tmux select-pane -R<cr>
+" " change tmux pane focus
+" nnoremap <A-h> <Cmd>silent !tmux select-pane -L<cr>
+" nnoremap <A-j> <Cmd>silent !tmux select-pane -D<cr>
+" nnoremap <A-k> <Cmd>silent !tmux select-pane -U<cr>
+" nnoremap <A-l> <Cmd>silent !tmux select-pane -R<cr>
 
-nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>
+" if in tmux then split pane, else use toggleterm
+if exists('$TMUX')
+    nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>
+else
+    nnoremap <leader>tt <Cmd>ToggleTerm<cr>
+endif
+" nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>

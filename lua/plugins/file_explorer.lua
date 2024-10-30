@@ -16,7 +16,13 @@ return {
   {
     "lmburns/lf.nvim",
     dependencies = {
-      "akinsho/toggleterm.nvim"
+      "akinsho/toggleterm.nvim",
+      cmd = {
+        "ToggleTerm",
+      },
+      config = function()
+        require("toggleterm").setup()
+      end,
     },
     config = function()
       local fn = vim.fn

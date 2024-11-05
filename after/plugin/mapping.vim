@@ -162,4 +162,7 @@ if exists('$TMUX')
 else
     nnoremap <leader>tt <Cmd>ToggleTerm<cr>
 endif
-" nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>
+
+" run code
+" nnoremap <leader>R <cmd>w<cr><cmd>silent !tmux splitw -l 20<cr>
+

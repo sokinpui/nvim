@@ -27,7 +27,7 @@ return {
     "ThePrimeagen/harpoon",
     keys = {
       { mode="n", "<leader>m", function() require('harpoon'):list():add() end},
-      { mode="n", "<leader>a", function() require('harpoon'):list():add() end},
+      { mode="n", "<leader>h", function() require('harpoon'):list():add() end},
       { mode="n", "<C-CR>", function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end},
       { mode="n", "H", function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end},
 

@@ -9,16 +9,21 @@ return {
     },
     keys = {
       { "<space>ff", "<cmd>FzfLua<cr>" },
-      { "<space><space>", function () require('fzf-lua').files() end },
+      { "<space><space>", function()
+        local success, result = pcall(require('fzf-lua').git_files)
+        if not result then
+          require('fzf-lua').files()
+        end
+      end },
       -- { "<space>pp", function () require('fzf-lua').grep_project() end },
       { "<space>gp", function () require('fzf-lua').grep({ search = "" }) end },
       { "<space>fl", function () require('fzf-lua').lines() end },
 
-      -- { "<leader>fh", function () require('fzf-lua').help_tags() end },
+      { "<leader>fh", function () require('fzf-lua').help_tags() end },
       -- { "<leader>fm", function () require('fzf-lua').marks() end },
       -- { "<leader>fk", function () require('fzf-lua').keymaps() end },
       -- { "<leader>fo", function () require('fzf-lua').oldfiles() end },
-      { "<leader>fgf", function () require('fzf-lua').git_files() end },
+      -- { "<leader>fgf", function () require('fzf-lua').git_files() end },
       -- { "<leader>fc", function () require('fzf-lua').commands() end },
 
       -- { "<leader>fl", function () require('fzf-lua').resume() end },

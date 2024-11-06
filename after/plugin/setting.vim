@@ -51,7 +51,6 @@ set hidden
 set noautochdir
 " Back to the last curosr when open new buffer
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" auto source .vimrc
-autocmd! bufwritepost .vimrc ++nested source %
+
 
 set noswapfile

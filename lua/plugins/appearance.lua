@@ -74,4 +74,11 @@ return {
       ibl.update { enabled = not conf.get_config(-1).enabled }
     end
   },
+  {
+    -- "sphamba/smear-cursor.nvim",
+    -- opts = {},
+    -- confi = function()
+    --   require('smear_cursor').enabled = true
+    -- end
+  }
 }

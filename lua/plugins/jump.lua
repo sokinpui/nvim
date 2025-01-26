@@ -29,8 +29,6 @@ return {
       {"F", mode = {"n", "v", "o"}},
       {"t", mode = {"n", "v", "o"}},
       {"T", mode = {"n", "v", "o"}},
-      {';', '<Plug>(clever-f-repeat-forward)', { noremap = true, silent = true }},
-      {',', '<Plug>(clever-f-repeat-back)', { noremap = true, silent = true }},
     },
     config = function()
       vim.cmd([[highlight CleverFDefaultLabel cterm=bold, ctermfg=9 gui=bold guifg=#E3242B]])
@@ -39,6 +37,8 @@ return {
       vim.g.clever_f_chars_match_any_signs = '\t'
       vim.g.clever_f_repeat_last_char_inputs = { '\r' }
       vim.g.clever_f_fix_key_direction = 1
+      vim.keymap.set('', {';', '<Plug>(clever-f-repeat-forward)', { noremap = true, silent = true }})
+      vim.keymap.set('', {',', '<Plug>(clever-f-repeat-back)', { noremap = true, silent = true }})
     end
   },
 }

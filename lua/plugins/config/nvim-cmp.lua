@@ -112,11 +112,17 @@ cmp.setup {
         end
     end),
 
+    ["<C-j>"] = cmp.mapping(function(fallback)
+			if require("copilot.suggestion").is_visible() then
+				require("copilot.suggestion").accept()
+      else
+        fallback()
+      end
+    end),
+
     ["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() and has_words_before() then
 				cmp.select_next_item()
-			elseif require("copilot.suggestion").is_visible() then
-				require("copilot.suggestion").accept()
       elseif luasnip.locally_jumpable(1) then
         luasnip.jump(1)
       elseif check_backspace() then

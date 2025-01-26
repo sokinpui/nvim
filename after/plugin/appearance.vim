@@ -43,8 +43,11 @@ set termguicolors
 " set statusline+=%#StatusLineText#\ %<%F\ %h%m%r%=%-5.(%l-%c%)\ %p%%
 set laststatus=2
 
+hi Cursor2 guibg=cyan
+
 " I like block blink cursor
-set guicursor=i-n-v-c-sm:block,r-cr-o:hor50,a:blinkon100
+set guicursor=i:block,r-cr-o:hor50,a:blinkon100,n-v-c-sm:block-Cursor2/lCursor2
+
 
 " cursor shape
 "let &t_SR = "\e[4 q" "SR = REPLACE mode
@@ -88,5 +91,3 @@ set nocursorline
 "    au BufWinEnter * setlocal cursorline
 "    au WinLeave * setlocal nocursorline
 "augroup END
-
-

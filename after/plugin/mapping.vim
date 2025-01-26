@@ -36,6 +36,9 @@ if has("linux")
     cnoremap <C-v> <C-r><C-o>+
     nnoremap gy <Cmd>%y+<cr>
 elseif has("mac")
+    " Allow copy paste in neovim
+    let g:neovide_input_use_logo = 1
+    inoremap <D-v> <C-r><C-o>+
     nnoremap <leader>y "*y
     nnoremap <leader>d "*d
     nnoremap <leader>Y "*y$
@@ -158,9 +161,9 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 " if in tmux then split pane, else use toggleterm
 if exists('$TMUX')
-    nnoremap <leader>tt <Cmd>silent !tmux splitw -v -l 20<cr>
+    nnoremap <c-t> <Cmd>silent !tmux splitw -v -l 20<cr>
 else
-    nnoremap <leader>tt <Cmd>ToggleTerm<cr>
+    nnoremap <c-t> <Cmd>ToggleTerm<cr>
 endif
 
 " run code

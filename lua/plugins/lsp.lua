@@ -38,6 +38,19 @@ return {
     end
   },
   {
+    'lukas-reineke/lsp-format.nvim',
+    dependencies = {
+      {
+        'neovim/nvim-lspconfig',
+        event = { "BufReadPre", "BufNewFile" },
+      },
+    },
+    config = function()
+      require("lsp-format").setup {}
+      require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
+    end
+  },
+  {
     "williamboman/mason.nvim",
     cmd = {
       "Mason",

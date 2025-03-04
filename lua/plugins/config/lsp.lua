@@ -2,6 +2,8 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
+local lspformat = require('lsp-format')
+lspformat.setup {}
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
@@ -11,6 +13,7 @@ local servers = {
   "clangd",
   "jqls",
   "asm_lsp",
+  "eslint",
   --"bashls",
 }
 
@@ -18,6 +21,7 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     -- on_attach = my_custom_on_attach,
     capabilities = capabilities,
+    on_attach = lspformat.on_attach,
   })
 end
 

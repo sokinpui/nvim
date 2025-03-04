@@ -7,6 +7,7 @@ return {
     dependencies = {
       -- "nvim-tree/nvim-web-devicons",
     },
+    lazy = false,
     keys = {
       { "<space>ff", "<cmd>FzfLua<cr>" },
       { "<space><space>", function()
@@ -36,7 +37,7 @@ return {
       require("fzf-lua").setup({
         global_resume = true,
         global_resume_query = true,
-        global_file_icons    = false,
+        file_icons    = false,
         winopts = {
           height = 1,
           width = 0.95,

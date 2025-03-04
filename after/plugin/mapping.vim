@@ -65,8 +65,8 @@ nnoremap gp '[v']
 " Vertical
 noremap ( )
 noremap ) (
-noremap <c-d> <c-d><CMD>call ModifiedZZ()<cr>
-noremap <c-u> <c-u><CMD>call ModifiedZZ()<cr>
+" noremap <c-d> <c-d><CMD>call ModifiedZZ()<cr>
+" noremap <c-u> <c-u><CMD>call ModifiedZZ()<cr>
 
 "make {count}j/k become jumps
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count . "j" : "j")
@@ -77,19 +77,17 @@ nnoremap Q @q
 "noremap <leader>K K
 
 " search
-"nnoremap <expr> n (v:searchforward ? 'n<CMD>call ModifiedZZ()<cr>zv' : 'Nzzzv')
-"nnoremap <expr> N (v:searchforward ? 'N<CMD>call ModifiedZZ()<cr>zv' : 'nzzzv')
+"nnoremap <expr> n (v:searchforward ? 'n' : 'Nzzzv')
+"nnoremap <expr> N (v:searchforward ? 'N' : 'nzzzv')
 
-nnoremap n <Cmd>set hlsearch<Cr>n<CMD>call ModifiedZZ()<cr>zv
-nnoremap N <Cmd>set hlsearch<Cr>N<CMD>call ModifiedZZ()<cr>zv
-nnoremap * <Cmd>set hlsearch<Cr>*<CMD>call ModifiedZZ()<cr>zv
-nnoremap # <Cmd>set hlsearch<Cr>#<CMD>call ModifiedZZ()<cr>zv
-vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr><CMD>call ModifiedZZ()<cr>zv
-vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr><CMD>call ModifiedZZ()<cr>zv
-nnoremap g* <Cmd>set hlsearch<Cr>g*<CMD>call ModifiedZZ()<cr>zv
-nnoremap g# <Cmd>set hlsearch<Cr>g#<CMD>call ModifiedZZ()<cr>zv
-nnoremap <c-o> <c-o><CMD>call ModifiedZZ()<cr>
-nnoremap <c-i> <c-i><CMD>call ModifiedZZ()<cr>
+nnoremap n <Cmd>set hlsearch<Cr>n
+nnoremap N <Cmd>set hlsearch<Cr>N
+nnoremap * <Cmd>set hlsearch<Cr>*
+nnoremap # <Cmd>set hlsearch<Cr>#
+vnoremap * y<Cmd>set hlsearch<Cr>/<c-r>0<cr>
+vnoremap # y<Cmd>set hlsearch<Cr>?<c-r>0<cr>
+nnoremap g* <Cmd>set hlsearch<Cr>g*
+nnoremap g# <Cmd>set hlsearch<Cr>g#
 
 
 " exact search
@@ -136,6 +134,7 @@ cnoreabbrev <expr> Wq getcmdtype() == ':' && getcmdline() =~# '^Wq' ? 'wqa' : 'W
 cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'wQ'
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
+cnoreabbrev <expr> wqa getcmdtype() == ':' && getcmdline() =~# '^wqa' ? 'wa \| q' : 'wqa'
 
 "nnoremap <leader><leader> <Cmd>source<Cr>
 

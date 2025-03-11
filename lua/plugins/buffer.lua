@@ -28,6 +28,7 @@ return {
     keys = {
       { mode = "n", "<leader>m",     function() require('harpoon'):list():add() end },
       { mode = "n", "<leader>h",     function() require('harpoon'):list():add() end },
+      { mode = "n", "<C-h>",         function() require('harpoon'):list():add() end },
       { mode = "n", "<C-CR>",        function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end },
       { mode = "n", "H",             function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end },
       { mode = "n", "<C-j>",         function() require('harpoon'):list():select(1) end },

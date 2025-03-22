@@ -1,4 +1,3 @@
-
 return {
   -- {
   --   'stevearc/oil.nvim',
@@ -20,9 +19,6 @@ return {
       cmd = {
         "ToggleTerm",
       },
-      config = function()
-        require("toggleterm").setup()
-      end,
     },
     config = function()
       local fn = vim.fn
@@ -32,7 +28,7 @@ return {
       require("lf").setup({
         escape_quit = true,
         border = "rounded",
-        height = fn.float2nr(fn.round(1 * vim.o.lines)), -- height of the *floating* window
+        height = fn.float2nr(fn.round(1 * vim.o.lines)),  -- height of the *floating* window
         width = fn.float2nr(fn.round(1 * vim.o.columns)), -- width of the *floating* window
         default_file_manager = true,
         disable_netrw_warning = true,
@@ -41,13 +37,12 @@ return {
       vim.keymap.set("n", "L", "<Cmd>Lf<CR>")
 
       vim.api.nvim_create_autocmd(
-      "User",{
-        pattern = "LfTermEnter",
-        callback = function(a)
-          vim.api.nvim_buf_set_keymap(a.buf, "t", "q", "q", {nowait = true})
-        end,
-      })
-
+        "User", {
+          pattern = "LfTermEnter",
+          callback = function()
+            vim.api.nvim_buf_set_keymap(a.buf, "t", "q", "q", { nowait = true })
+          end,
+        })
     end,
   }
   -- {

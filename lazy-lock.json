@@ -33,6 +33,7 @@
   "onedark-modified": { "branch": "main", "commit": "dee977f46aa29355b78643cb5e6cda5c8dbb63bd" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "snippet-converter.nvim": { "branch": "main", "commit": "d7e783618f02541641980ebd823e439bdef64a4f" },
+  "tmux.nvim": { "branch": "main", "commit": "f8aed0c2ebdfc0aff642d10c4db242a52812d34b" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "toggleterm.nvim": { "branch": "main", "commit": "e76134e682c1a866e3dfcdaeb691eb7b01068668" },
   "undotree": { "branch": "master", "commit": "2556c6800b210b2096b55b66e74b4cc1d9ebbe4f" },

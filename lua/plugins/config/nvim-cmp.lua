@@ -106,7 +106,11 @@ cmp.setup {
         if luasnip.expandable() then
           luasnip.expand()
         elseif cmp.visible() and cmp.get_active_entry() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          cmp.confirm({
+            select = false
+          })
+        else
+          fallback()
         end
       else
         fallback()

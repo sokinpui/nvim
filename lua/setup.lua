@@ -56,7 +56,7 @@ require("lazy").setup({
   -- require("plugins.git"),
 
   --tmux
-  -- require("plugins.tmux"),
+  require("plugins.tmux"),
 
   --create directory if not exist
   -- 'jghauser/mkdir.nvim'

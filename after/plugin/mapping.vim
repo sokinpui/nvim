@@ -35,7 +35,7 @@ if has("linux")
     inoremap <C-v> <C-r><C-o>+
     cnoremap <C-v> <C-r><C-o>+
     nnoremap gy <Cmd>%y+<cr>
-elseif has("mac")
+elseif has("macunix")
     " Allow copy paste in neovim
     let g:neovide_input_use_logo = 1
     inoremap <D-v> <C-r><C-o>+
@@ -135,6 +135,9 @@ cnoreabbrev <expr> wQ getcmdtype() == ':' && getcmdline() =~# '^wQ' ? 'wqa' : 'w
 cnoreabbrev <expr> wq getcmdtype() == ':' && getcmdline() =~# '^wq' ? 'wqa' : 'wq'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 cnoreabbrev <expr> wqa getcmdtype() == ':' && getcmdline() =~# '^wqa' ? 'wa \| q' : 'wqa'
+cnoreabbrev <expr> Wqa getcmdtype() == ':' && getcmdline() =~# '^wqa' ? 'wa \| q' : 'wqa'
+cnoreabbrev <expr> WQa getcmdtype() == ':' && getcmdline() =~# '^wqa' ? 'wa \| q' : 'wqa'
+cnoreabbrev <expr> wQa getcmdtype() == ':' && getcmdline() =~# '^wqa' ? 'wa \| q' : 'wqa'
 
 "nnoremap <leader><leader> <Cmd>source<Cr>
 

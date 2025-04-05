@@ -14,7 +14,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
--- vim.g.maplocalleader = "="
 
 require("lazy").setup({
   -- editor
@@ -24,6 +23,7 @@ require("lazy").setup({
   require("plugins.undo"),
   require("plugins.quickfix"),
   require("plugins.comments"),
+  require("plugins.outline"),
   -- require("plugins.terminal"),
 
   -- buffer jump

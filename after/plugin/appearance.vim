@@ -95,6 +95,6 @@ set nocursorline
 " remember folds
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
+  autocmd BufWinLeave * if expand('%') != '' | mkview | endif
   autocmd BufWinEnter * silent! loadview
 augroup END
